@@ -1,0 +1,147 @@
+@media print {
+  body {
+    background-color: #FFF;
+    font: 10pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.5em;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  h1 {
+    font-size: 24pt;
+    margin: 0;
+  }
+  h1 + p {
+    margin: 5pt 0 20pt;
+  }
+  h2 {
+    font-size: 18pt;
+    margin: 0;
+  }
+  h2 + p {
+    margin: 5pt 0 20pt;
+  }
+  h3 {
+    background-color: #FFF;
+    float: left;
+    margin: 0 0 5pt;
+    padding: 0 5pt 0 0;
+  }
+  abbr {
+    border: none;
+  }
+  hr {
+    border-color: #777;
+    border-style: solid;
+    border-width: 1pt 0 0;
+    clear: both;
+    margin: 20pt 0;
+    width: 100%;
+  }
+  img {
+    max-width: 100%;
+  }
+  blockquote {
+    border-left: 5pt solid #777;
+    clear: both;
+    margin: 10pt 0;
+    padding: 10pt 0 10pt 15pt;
+  }
+  blockquote cite {
+    clear: both;
+    display: block;
+    margin: 0 0 10pt;
+  }
+  #wrap {
+    margin: 20pt auto;
+    width: 511pt;
+  }
+  #page-header {
+    border-bottom: 1pt dashed #777;
+    margin-bottom: 20pt;
+    text-align: center;
+  }
+  #page-body {
+    font-size: 12pt;
+  }
+  .page-number-top {
+    margin: 0 0 20pt;
+  }
+  .page-number {
+    float: right;
+    text-align: right;
+  }
+  .date {
+    clear: both;
+    float: left;
+  }
+  .author {
+    float: right;
+  }
+  .content {
+    clear: both;
+    padding: 20pt 0;
+  }
+  .content a:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+  }
+  .post {
+    margin: -29pt 0 0;
+  }
+  .codebox {
+    border-left: 5pt solid #777;
+    clear: both;
+    margin: 10pt 0;
+    padding: 10pt 0 10pt 15pt;
+  }
+  .codebox p {
+    margin: 0 0 10pt;
+  }
+  .codebox a {
+    display: none;
+  }
+  .inline-attachment {
+    padding: 0 0 0 20pt;
+  }
+  .inline-attachment dd {
+    font-size: 10pt;
+    margin: 0;
+  }
+  .inline-attachment .file {
+    margin: 20pt 0;
+  }
+  #page-footer {
+    border-top: 1pt dashed #777;
+    margin: 20pt 0 0;
+    padding: 20pt 0 0;
+  }
+  html[dir="rtl"] h3 {
+    float: right;
+    padding: 0 0 0 5pt;
+  }
+  html[dir="rtl"] blockquote {
+    border-left: none;
+    border-right: 5pt solid #777;
+    padding: 10pt 15pt 10pt 0;
+  }
+  html[dir="rtl"] .page-number {
+    float: left;
+    text-align: left;
+  }
+  html[dir="rtl"] .date {
+    float: right;
+  }
+  html[dir="rtl"] .author {
+    float: left;
+  }
+  html[dir="rtl"] .codebox {
+    border-left: none;
+    border-right: 5pt solid #777;
+    padding: 10pt 15pt 10pt 0;
+  }
+  html[dir="rtl"] .inline-attachment {
+    padding: 0 20pt 0 0;
+  }
+}

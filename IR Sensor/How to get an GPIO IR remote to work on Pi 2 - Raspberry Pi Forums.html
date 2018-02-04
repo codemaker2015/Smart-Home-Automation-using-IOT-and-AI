@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.raspberrypi.org/forums/viewtopic.php?t=107913 -->
+<html dir="ltr" lang="en-gb"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - Raspberry Pi Forums" href="https://www.raspberrypi.org/forums/app.php/feed">			<link rel="alternate" type="application/atom+xml" title="Feed - New Topics" href="https://www.raspberrypi.org/forums/app.php/feed/topics">		<link rel="alternate" type="application/atom+xml" title="Feed - Forum - Media centres" href="https://www.raspberrypi.org/forums/app.php/feed/forum/35">	<link rel="alternate" type="application/atom+xml" title="Feed - Topic - How to get an GPIO IR remote to work on Pi 2" href="https://www.raspberrypi.org/forums/app.php/feed/topic/107913">
+	
+
+<!--[if IE]><link rel="shortcut icon" href="./styles/rpi/theme/images/favicon.png"><![endif]-->
+<!-- <link rel="apple-touch-icon-precomposed" href="./styles/rpi/theme/images/apple-touch-icon-precomposed.gif"> -->
+<link rel="icon" href="https://www.raspberrypi.org/forums/styles/rpi/theme/images/favicon.png">
+<link rel="icon" sizes="16x16" href="https://www.raspberrypi.org/forums/styles/rpi/theme/images/favicon.png">
+
+	<link rel="canonical" href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913">
+
+<link href="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/css" rel="stylesheet">
+<link href="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen, projection">
+<link href="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/stylesheet.css" rel="stylesheet" type="text/css" media="screen, projection">
+<link href="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/colours_rpi.css" rel="stylesheet" type="text/css" media="screen, projection">
+<link href="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/print.css" rel="stylesheet" type="text/css" media="print">
+
+
+
+
+
+
+
+</head>
+
+<body id="phpbb" class="notouch section-viewtopic ltr hasjs" style="">
+
+
+<div id="overall-wrap">
+	<a id="top" class="anchor" accesskey="t"></a>
+	<div id="wrap-head">
+		<div id="site-header">
+			<div class="chunk">
+				<div id="site-logo">
+					<p class="skiplink"><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#start_here">Skip to content</a></p>
+				</div>
+
+				<div class="root-menu">
+					<div class="mobile-nav">
+						<a class="home" href="https://www.raspberrypi.org/">Home</a>
+						<a class="toggle-nav" href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#"></a>
+					</div>
+					<ul>
+						<li class="home"><a href="https://www.raspberrypi.org/">Home</a></li>
+						<li class="blog"><a href="https://www.raspberrypi.org/blog/">Blog</a></li>
+						<li class="downloads"><a href="https://www.raspberrypi.org/downloads/">Downloads</a></li>
+						<li class="community"><a href="https://www.raspberrypi.org/community/">Community</a></li>
+						<li class="help"><a href="https://www.raspberrypi.org/help/">Help</a></li>
+						<li class="forums active"><a href="https://www.raspberrypi.org/forums/">Forums</a></li>
+						<li class="education"><a href="https://www.raspberrypi.org/education/">Education</a></li>
+						<li class="buy"><a href="https://www.raspberrypi.org/products/">Buy</a></li>
+						<li class="search"><a href="https://www.raspberrypi.org/search/"></a></li>
+					</ul>
+				</div>
+
+				<ul id="site-menu">
+					<li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/quick-start-guide">Quick Start Guide</a></li>
+<li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/forums/app.php/help/faq" rel="help" title="Frequently Asked Questions">Forum FAQ</a></li>
+<li class="site-menu">
+	<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#" title="About">About</a>
+	<ul>
+		<li><a href="https://www.raspberrypi.org/about">About us</a></li>
+		<li><a href="https://www.raspberrypi.org/contact-us">Contact us</a></li>
+		<li><a href="https://www.raspberrypi.org/technical-help-and-resource-documents">Technical, help and resource documents</a></li>
+		<li><a href="https://www.raspberrypi.org/trademark-rules">Trademark rules</a></li>
+	</ul>
+</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="site-nav" role="navigation">
+			<div class="chunk">
+
+				
+				<div class="site-nav">
+
+					
+										<div id="site-search" role="search">
+						<form action="https://duckduckgo.com/" id="search">
+						  <fieldset>
+						    <input name="q" type="search" maxlength="128" title="Search the forums" size="20" value="" placeholder="Search the forums via DuckDuckGo">
+								<input name="sites" type="hidden" value="raspberrypi.org/forums">
+								<input name="HTTPS" type="hidden" value="1">
+								<input name="kj" type="hidden" value="#c51a4a">
+						    <button class="button button-search" type="submit" title="Search">
+								  <i class="fa fa-search" aria-hidden="true"></i>
+						    </button>
+						  </fieldset>
+						</form>
+						<!-- <form action="./search.php" method="get">
+							<fieldset>
+								<input name="keywords" type="search" maxlength="128" title="Search for keywords" size="20" value="" placeholder="Search" /><button type="submit" title="Search"><i class="fa fa-search"></i></button>
+							</fieldset>
+						</form> -->
+					</div>
+					
+					<ul role="menubar">
+											<li class="font-icon rightside" data-skip-responsive="true"><a href="https://www.raspberrypi.org/forums/ucp.php?mode=login" title="Login" accesskey="x" role="menuitem"><i class="fa fa-power-off"></i><span class="nav-rh-2">Login</span></a></li>
+												<li class="font-icon rightside" data-skip-responsive="true"><a href="https://www.raspberrypi.org/forums/ucp.php?mode=register" role="menuitem"><i class="fa fa-pencil-square-o"></i><span class="nav-rh-2">Register</span></a></li>
+																																		</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+		
+		
+<div id="wrap-subhead">
+	<div class="chunk">
+		<div class="wrap-subhead">
+			<ul id="breadcrumbs" role="menubar">
+				<li class="font-icon responsive-menu dropdown-container" data-skip-responsive="true">
+  <a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#" class="responsive-menu-link dropdown-trigger dropdown-toggle"><i class="fa fa-bars"></i></a>
+  <div class="dropdown hidden">
+    <div class="pointer"><div class="pointer-inner"></div></div>
+    <ul class="dropdown-contents" role="menu">
+      
+              <li class="separator"></li>
+                                <li class="font-icon icon-search-unanswered"><a href="https://www.raspberrypi.org/forums/search.php?search_id=unanswered" role="menuitem"><i class="fa fa-file-o"></i>Unanswered topics</a></li>
+        <li class="font-icon icon-search-active"><a href="https://www.raspberrypi.org/forums/search.php?search_id=active_topics" role="menuitem"><i class="fa fa-fire"></i>Active topics</a></li>
+            <li class="separator site-menu"></li>
+
+      <li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/quick-start-guide">Quick Start Guide</a></li>
+<li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/forums/app.php/help/faq" rel="help" title="Frequently Asked Questions">Forum FAQ</a></li>
+<li class="site-menu">
+	<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#" title="About">About</a>
+	<ul>
+		<li><a href="https://www.raspberrypi.org/about">About us</a></li>
+		<li><a href="https://www.raspberrypi.org/contact-us">Contact us</a></li>
+		<li><a href="https://www.raspberrypi.org/technical-help-and-resource-documents">Technical, help and resource documents</a></li>
+		<li><a href="https://www.raspberrypi.org/trademark-rules">Trademark rules</a></li>
+	</ul>
+</li>
+
+          </ul>
+  </div>
+</li>
+												<li class="breadcrumbs rightside">
+															<span class="crumb"><a href="https://www.raspberrypi.org/forums/index.php" accesskey="h" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-navbar-reference="index" title="Board index"><i class="fa fa-home"></i><span>Board index</span></a></span>
+																	<span class="crumb"><a href="https://www.raspberrypi.org/forums/viewforum.php?f=15" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="15" title="Projects">Projects</a></span>
+																							<span class="crumb"><a href="https://www.raspberrypi.org/forums/viewforum.php?f=35" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="35" title="Media centres">Media centres</a></span>
+																				</li>
+							</ul>
+
+		</div>
+
+		<div id="subhead-title">
+			<h2 class="topic-title"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=35&amp;t=107913">How to get an GPIO IR remote to work on Pi 2</a></h2>
+			
+					</div>
+
+	</div>
+</div>
+
+<div id="wrap-body">
+	<div class="chunk">
+
+		
+		<div class="action-bar top">
+
+			<div class="buttons">
+				
+							<a href="https://www.raspberrypi.org/forums/posting.php?mode=reply&amp;f=35&amp;t=107913" class="button font-icon" title="Post a reply">
+					<i class="fa fa-reply"></i>Post Reply				</a>
+			
+							</div>
+
+				<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button icon-button tools-icon dropdown-trigger dropdown-select dropdown-toggle"><i class="fa fa-wrench"></i></span>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																								<li class="font-icon icon-print"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=35&amp;t=107913&amp;view=print" title="Print view" accesskey="p"><i class="fa fa-print"></i>Print view</a></li>							</ul>
+		</div>
+	</div>
+
+			
+							<div class="search-box" role="search">
+					<form method="get" id="topic-search" action="https://www.raspberrypi.org/forums/search.php">
+					<fieldset>
+						<input class="inputbox search" type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…">
+						<button class="button" type="submit" title="Search"><i class="fa fa-search"></i></button>
+						<input type="hidden" name="t" value="107913">
+<input type="hidden" name="sf" value="msgonly">
+
+					</fieldset>
+					</form>
+				</div>
+			
+							<div class="pagination">
+					6 posts
+											• Page <strong>1</strong> of <strong>1</strong>
+									</div>
+			
+			
+		</div>
+
+		
+		
+		
+											<div id="p742748" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile742748">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=144767" class="username">g33kyg1rl</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=144767&amp;sr=posts">6</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Sun Apr 19, 2015 5:02 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content742748">
+					
+					<h3 class="first"><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#p742748">How to get an GPIO IR remote to work on Pi 2</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=35&amp;p=742748" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=742748#p742748">Mon Apr 20, 2015 5:46 am</a> </p>
+
+					
+					
+					
+					<div class="content">My MCE remote (that I use with IR receiver) isn't working on my Pi 2, although it worked with my B+. Upon each start up, I get a CEC updated notification, although my crappy Element off-brand TV doesn't support CEC as far as I know. Does anyone know how I can get my remote to work with the Pi2? <br>
+<br>
+(EDIT!!!!) Brain fart!! Just realized I had to wipe the SD card to use it on the Pi 2...don't know where my head was there for a bit. Oh, yes I do...In Fibro Fog! My question should be....can anyone point me in the direction of a tutorial on how to set up a GPIO remote? The simpler the better. THANKS!</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p742977" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile742977">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=135762" class="username">chateau</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=135762&amp;sr=posts">4</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Feb 17, 2015 12:36 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content742977">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#p742977">Re: How to get an GPIO IR remote to work on Pi 2</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=35&amp;p=742977" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=742977#p742977">Mon Apr 20, 2015 2:34 pm</a> </p>
+
+					
+					
+					
+					<div class="content">I have a GPIO IR remote working on my PI 2 running OpenELEC 5.0.8 as I recall.<br>
+<br>
+I am using an Ortec VRC-1100 (actually a Logitech 300 remote set as a VRC-1100). The following file locations apply to OpenELEC so if you use another the locations may be different.<br>
+<br>
+I used an IR Receiver I had lying around that probably came off of an HDMI Switch. It had a stereo plug on it which I cut off. I connected the RED wire to GPIO Header Pin 2 (5 volts since it would not work on GPIO Header Pin 1 3.3 volts), Black Wire to GPIO Header Pin 6 (GND) and White Wire to GPIO Header Pin 12 (which is GPIO Input 18 as I recall). NOTE. I also purchased an IR Receiver from Amazon that worked with my VRC-1100 remote and I was able to connect the RED Wire to  GPIO Pin 1 (3.3 volts) for it. Link <a href="http://www.amazon.com/Infrared-Receiver-Extender-Supported-Device/dp/B00SYCHCAW/ref=sr_1_13?s=electronics&amp;ie=UTF8&amp;qid=1429577125&amp;sr=1-13&amp;keywords=ir+receiver" class="postlink">http://www.amazon.com/Infrared-Receiver ... r+receiver</a><br>
+<br>
+After you have your IR Receiver connected, use Putty to ssh into your PI 2 and use nano editor to add a line to /flash/config.txt<br>
+<br>
+mount -o remount,rw /flash<br>
+nano /flash/config.txt<br>
+<br>
+scroll down to the end of config.txt and add<br>
+<br>
+# added to enable lircd used with gpio IR Receivers<br>
+dtoverlay=lirc-rpi<br>
+<br>
+# NOTE the above entry should be all you need but if if not add the following but remove the # at beginning<br>
+# dtoverlay=lirc-rpi,gpio_in_pin=18<br>
+<br>
+write the data to config.txt and exit nano editor<br>
+<br>
+mount -o remount,ro /flash<br>
+reboot<br>
+<br>
+and continue as follows<br>
+<br>
+You will need to either create or find a ' lircd.conf ' file for your particular remote (or remotes). There are lircd.conf files available at this link <a href="http://lirc-remotes.sourceforge.net/remotes-table.html" class="postlink">http://lirc-remotes.sourceforge.net/remotes-table.html</a> or <a href="http://lirc.sourceforge.net/remotes/" class="postlink">http://lirc.sourceforge.net/remotes/</a> and you may or may not find yours there.<br>
+<br>
+You can also use Putty to ssh into your PI 2 and use ' irrecord  ' command to create a lircd.conf file using your remote. It is tricky to get going and understand how to use but does have on screen instructions as you go.<br>
+<br>
+I never could get it to create lircd.conf for my VRC-1100 until I used a VRC-1100.conf file I found somewhere at one of the above links as a ' template ' (but it did not have keys 0 - 9 defined and other keys I needed ) and then was able to record my remote keys into my own vrc-1100.conf file for later use. <br>
+<br>
+To use a ' template ' , use Putty to ssh in to your PI 2 and do the following (I used the vrc-1100.conf file I had found at one of the above links which I had placed in /storage/.kodi/userdata/vrc-1100.conf and  yours may be different)<br>
+<br>
+killall lircd<br>
+irrecord /storage/.kodi/userdata/vrc-1100.conf <br>
+<br>
+which will create a new file in /storage/.kodi/userdata/vrc-1100.conf.conf  <br>
+<br>
+ Note: it adds .conf to the new file name and does not change the original template file.<br>
+<br>
+Only new keys (buttons) that you have defined will be in this new file. Once you have all your keys defined and finish with  irrecord, you can then rename your new file to lircd.conf and place it in  /storage/.config/lircd.conf <br>
+<br>
+You will need to modify the remote name in lircd.conf once it is created.<br>
+<br>
+The first few lines of my lircd.conf looked like this<br>
+
+<blockquote class="uncited"><div># Please make this file available to others<br>
+# by sending it to &lt;<a href="mailto:lirc@bartelmus.de">lirc@bartelmus.de</a>&gt;<br>
+#<br>
+# this config file was automatically generated<br>
+# using lirc-0.9.1-git(default) on Sat Apr 11 10:36:41 2015<br>
+#<br>
+# contributed by <br>
+#<br>
+# brand:      ORTEK<br>
+# model no. of remote control: VRC-1100<br>
+# devices being controlled by this remote:<br>
+#<br>
+<br>
+begin remote<br>
+<br>
+  name  VRC-1100 </div></blockquote>
+
+After a reboot, you can see if your remote is working at this point by using Putty to ssh into your PI 2 and typing <br>
+<br>
+irw   <br>
+<br>
+and if things are working you will see the remote's keys being recognized and displayed on screen.<br>
+<br>
+You will now need ' Lircdmap.xml ' (Note: the capital ' L ') to be placed in /storage/.kodi/userdata/Lircdmap.xml <br>
+<br>
+and ' remote.xml ' to be placed in /storage/.kodi/userdata/keymaps/remote.xml<br>
+<br>
+You can find the system default ' Lircdmap.xml ' at /usr/share/kodi/system/Lircdmap.xml and  ' remote.xml ' at /usr/share/kodi/system/keymaps/remote.xml. Both are read only so copy them to the locations I have shown above and then modify them as needed for your remote. It is my understanding the system will use your Lircdmap.xml and remote.xml files instead of the defalts.<br>
+<br>
+In my case (and probably yours) the name of my remote had to be "devinput" in Lircdmap.xml to get things working. I also added &lt;altname&gt;VRC-1100&lt;/altname&gt; just below but never did prove it was actually needed. The first few lines of my Lircdmap.xml looked like this<br>
+
+<blockquote class="uncited"><div>&lt;lircmap&gt;<br>
+	&lt;remote device="devinput"&gt;<br>
+	&lt;altname&gt;VRC-1100&lt;/altname&gt;
+</div></blockquote>
+
+Good luck, it can be done.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p743691" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile743691">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=144767" class="username">g33kyg1rl</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=144767&amp;sr=posts">6</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Sun Apr 19, 2015 5:02 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content743691">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#p743691">Re: How to get an GPIO IR remote to work on Pi 2</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=35&amp;p=743691" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=743691#p743691">Tue Apr 21, 2015 9:38 pm</a> </p>
+
+					
+					
+					
+					<div class="content">I tried to get as far as logging into an SSH with Putty and it timed out. I think I give up. I'm gonna buy a USB remote I think. There needs to be a person who offers this as a paid remote service.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p743731" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile743731">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=135762" class="username">chateau</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=135762&amp;sr=posts">4</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Feb 17, 2015 12:36 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content743731">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#p743731">Re: How to get an GPIO IR remote to work on Pi 2</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=35&amp;p=743731" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=743731#p743731">Tue Apr 21, 2015 11:06 pm</a> </p>
+
+					
+					
+					
+					<div class="content"><blockquote class="uncited"><div>I tried to get as far as logging into an SSH with Putty and it timed out.</div></blockquote>
+
+If it timed out you probably had the wrong IP Address of your Raspberry. If you are not sure of the IP Address, can you login to your router and see what devices are connected? If your router supports it you can also give your Raspberry a ' fixed IP Address '  by using it's MAC Address.<br>
+<br>
+Not sure what system you are running but OpenELEC username and password are<br>
+<br>
+root<br>
+openelec</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p746848" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile746848">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=144767" class="username">g33kyg1rl</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=144767&amp;sr=posts">6</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Sun Apr 19, 2015 5:02 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content746848">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#p746848">Re: How to get an GPIO IR remote to work on Pi 2</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=35&amp;p=746848" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=746848#p746848">Mon Apr 27, 2015 12:13 am</a> </p>
+
+					
+					
+					
+					<div class="content">I thought I would post an update. I went as far as getting in with Putty, kept getting confused (I do computer repairs, not programming), so I said screw it and bought a USB remote instead. I don't have the patience for this. I will just sell my GPIO receiver and remote with my B+ when I get around to doing that.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p1084576" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile1084576">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=214718" class="username">cotofana_J</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=214718&amp;sr=posts">1</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Dec 20, 2016 11:57 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content1084576">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#p1084576">Re: How to get an GPIO IR remote to work on Pi 2</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=35&amp;p=1084576" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=1084576#p1084576">Tue Dec 20, 2016 12:05 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Hello,<br>
+<br>
+I also have a configuration like this and it is working.<br>
+However, there is a small issue that is bothering me. I use my tv also for other activities which do not use the Raspberry Pi as source (Terrestrial TV, other sources, etc). Therefore, anytime I change the input of the TV to anything else than KODI, the RPI will still receive the IR commands from the remote. In this case it is possible to do some damage in the RPI menu without even knowing.<br>
+<br>
+Do you know if there is any possibility to detect (from the RPI) if the device connected (TV) is displaying the image received from the RPI HDMI (if RPI HDMI is the active source on the TV)? I'm thinking of creating a script which will deactivate the IR remote input when RPI is not used.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+					
+		
+					<form id="viewtopic" method="post" action="https://www.raspberrypi.org/forums/viewtopic.php?f=35&amp;t=107913">
+			<fieldset class="display-options" style="margin-top: 0; ">
+								<label>Display posts from previous:<select name="st" id="st" style="display: none;"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: auto;" title="" id="st_chosen"><a class="chosen-single" tabindex="-1"><span>All posts</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div></label><label>Sort by<select name="sk" id="sk" style="display: none;"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: auto;" title="" id="sk_chosen"><a class="chosen-single" tabindex="-1"><span>Post time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div></label><label><select name="sd" id="sd" style="display: none;"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: auto;" title="" id="sd_chosen"><a class="chosen-single" tabindex="-1"><span>Ascending</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div></label><input type="submit" name="sort" value="Go" class="button2">
+							</fieldset>
+			</form>
+		
+				<div class="action-bar bottom">
+			<div class="buttons">
+				
+							<a href="https://www.raspberrypi.org/forums/posting.php?mode=reply&amp;f=35&amp;t=107913" class="button font-icon" title="Post a reply">
+					<i class="fa fa-reply"></i>Post Reply				</a>
+			
+							</div>
+
+				<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button icon-button tools-icon dropdown-trigger dropdown-select dropdown-toggle"><i class="fa fa-wrench"></i></span>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																								<li class="font-icon icon-print"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=35&amp;t=107913&amp;view=print" title="Print view" accesskey="p"><i class="fa fa-print"></i>Print view</a></li>							</ul>
+		</div>
+	</div>
+
+			
+			
+							<div class="pagination">
+					6 posts
+											• Page <strong>1</strong> of <strong>1</strong>
+									</div>
+						<div class="clear"></div>
+		</div>
+
+				
+	<p class="jumpbox-return"><a href="https://www.raspberrypi.org/forums/viewforum.php?f=35" class="left-box arrow-left" accesskey="r">Return to “Media centres”</a></p>
+
+	<div class="dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+		<span title="Jump to" class="dropdown-trigger button dropdown-select dropdown-toggle">
+			Jump to		</span>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																			<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=19">Community</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=63">General discussion</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=90">Other languages</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=75">Deutsch</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=76">Español</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=65">Français</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=79">Italiano</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=88">Nederlands</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=82">日本語</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=103">Polski</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=74">Português</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=84">Русский</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=89">Türkçe</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=57">User groups and events</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=106">The MagPi</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=83">The Pi Store</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=12">Using the Raspberry Pi</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=91">Beginners</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=28">Troubleshooting</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=29">Advanced users</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=102">Assistive technology and accessibility</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=17">Education</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=47">The Staffroom</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=99">Picademy</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=49">Teaching and learning resources</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=113">Code Club</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=48">Using Raspberry Pi in the classroom</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=104">Astro Pi</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=94">Mathematica</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=111">High Altitude Balloon</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=112">Weather station</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=14">Programming</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=72">Bare metal</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=33">C/C++</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=67">Graphics programming</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=68">OpenGLES</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=69">OpenVG</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=70">OpenMAX</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=81">Java</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=32">Python</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=77">Scratch</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=105">Windows 10 for IoT</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=95">Wolfram Language</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=34">Other languages</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=31">General programming discussion</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=15">Projects</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=37">Automation, sensing and robotics</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=40">Cases</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=78">Gaming</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=38">Graphics, sound and multimedia</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=39">Magazines and books</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=35">Media centres</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=36">Networking and servers</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=41">Other projects</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=16">Hardware and peripherals</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=43">Camera board</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=98">Compute Module</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=108">Official Foundation Display</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=45">Add-ons</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=100">B+ addons</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=107">Device Tree</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=44">Interfacing (DSI, CSI, I2C, etc.)</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=42">Gertboard classic</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=96">GertDuino</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=46">Recommended peripherals</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=114">AIY Projects</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=18">Operating system distributions</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=66">Raspbian</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=53">Arch</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=51">Pidora / Fedora</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=55">RISCOS</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=56">Other</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=73">Android</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=50">Debian</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=85">FreeBSD</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=54">Gentoo</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=71">Linux Kernel</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=86">NetBSD</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=87">openSUSE</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=80">Plan 9</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=52">Puppy</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=116">Raspberry Pi Desktop for PC and Mac</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=20">Ye Olde Pi Shoppe</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=93">For sale</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=61">Wanted</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=21">Off topic</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=62">Off topic discussion</a></li>
+										</ul>
+		</div>
+	</div>
+
+					<div class="stat-block online-list">
+				<h3>Who is online</h3>
+				<p>Users browsing this forum: No registered users and 9 guests</p>
+			</div>
+		
+	</div>
+</div>
+
+		
+	
+	<div id="wrap-footer">
+		<div id="site-footer-nav" role="navigation">
+			<div class="chunk">
+				<ul class="site-footer-nav" role="menubar">
+					<li class="small-icon icon-home breadcrumbs">
+																		<span class="crumb"><a href="https://www.raspberrypi.org/forums/index.php" data-navbar-reference="index" title="Board index">Board index</a></span>
+											</li>
+					
+										<li class="rightside">All times are <span title="UTC">UTC</span></li>
+																<li class="small-icon icon-delete-cookies rightside"><a href="https://www.raspberrypi.org/forums/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">Delete all board cookies</a></li>
+															</ul>
+			</div>
+		</div>
+
+		<div id="site-footer">
+			<div class="chunk">
+				<p>Raspberry Pi Foundation, UK Registered Charity 1129409</p>
+							</div>
+		</div>
+
+		<div id="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+			<div id="darken">&nbsp;</div>
+		</div>
+
+		<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+			<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#" class="alert_close"></a>
+			<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+		</div>
+		<div id="phpbb_confirm" class="phpbb_alert">
+			<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=107913#" class="alert_close"></a>
+			<div class="alert_text"></div>
+		</div>
+
+		<div style="display: none;">
+			<a id="bottom" class="anchor" accesskey="z"></a>
+			<img src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/cron.php" width="1" height="1" alt="cron">		</div>
+</div>
+
+<script async="" src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/analytics.js.download"></script><script type="text/javascript" src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/jquery.min.js.download"></script>
+<script type="text/javascript" src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/core.js.download"></script>
+<script type="text/javascript" src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/js.cookie.js.download"></script>
+<script type="text/javascript" src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/forum_fn.js.download"></script>
+<script type="text/javascript" src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/ajax.js.download"></script>
+<script type="text/javascript" src="./How to get an GPIO IR remote to work on Pi 2 - Raspberry Pi Forums_files/chosen.jquery.min.js.download"></script>
+
+
+<script>
+	$(function() {
+		$("#st, #sd, #sk, #ch").chosen({
+			disable_search: true,
+			width: "auto"
+		});
+	});
+</script>
+
+<script>
+	// $(function() {
+	//
+	// 	var sidebarRecentPostDiv = document.getElementById("sidebar-recent-posts");
+	//
+	// 	$.get('/forums/app.php/feed', function (data) {
+	// 		$(data).find("entry").each(function (i) {
+	// 			var el = $(this);
+	// 			var entryWrap = document.createElement("div");
+	//
+	// 			var entryTitle = document.createElement("a");
+	// 			var entryAuthor = document.createElement("span");
+	// 			var entryContent = document.createElement("span");
+	//
+	// 			entryTitle.className = ("sidebar-recent-title");
+	// 			entryAuthor.className = ("sidebar-recent-author");
+	// 			entryContent.className = ("sidebar-recent-content");
+	//
+	// 			function cutText(name) {
+	// 				var elementText = el.find(name).text();
+	//
+	// 				if (name == "title") {
+	// 					elementText = elementText.substring(elementText.indexOf("•") + 2);
+	// 				} else if (name == "content") {
+	// 					elementText = elementText.replace(/(<([^>]+)>)/ig,"");
+	// 				}
+	//
+	// 				if (elementText.length > 50) {
+	// 					return elementText.substr(0, 50);
+	// 				} else {
+	// 					return elementText;
+	// 				};
+	// 			};
+	//
+	// 			entryTitle.textContent = cutText("title");
+	// 			entryAuthor.textContent = "by " + cutText("author");
+	// 			entryContent.textContent = cutText("content");
+	// 			entryURL = el.find("id").text();
+	//
+	// 			$(entryTitle).attr("href", entryURL);
+	//
+	// 			entryWrap.appendChild(entryTitle);
+	// 			entryWrap.appendChild(entryAuthor);
+	// 			entryWrap.appendChild(entryContent);
+	//
+	// 			sidebarRecentPostDiv.appendChild(entryWrap);
+	//
+	// 			if (++i >= 5) {
+	// 				return false;
+	// 			}
+	// 		});
+	// 	});
+	//
+	// });
+</script>
+
+
+
+
+
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46270871-9', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body></html>

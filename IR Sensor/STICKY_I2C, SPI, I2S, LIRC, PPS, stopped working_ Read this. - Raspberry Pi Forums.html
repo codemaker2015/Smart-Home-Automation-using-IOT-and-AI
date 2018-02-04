@@ -1,0 +1,2727 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658 -->
+<html dir="ltr" lang="en-gb"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>STICKY:I2C, SPI, I2S, LIRC, PPS, stopped working? Read this. - Raspberry Pi Forums</title>
+
+	<link rel="alternate" type="application/atom+xml" title="Feed - Raspberry Pi Forums" href="https://www.raspberrypi.org/forums/app.php/feed?sid=774ff5221d6731450d61158da4c71268">			<link rel="alternate" type="application/atom+xml" title="Feed - New Topics" href="https://www.raspberrypi.org/forums/app.php/feed/topics?sid=774ff5221d6731450d61158da4c71268">		<link rel="alternate" type="application/atom+xml" title="Feed - Forum - Troubleshooting" href="https://www.raspberrypi.org/forums/app.php/feed/forum/28?sid=774ff5221d6731450d61158da4c71268">	<link rel="alternate" type="application/atom+xml" title="Feed - Topic - STICKY:I2C, SPI, I2S, LIRC, PPS, stopped working? Read this." href="https://www.raspberrypi.org/forums/app.php/feed/topic/97314?sid=774ff5221d6731450d61158da4c71268">
+	
+
+<!--[if IE]><link rel="shortcut icon" href="./styles/rpi/theme/images/favicon.png"><![endif]-->
+<!-- <link rel="apple-touch-icon-precomposed" href="./styles/rpi/theme/images/apple-touch-icon-precomposed.gif"> -->
+<link rel="icon" href="https://www.raspberrypi.org/forums/styles/rpi/theme/images/favicon.png">
+<link rel="icon" sizes="16x16" href="https://www.raspberrypi.org/forums/styles/rpi/theme/images/favicon.png">
+
+	<link rel="canonical" href="https://www.raspberrypi.org/forums/viewtopic.php?t=97314">
+
+<link href="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/css" rel="stylesheet">
+<link href="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen, projection">
+<link href="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/stylesheet.css" rel="stylesheet" type="text/css" media="screen, projection">
+<link href="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/colours_rpi.css" rel="stylesheet" type="text/css" media="screen, projection">
+<link href="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/print.css" rel="stylesheet" type="text/css" media="print">
+
+
+
+
+
+
+
+</head>
+
+<body id="phpbb" class="notouch section-viewtopic ltr hasjs" style="">
+
+
+<div id="overall-wrap">
+	<a id="top" class="anchor" accesskey="t"></a>
+	<div id="wrap-head">
+		<div id="site-header">
+			<div class="chunk">
+				<div id="site-logo">
+					<p class="skiplink"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#start_here">Skip to content</a></p>
+				</div>
+
+				<div class="root-menu">
+					<div class="mobile-nav">
+						<a class="home" href="https://www.raspberrypi.org/">Home</a>
+						<a class="toggle-nav" href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#"></a>
+					</div>
+					<ul>
+						<li class="home"><a href="https://www.raspberrypi.org/">Home</a></li>
+						<li class="blog"><a href="https://www.raspberrypi.org/blog/">Blog</a></li>
+						<li class="downloads"><a href="https://www.raspberrypi.org/downloads/">Downloads</a></li>
+						<li class="community"><a href="https://www.raspberrypi.org/community/">Community</a></li>
+						<li class="help"><a href="https://www.raspberrypi.org/help/">Help</a></li>
+						<li class="forums active"><a href="https://www.raspberrypi.org/forums/">Forums</a></li>
+						<li class="education"><a href="https://www.raspberrypi.org/education/">Education</a></li>
+						<li class="buy"><a href="https://www.raspberrypi.org/products/">Buy</a></li>
+						<li class="search"><a href="https://www.raspberrypi.org/search/"></a></li>
+					</ul>
+				</div>
+
+				<ul id="site-menu">
+					<li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/quick-start-guide">Quick Start Guide</a></li>
+<li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/forums/app.php/help/faq?sid=774ff5221d6731450d61158da4c71268" rel="help" title="Frequently Asked Questions">Forum FAQ</a></li>
+<li class="site-menu">
+	<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" title="About">About</a>
+	<ul>
+		<li><a href="https://www.raspberrypi.org/about">About us</a></li>
+		<li><a href="https://www.raspberrypi.org/contact-us">Contact us</a></li>
+		<li><a href="https://www.raspberrypi.org/technical-help-and-resource-documents">Technical, help and resource documents</a></li>
+		<li><a href="https://www.raspberrypi.org/trademark-rules">Trademark rules</a></li>
+	</ul>
+</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="site-nav" role="navigation">
+			<div class="chunk">
+
+				
+				<div class="site-nav">
+
+					
+										<div id="site-search" role="search">
+						<form action="https://duckduckgo.com/" id="search">
+						  <fieldset>
+						    <input name="q" type="search" maxlength="128" title="Search the forums" size="20" value="" placeholder="Search the forums via DuckDuckGo">
+								<input name="sites" type="hidden" value="raspberrypi.org/forums">
+								<input name="HTTPS" type="hidden" value="1">
+								<input name="kj" type="hidden" value="#c51a4a">
+						    <button class="button button-search" type="submit" title="Search">
+								  <i class="fa fa-search" aria-hidden="true"></i>
+						    </button>
+						  </fieldset>
+						</form>
+						<!-- <form action="./search.php?sid=774ff5221d6731450d61158da4c71268" method="get">
+							<fieldset>
+								<input name="keywords" type="search" maxlength="128" title="Search for keywords" size="20" value="" placeholder="Search" /><button type="submit" title="Search"><i class="fa fa-search"></i></button><input type="hidden" name="sid" value="774ff5221d6731450d61158da4c71268" />
+
+							</fieldset>
+						</form> -->
+					</div>
+					
+					<ul role="menubar">
+											<li class="font-icon rightside" data-skip-responsive="true"><a href="https://www.raspberrypi.org/forums/ucp.php?mode=login&amp;sid=774ff5221d6731450d61158da4c71268" title="Login" accesskey="x" role="menuitem"><i class="fa fa-power-off"></i><span class="nav-rh-2">Login</span></a></li>
+												<li class="font-icon rightside" data-skip-responsive="true"><a href="https://www.raspberrypi.org/forums/ucp.php?mode=register&amp;sid=774ff5221d6731450d61158da4c71268" role="menuitem"><i class="fa fa-pencil-square-o"></i><span class="nav-rh-2">Register</span></a></li>
+																																		</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+		
+		
+<div id="wrap-subhead">
+	<div class="chunk">
+		<div class="wrap-subhead">
+			<ul id="breadcrumbs" role="menubar">
+				<li class="font-icon responsive-menu dropdown-container" data-skip-responsive="true">
+  <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" class="responsive-menu-link dropdown-trigger dropdown-toggle"><i class="fa fa-bars"></i></a>
+  <div class="dropdown hidden">
+    <div class="pointer"><div class="pointer-inner"></div></div>
+    <ul class="dropdown-contents" role="menu">
+      
+              <li class="separator"></li>
+                                <li class="font-icon icon-search-unanswered"><a href="https://www.raspberrypi.org/forums/search.php?search_id=unanswered&amp;sid=774ff5221d6731450d61158da4c71268" role="menuitem"><i class="fa fa-file-o"></i>Unanswered topics</a></li>
+        <li class="font-icon icon-search-active"><a href="https://www.raspberrypi.org/forums/search.php?search_id=active_topics&amp;sid=774ff5221d6731450d61158da4c71268" role="menuitem"><i class="fa fa-fire"></i>Active topics</a></li>
+            <li class="separator site-menu"></li>
+
+      <li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/quick-start-guide">Quick Start Guide</a></li>
+<li data-skip-responsive="true" class="site-menu"><a href="https://www.raspberrypi.org/forums/app.php/help/faq?sid=774ff5221d6731450d61158da4c71268" rel="help" title="Frequently Asked Questions">Forum FAQ</a></li>
+<li class="site-menu">
+	<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" title="About">About</a>
+	<ul>
+		<li><a href="https://www.raspberrypi.org/about">About us</a></li>
+		<li><a href="https://www.raspberrypi.org/contact-us">Contact us</a></li>
+		<li><a href="https://www.raspberrypi.org/technical-help-and-resource-documents">Technical, help and resource documents</a></li>
+		<li><a href="https://www.raspberrypi.org/trademark-rules">Trademark rules</a></li>
+	</ul>
+</li>
+
+          </ul>
+  </div>
+</li>
+												<li class="breadcrumbs rightside">
+															<span class="crumb"><a href="https://www.raspberrypi.org/forums/index.php?sid=774ff5221d6731450d61158da4c71268" accesskey="h" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-navbar-reference="index" title="Board index"><i class="fa fa-home"></i><span>Board index</span></a></span>
+																	<span class="crumb"><a href="https://www.raspberrypi.org/forums/viewforum.php?f=12&amp;sid=774ff5221d6731450d61158da4c71268" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="12" title="Using the Raspberry Pi">Using the Raspberry Pi</a></span>
+																							<span class="crumb"><a href="https://www.raspberrypi.org/forums/viewforum.php?f=28&amp;sid=774ff5221d6731450d61158da4c71268" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="28" title="Troubleshooting">Troubleshooting</a></span>
+																				</li>
+							</ul>
+
+		</div>
+
+		<div id="subhead-title">
+			<h2 class="topic-title"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268">STICKY:I2C, SPI, I2S, LIRC, PPS, stopped working? Read this.</a></h2>
+			
+					</div>
+
+	</div>
+</div>
+
+<div id="wrap-body">
+	<div class="chunk">
+
+		
+		<div class="action-bar top">
+
+			<div class="buttons">
+				
+							<a href="https://www.raspberrypi.org/forums/posting.php?mode=reply&amp;f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268" class="button font-icon" title="Post a reply">
+					<i class="fa fa-reply"></i>Post Reply				</a>
+			
+							</div>
+
+				<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button icon-button tools-icon dropdown-trigger dropdown-select dropdown-toggle"><i class="fa fa-wrench"></i></span>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																								<li class="font-icon icon-print"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;view=print" title="Print view" accesskey="p"><i class="fa fa-print"></i>Print view</a></li>							</ul>
+		</div>
+	</div>
+
+			
+							<div class="search-box" role="search">
+					<form method="get" id="topic-search" action="https://www.raspberrypi.org/forums/search.php?sid=774ff5221d6731450d61158da4c71268">
+					<fieldset>
+						<input class="inputbox search" type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…">
+						<button class="button" type="submit" title="Search"><i class="fa fa-search"></i></button>
+						<input type="hidden" name="t" value="97314">
+<input type="hidden" name="sf" value="msgonly">
+<input type="hidden" name="sid" value="774ff5221d6731450d61158da4c71268">
+
+					</fieldset>
+					</form>
+				</div>
+			
+							<div class="pagination">
+					331 posts
+											<ul>
+	<li class="dropdown-container dropdown-button-control dropdown-page-jump page-jump">
+		<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" class="dropdown-trigger dropdown-toggle" title="Click to jump to page…" role="button">Page <strong>1</strong> of <strong>14</strong></a>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+				<li>Jump to page:</li>
+				<li class="page-jump-form">
+					<input type="number" name="page-number" min="1" max="999999" title="Enter the page number you wish to go to" class="inputbox tiny" data-per-page="25" data-base-url="./viewtopic.php?f=28&amp;amp;t=97314&amp;amp;sid=774ff5221d6731450d61158da4c71268" data-start-name="start">
+					<input class="button2" value="Go" type="button">
+				</li>
+			</ul>
+		</div>
+	</li><li class="active"><span>1</span></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=25" role="button">2</a></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=50" role="button">3</a></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=75" role="button">4</a></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=100" role="button">5</a></li><li class="ellipsis" role="separator"><span>…</span></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=325" role="button">14</a></li><li class="next"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=25" rel="next" role="button"><i class="fa fa-chevron-right"></i></a></li></ul>
+									</div>
+			
+			
+		</div>
+
+		
+		
+		
+											<div id="p675658" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile675658">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content675658">
+					
+					<h3 class="first"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658">STICKY:I2C, SPI, I2S, LIRC, PPS, stopped working? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=675658&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658&amp;sid=774ff5221d6731450d61158da4c71268#p675658">Wed Jan 21, 2015 4:45 pm</a> </p>
+
+					
+					
+					
+					<div class="content">The January 2015 Raspbian release, with Pi 2 support, switches to a new kernel (3.18), and includes a configuration change to enable Device Tree support by default. This has caused some previously working things to mysteriously stop working, but with a few configuration changes normal service should be resumed. We'll tell you how to do that in a moment, but first here's some background information. You can skip forward to <strong>Fixing the problem</strong> if you are in a hurry. <br>
+<br>
+In the early days, Linux was distributed in source form, or as a bare-bones generic kernel along with the source to build a better one. One of the steps in the installation process was configuring the kernel to your requirements, followed by the compilation phase. This was time consuming and potentially overwhelming for new users.<br>
+<br>
+The Holy Grail of Linux Distributions is a platform-specific (ideally OS-neutral) loader (U-boot, GRUB etc.), a generic kernel (one per processor architecture) and a collection of loadable modules. Since not all hardware sits on discoverable (plug-and-play) buses like PCI and USB, what is missing from this picture is a mechanism to describe the rest of the hardware; Device Tree is that mechanism.<br>
+<br>
+Device Tree (DT) is the recommended way to describe hardware on Linux platforms (although it is actually OS-independent). It is a hierarchical structure consisting of nodes, sub-nodes and properties. It is not unlike XML in some respects, but thankfully it is more readable, less verbose, and comes with a standard binary representation, Flattened Device Tree (FDT), that is easy for programmes to parse and manipulate. Desktop processor platforms made the switch to DT years ago, and after years in the wilderness the ARM SoC platforms are catching up.<br>
+<br>
+So, why should Raspberry Pi use Device Tree? The change is primarily a practical one. Until now, supporting some peripheral cards has required the addition of "struct platform_device" objects to the board support code. These are usually conditionally compiled based on the kernel configuration options, but in order to prevent regular users from having to compile their own kernel these options are turned on in the standard builds. As a result, at boot time, many (typically unwanted) modules are loaded unless they added to the blacklist (which prevents the automatic loading but still allows subsequent manual loading). Insufficient blacklisting could lead to nasty contention for GPIO pins, usually experienced after a kernel update since the blacklist file (/etc/modprobe.d/raspi-blacklist.conf) isn't a part of the kernel and hence doesn't automatically get updated.<br>
+<br>
+Device Tree turns this system on its head, by replacing those "struct platform_device"s with nodes in the DT, allowing users to control which devices are enabled and hence which modules get loaded. Adding a new device driver module to the kernel doesn't automatically result in a module being loaded - the appropriate nodes must also be added to the DT.<br>
+<br>
+<strong>Fixing the problem</strong><br>
+<br>
+If you are really impatient and just want out, or if for some reason your bit of hardware doesn't yet have a suitable overlay, add "device_tree=" to your config.txt and reboot. But be aware that this option may not be supported indefinitely.<br>
+<br>
+A better choice would be to run:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>sudo raspi-config
+</code></pre></div>
+
+Select "Advanced Options" from the menu, then either "SPI" or "I2C", and enable the interfaces there. If you want the driver modules to load automatically (and you probably do) then answer "Yes" to the follow-up question. raspi-config can also be used to disable and re-enable Device Tree.<br>
+<br>
+Writing Device Trees is hard, particularly if you've never encountered one before. It shouldn't be necessary to write (or even edit) one in order to use commercial hardware. So the Raspberry Pi loader (start.elf, and its siblings) can combine a base DT Blob (DTB) with a number of overlays, each of which can be customised with a number of parameters. This is all controlled from /boot/config.txt.<br>
+<br>
+The mechanism is described in a new README file (/boot/overlays/README - you may need to update your firmware), and full documentation can be found here: <a href="http://www.raspberrypi.org/documentation/configuration/device-tree.md" class="postlink">http://www.raspberrypi.org/documentatio ... ce-tree.md</a>.<br>
+<br>
+<strong>FAQ</strong>:
+<ul>
+<li>My I2C interface has disappeared. What do I do?<br>
+    Add "dtparam=i2c_arm=on" to your config.txt and reboot. If you are feeling terse you can omit the "=on", since that is the default option. Or use raspi-config, as described above.</li>
+
+<li>My SPI interface has disappeared. What do I do?<br>
+    Add "dtparam=spi=on" to your config.txt and reboot. Or use raspi-config, as described above.</li>
+
+<li>My I2S interface has disappeared. What do I do?<br>
+    In case you haven't spotted the pattern, add "dtparam=i2s=on" to your config.txt.<br>
+    And reboot. This one isn't in raspi-config.</li>
+
+<li>My lirc-rpi module doesn't load anymore. What do I do?<br>
+   "dtoverlay=lirc-rpi".</li>
+
+<li>But what about the lirc-rpi module parameters?<br>
+    Add them to the end of the dtoverlay line, like this: "dtoverlay=lirc-rpi,gpio_in_pin=16,gpio_in_pull=high".</li>
+
+<li>What about "w1-gpio"?<br>
+    Slightly more complicated. If you require the external pullup enable pin, use:<br>
+        "dtoverlay=w1-gpio-pullup,gpiopin=&lt;x&gt;,extpullup=&lt;y&gt;"<br>
+    otherwise use:<br>
+        "dtoverlay=w1-gpio,gpiopin=&lt;x&gt;"<br>
+    (where &lt;x&gt; and &lt;y&gt; are GPIO pins, obviously).<br>
+    If you are using the parasitic power (power over data, 2-wire) mode, add ",pullup=1" (or ",pullup=on")</li>
+
+<li>How about "pps-gpio"?<br>
+    Another pesky overlay. You can probably guess the name and parameter:<br>
+        "dtoverlay=pps-gpio,gpiopin=&lt;x&gt;"</li>
+
+<li>And what about my audio card?<br>
+    Add one of the following:
+<ul>
+        <li>dtoverlay=hifiberry-dac</li>
+        <li>dtoverlay=hifiberry-dacplus</li>
+        <li>dtoverlay=hifiberry-digi</li>
+        <li>dtoverlay=hifiberry-amp</li>
+        <li>dtoverlay=iqaudio-dac</li>
+        <li>dtoverlay=iqaudio-dacplus</li></ul>
+    If your card doesn't appear here, you'll need to turn off device tree for now ("device_tree=") and contact the manufacturer. It's worth posting a query about it as well.</li>
+
+<li>I2C Real Time Clock?<br>
+    dtoverlay=i2c-rtc,&lt;model&gt;<br>
+   where &lt;model&gt; is one of: ds1307, ds3231, pcf2127, pcf8523, pcf8563<br>
+   Note that the old individual RTC overlays have been deprecated and will be deleted in future releases.</li>
+
+<li>Can I give my Pi a heartbeat LED?<br>
+    dtparam=act_led_trigger=heartbeat</li>
+
+<li>Cool: thanks.<br>
+    You're welcome.</li></ul></div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p675661" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile675661">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content675661">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675661">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=675661&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675661&amp;sid=774ff5221d6731450d61158da4c71268#p675661">Wed Jan 21, 2015 4:48 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Here's the new README:<br>
+
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>Introduction
+============
+
+This directory contains Device Tree overlays. Device Tree makes it possible
+to support many hardware configurations with a single kernel and without the
+need to explicitly load or blacklist kernel modules. Note that this isn't a
+"pure" Device Tree configuration (c.f. MACH_BCM2835) - some on-board devices
+are still configured by the board support code, but the intention is to
+eventually reach that goal.
+
+On Raspberry Pi, Device Tree usage is controlled from /boot/config.txt. By
+default, the Raspberry Pi kernel boots with device tree enabled. You can
+completely disable DT usage (for now) by adding:
+
+    device_tree=
+
+to your config.txt, which should cause your Pi to revert to the old way of
+doing things after a reboot.
+
+In /boot you will find a .dtb for each base platform. This describes the
+hardware that is part of the Raspberry Pi board. The loader (start.elf and its
+siblings) selects the .dtb file appropriate for the platform by name, and reads
+it into memory. At this point, all of the optional interfaces (i2c, i2s, spi)
+are disabled, but they can be enabled using Device Tree parameters:
+
+    dtparam=i2c=on,i2s=on,spi=on
+
+However, this shouldn't be necessary in many use cases because loading an
+overlay that requires one of those interfaces will cause it to be enabled
+automatically, and it is advisable to only enable interfaces if they are
+needed.
+
+Configuring additional, optional hardware is done using Device Tree overlays
+(see below).
+
+raspi-config
+============
+
+The Advanced Options section of the raspi-config utility can enable and disable
+Device Tree use, as well as toggling the I2C and SPI interfaces. Note that it
+is possible to both enable an interface and blacklist the driver, if for some
+reason you should want to defer the loading.
+
+Modules
+=======
+
+As well as describing the hardware, Device Tree also gives enough information
+to allow suitable driver modules to be located and loaded, with the corollary
+that unneeded modules are not loaded. As a result it should be possible to
+remove lines from /etc/modules, and /etc/modprobe.d/raspi-blacklist.conf can
+have its contents deleted (or commented out).
+
+Using Overlays
+==============
+
+Overlays are loaded using the "dtoverlay" directive. As an example, consider the
+popular lirc-rpi module, the Linux Infrared Remote Control driver. In the
+pre-DT world this would be loaded from /etc/modules, with an explicit
+"modprobe lirc-rpi" command, or programmatically by lircd. With DT enabled,
+this becomes a line in config.txt:
+
+    dtoverlay=lirc-rpi
+
+This causes the file /boot/overlays/lirc-rpi-overlay.dtb to be loaded. By
+default it will use GPIOs 17 (out) and 18 (in), but this can be modified using
+DT parameters:
+
+    dtoverlay=lirc-rpi,gpio_out_pin=17,gpio_in_pin=13
+
+Parameters always have default values, although in some cases (e.g. "w1-gpio")
+it is necessary to provided multiple overlays in order to get the desired
+behaviour. See the list of overlays below for a description of the parameters and their defaults.
+
+The Overlay and Parameter Reference
+===================================
+
+Name:   &lt;The base DTB&gt;
+Info:   Configures the base Raspberry Pi hardware
+Load:   &lt;loaded automatically&gt;
+Params:
+        i2c_arm                  Set to "on" to enable the ARM's i2c interface
+                                 (default "off")
+
+        i2c_vc                   Set to "on" to enable the i2c interface
+                                 usually reserved for the VideoCore processor
+                                 (default "off")
+
+        i2c                      An alias for i2c_arm
+
+        i2c_arm_baudrate         Set the baudrate of the ARM's i2c interface
+                                 (default "100000")
+
+        i2c_vc_baudrate          Set the baudrate of the VideoCore i2c interface
+                                 (default "100000")
+
+        i2c_baudrate             An alias for i2c_arm_baudrate
+
+        i2s                      Set to "on" to enable the i2s interface
+                                 (default "off")
+
+        spi                      Set to "on" to enable the spi interfaces
+                                 (default "off")
+
+        act_led_trigger          Choose which activity the LED tracks.
+                                 Use "heartbeat" for a nice load indicator.
+                                 (default "mmc")
+
+        act_led_activelow        Set to "on" to invert the sense of the LED
+                                 (default "off")
+
+        act_led_gpio             Set which GPIO to use for the activity LED
+                                 (in case you want to connect it to an external
+                                 device)
+                                 (default "16" on a non-Plus board, "47" on a
+                                 Plus or Pi 2)
+
+        pwr_led_trigger
+        pwr_led_activelow
+        pwr_led_gpio
+                                 As for act_led_*, but using the PWR LED.
+                                 Not available on Model A/B boards.
+
+        N.B. It is recommended to only enable those interfaces that are needed.
+        Leaving all interfaces enabled can lead to unwanted behaviour (i2c_vc
+        interfering with Pi Camera, I2S and SPI hogging GPIO pins, etc.)
+        Note also that i2c, i2c_arm and i2c_vc are aliases for the physical
+        interfaces i2c0 and i2c1. Use of the numeric variants is still possible
+        but deprecated because the ARM/VC assignments differ between board
+        revisions. The same board-specific mapping applies to i2c_baudrate,
+        and the other i2c baudrate parameters.
+
+
+Name:   ads7846
+Info:   ADS7846 Touch controller
+Load:   dtoverlay=ads7846,&lt;param&gt;=&lt;val&gt;
+Params: cs                       SPI bus Chip Select (default 1)
+        speed                    SPI bus speed (default 2Mhz, max 3.25MHz)
+        penirq                   GPIO used for PENIRQ. REQUIRED
+        penirq_pull              Set GPIO pull (default 0=none, 2=pullup)
+        swapxy                   Swap x and y axis
+        xmin                     Minimum value on the X axis (default 0)
+        ymin                     Minimum value on the Y axis (default 0)
+        xmax                     Maximum value on the X axis (default 4095)
+        ymax                     Maximum value on the Y axis (default 4095)
+        pmin                     Minimum reported pressure value (default 0)
+        pmax                     Maximum reported pressure value (default 65535)
+        xohms                    Touchpanel sensitivity (X-plate resistance)
+                                 (default 400)
+
+        penirq is required and usually xohms (60-100) has to be set as well.
+        Apart from that, pmax (255) and swapxy are also common.
+        The rest of the calibration can be done with xinput-calibrator.
+        See: github.com/notro/fbtft/wiki/FBTFT-on-Raspian
+        Device Tree binding document:
+        www.kernel.org/doc/Documentation/devicetree/bindings/input/ads7846.txt
+
+
+Name:   bmp085_i2c-sensor
+Info:   Configures the BMP085/BMP180 digital barometric pressure and temperature
+        sensors from Bosch Sensortec
+Load:   dtoverlay=bmp085_i2c-sensor
+Params: &lt;None&gt;
+
+
+[ The ds1307-rtc overlay has been deleted. See i2c-rtc. ]
+
+
+Name:   enc28j60
+Info:   Overlay for the Microchip ENC28J60 Ethernet Controller (SPI)
+Load:   dtoverlay=enc28j60,&lt;param&gt;=&lt;val&gt;
+Params: int_pin                  GPIO used for INT (default 25)
+
+        speed                    SPI bus speed (default 12000000)
+
+
+Name:   hifiberry-amp
+Info:   Configures the HifiBerry Amp and Amp+ audio cards
+Load:   dtoverlay=hifiberry-amp
+Params: &lt;None&gt;
+
+
+Name:   hifiberry-dac
+Info:   Configures the HifiBerry DAC audio card
+Load:   dtoverlay=hifiberry-dac
+Params: &lt;None&gt;
+
+
+Name:   hifiberry-dacplus
+Info:   Configures the HifiBerry DAC+ audio card
+Load:   dtoverlay=hifiberry-dacplus
+Params: &lt;None&gt;
+
+
+Name:   hifiberry-digi
+Info:   Configures the HifiBerry Digi audio card
+Load:   dtoverlay=hifiberry-digi
+Params: &lt;None&gt;
+
+
+Name:   hy28a
+Info:   HY28A - 2.8" TFT LCD Display Module by HAOYU Electronics
+        Default values match Texy's display shield
+Load:   dtoverlay=hy28a,&lt;param&gt;=&lt;val&gt;
+Params: speed                    Display SPI bus speed
+
+        rotate                   Display rotation {0,90,180,270}
+
+        fps                      Delay between frame updates
+
+        debug                    Debug output level {0-7}
+
+        xohms                    Touchpanel sensitivity (X-plate resistance)
+
+        resetgpio                GPIO used to reset controller
+
+        ledgpio                  GPIO used to control backlight
+
+
+Name:   hy28b
+Info:   HY28B - 2.8" TFT LCD Display Module by HAOYU Electronics
+        Default values match Texy's display shield
+Load:   dtoverlay=hy28b,&lt;param&gt;=&lt;val&gt;
+Params: speed                    Display SPI bus speed
+
+        rotate                   Display rotation {0,90,180,270}
+
+        fps                      Delay between frame updates
+
+        debug                    Debug output level {0-7}
+
+        xohms                    Touchpanel sensitivity (X-plate resistance)
+
+        resetgpio                GPIO used to reset controller
+
+        ledgpio                  GPIO used to control backlight
+
+
+Name:   i2c-rtc
+Info:   Adds support for a number of I2C Real Time Clock devices
+Load:   dtoverlay=i2c-rtc,&lt;param&gt;
+Params: ds1307                   Select the DS1307 device
+
+        ds3231                   Select the DS3231 device
+
+        pcf2127                  Select the PCF2127 device
+
+        pcf8523                  Select the PCF8523 device
+
+        pcf8563                  Select the PCF8563 device
+
+
+Name:   iqaudio-dac
+Info:   Configures the IQaudio DAC audio card
+Load:   dtoverlay=iqaudio-dac
+Params: &lt;None&gt;
+
+
+Name:   iqaudio-dacplus
+Info:   Configures the IQaudio DAC+ audio card
+Load:   dtoverlay=iqaudio-dacplus
+Params: &lt;None&gt;
+
+
+Name:   lirc-rpi
+Info:   Configures lirc-rpi (Linux Infrared Remote Control for Raspberry Pi)
+        Consult the module documentation for more details.
+Load:   dtoverlay=lirc-rpi,&lt;param&gt;=&lt;val&gt;,...
+Params: gpio_out_pin             GPIO for output (default "17")
+
+        gpio_in_pin              GPIO for input (default "18")
+
+        gpio_in_pull             Pull up/down/off on the input pin
+                                 (default "down")
+
+        sense                    Override the IR receive auto-detection logic:
+                                   "1" = force active high
+                                   "0" = force active low
+                                   "-1" = use auto-detection
+                                 (default "-1")
+
+        softcarrier              Turn the software carrier "on" or "off"
+                                 (default "on")
+
+        invert                   "on" = invert the output pin (default "off")
+
+        debug                    "on" = enable additional debug messages
+                                 (default "off")
+
+
+Name:   mcp2515-can0
+Info:   Configures the MCP2515 CAN controller
+Load:   dtoverlay=mcp2515-can0,&lt;param&gt;=&lt;val&gt;
+Params: oscillator               Clock frequency for the CAN controller (Hz)
+
+        spimaxfrequency          Maximum SPI frequence (Hz)
+
+        interrupt                GPIO for interrupt signal
+
+
+Name:   mmc
+Info:   Selects the bcm2835-mmc SD/MMC driver, optionally with overclock
+Load:   dtoverlay=mmc,&lt;param&gt;=&lt;val&gt;
+Params: overclock_50             Clock (in MHz) to use when the MMC framework
+                                 requests 50MHz
+        force_pio                Disable DMA support
+
+
+Name:   mz61581
+Info:   MZ61581 display by Tontec
+Load:   dtoverlay=mz61581,&lt;param&gt;=&lt;val&gt;
+Params: speed                    Display SPI bus speed
+
+        rotate                   Display rotation {0,90,180,270}
+
+        fps                      Delay between frame updates
+
+        debug                    Debug output level {0-7}
+
+        xohms                    Touchpanel sensitivity (X-plate resistance)
+
+
+[ The pcf2127-rtc overlay has been deleted. See i2c-rtc. ]
+
+
+[ The pcf8523-rtc overlay has been deleted. See i2c-rtc. ]
+
+
+[ The pcf8563-rtc overlay has been deleted. See i2c-rtc. ]
+
+
+Name:   piscreen
+Info:   PiScreen display by OzzMaker.com
+Load:   dtoverlay=piscreen,&lt;param&gt;=&lt;val&gt;
+Params: speed                    Display SPI bus speed
+
+        rotate                   Display rotation {0,90,180,270}
+
+        fps                      Delay between frame updates
+
+        debug                    Debug output level {0-7}
+
+        xohms                    Touchpanel sensitivity (X-plate resistance)
+
+
+Name:   pitft28-resistive
+Info:   Adafruit PiTFT 2.8" resistive touch screen
+Load:   dtoverlay=pitft28-resistive,&lt;param&gt;=&lt;val&gt;
+Params: speed                    Display SPI bus speed
+
+        rotate                   Display rotation {0,90,180,270}
+
+        fps                      Delay between frame updates
+
+        debug                    Debug output level {0-7}
+
+
+Name:   pps-gpio
+Info:   Configures the pps-gpio (pulse-per-second time signal via GPIO).
+Load:   dtoverlay=pps-gpio,&lt;param&gt;=&lt;val&gt;
+Params: gpiopin                  Input GPIO (default "18")
+
+
+Name:   rpi-dac
+Info:   Configures the RPi DAC audio card
+Load:   dtoverlay=rpi-dac
+Params: &lt;None&gt;
+
+
+Name:   rpi-display
+Info:   RPi-Display - 2.8" Touch Display by Watterott
+Load:   dtoverlay=rpi-display,&lt;param&gt;=&lt;val&gt;
+Params: speed                    Display SPI bus speed
+
+        rotate                   Display rotation {0,90,180,270}
+
+        fps                      Delay between frame updates
+
+        debug                    Debug output level {0-7}
+
+        xohms                    Touchpanel sensitivity (X-plate resistance)
+
+
+Name:   rpi-proto
+Info:   Configures the RPi Proto audio card
+Load:   dtoverlay=rpi-proto
+Params: &lt;None&gt;
+
+
+Name:   sdhost
+Info:   Selects the bcm2835-sdhost SD/MMC driver, optionally with overclock
+Load:   dtoverlay=sdhost,&lt;param&gt;=&lt;val&gt;
+Params: overclock_50             Clock (in MHz) to use when the MMC framework
+                                 requests 50MHz
+        force_pio                Disable DMA support
+
+
+Name:   spi-bcm2835
+Info:   Selects the bcm2835-spi SPI driver
+Load:   dtoverlay=spi-bcm2835
+Params: &lt;None&gt;
+
+
+Name:   tinylcd35
+Info:   3.5" Color TFT Display by www.tinlylcd.com
+        Options: Touch, RTC, keypad
+Load:   dtoverlay=tinylcd35,&lt;param&gt;=&lt;val&gt;
+Params: speed                    Display SPI bus speed
+
+        rotate                   Display rotation {0,90,180,270}
+
+        fps                      Delay between frame updates
+
+        debug                    Debug output level {0-7}
+
+        touch                    Enable touch panel
+
+        touchgpio                Touch controller IRQ GPIO
+
+        xohms                    Touchpanel: Resistance of X-plate in ohms
+
+        rtc-pcf                  PCF8563 Real Time Clock
+
+        rtc-ds                   DS1307 Real Time Clock
+
+        keypad                   Enable keypad
+
+        Examples:
+            Display with touchpanel, PCF8563 RTC and keypad:
+                dtoverlay=tinylcd35,touch,rtc-pcf,keypad
+            Old touch display:
+                dtoverlay=tinylcd35,touch,touchgpio=3
+
+
+Name:   w1-gpio
+Info:   Configures the w1-gpio Onewire interface module.
+        Use this overlay if you *don't* need a GPIO to drive an external pullup.
+Load:   dtoverlay=w1-gpio,&lt;param&gt;=&lt;val&gt;
+Params: gpiopin                  GPIO for I/O (default "4")
+
+        pullup                   Non-zero, "on", or "y" to enable the parasitic
+                                 power (2-wire, power-on-data) feature
+
+
+Name:   w1-gpio-pullup
+Info:   Configures the w1-gpio Onewire interface module.
+        Use this overlay if you *do* need a GPIO to drive an external pullup.
+Load:   dtoverlay=w1-gpio-pullup,&lt;param&gt;=&lt;val&gt;,...
+Params: gpiopin                  GPIO for I/O (default "4")
+
+        pullup                   Non-zero, "on", or "y" to enable the parasitic
+                                 power (2-wire, power-on-data) feature
+
+        extpullup                GPIO for external pullup (default "5")
+
+
+Troubleshooting
+===============
+
+If you are experiencing problems that you think are DT-related, enable DT
+diagnostic output by adding this to /boot/config.txt:
+
+    dtdebug=on
+
+and rebooting. Then run:
+
+    sudo vcdbg log msg
+
+and look for relevant messages.
+
+Further reading
+===============
+
+This is only meant to be a quick introduction to the subject of Device Tree on
+Raspberry Pi. There is a more complete explanation here:
+
+http://www.raspberrypi.org/documentation/configuration/device-tree.md
+</code></pre></div></div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p675675" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile675675">
+					<dt class="no-profile-rank has-avatar">
+						<div class="avatar-container">
+																						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=73731&amp;sid=774ff5221d6731450d61158da4c71268" class="avatar"><img class="avatar" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/file.php" width="89" height="90" alt="User avatar"></a>																				</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=73731&amp;sid=774ff5221d6731450d61158da4c71268" class="username">DougieLawson</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=73731&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">30505</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Sun Jun 16, 2013 11:19 pm</dd>				
+				
+																												<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Basingstoke, UK</dd>
+													
+													<dd class="profile-contact">
+						<strong>Contact:</strong>
+												<a class="contact-icon contact-icon-phpbb_website" href="http://twitter.com/DougieLawson" title="Website">Website
+						</a>
+											</dd>
+								
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content675675">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675675">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=675675&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675675&amp;sid=774ff5221d6731450d61158da4c71268#p675675">Wed Jan 21, 2015 4:57 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Thanks Phil. That's nice and concise and all in one place.<br>
+<br>
+Perhaps this should be a sticky thread in the Troubleshooting part of the forum.</div>
+
+					
+															
+															<div id="sig675675" class="signature"><span style="font-size: 85%; line-height: normal">Microprocessor, Raspberry Pi &amp; Arduino Hacker<br>
+Mainframe database troubleshooter<br>
+MQTT Evangelist<br>
+Twitter: @DougieLawson</span><br>
+Since 2012: 1B*5, 2B*2, B+, A+, Zero*2, 3B*3<br>
+<br>
+Please post ALL technical questions <strong>on the forum</strong>. <span style="text-decoration: underline">Do not</span> send private messages.</div>
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p676537" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile676537">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=132203&amp;sid=774ff5221d6731450d61158da4c71268" class="username">te36</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=132203&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Fri Jan 23, 2015 9:06 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content676537">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p676537">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=676537&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=676537&amp;sid=774ff5221d6731450d61158da4c71268#p676537">Fri Jan 23, 2015 9:19 am</a> </p>
+
+					
+					
+					
+					<div class="content">So, what's the endgame to operationalize this device-tree stuff , eg: how should it be made easier for someone installing lirc in the future to get it running ? setting up those devices via raspi-config ? <br>
+<br>
+Having every individual device driver come up with its own solution so that a user with 3 non-PnP devices has to figure out for each one of them how to configure DT would sound fairly brutal.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p676583" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile676583">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content676583">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p676583">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=676583&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=676583&amp;sid=774ff5221d6731450d61158da4c71268#p676583">Fri Jan 23, 2015 11:22 am</a> </p>
+
+					
+					
+					
+					<div class="content">Yes, raspi-config is likely to change to support DT. But even without that, the first resource for users configuring non-PnP devices is /boot/overlays/README. Detailed documentation would be provided by a link to an external source.<br>
+<br>
+There are likely to be some unsupported devices initially, so the sequence should be:<br>
+
+<ol style="list-style-type: decimal">
+<li> Ask the manufacturer/supplier.</li>
+<li> Ask the Forums.</li>
+<li> Consider writing your own overlay (and possibly adding DT support to the driver), or locate a fellow user who can, then raise a Pull Request to get it added.</li>
+<li> Raise an Issue requesting support for the device.</li></ol></div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p677236" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile677236">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=356&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">ShiftPlusOne</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=356&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">4752</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Fri Jul 29, 2011 5:36 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> The unfashionable end of the western spiral arm of the Galaxy</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content677236">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p677236">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=677236&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=677236&amp;sid=774ff5221d6731450d61158da4c71268#p677236">Sat Jan 24, 2015 4:34 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Deleted off-topic posts. Take it elsewhere.<br>
+<br>
+Edit: If people keep going on with off-topic discussion in an important thread after being asked to stop, they don't get to complain that their posts were deleted.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p678567" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile678567">
+					<dt class="no-profile-rank has-avatar">
+						<div class="avatar-container">
+																						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=131942&amp;sid=774ff5221d6731450d61158da4c71268" class="avatar"><img class="avatar" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/file(1).php" width="90" height="90" alt="User avatar"></a>																				</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=131942&amp;sid=774ff5221d6731450d61158da4c71268" class="username">kazzttor</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=131942&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">4</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Wed Jan 21, 2015 2:57 am</dd>				
+				
+																																																							<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Diadema - São Paulo, Brazil</dd>
+													
+													<dd class="profile-contact">
+						<strong>Contact:</strong>
+												<a class="contact-icon contact-icon-phpbb_icq" href="https://www.icq.com/people/59900166/" title="ICQ">ICQ
+						</a>
+												<a class="contact-icon contact-icon-phpbb_website" href="http://blog.kazzttor.com.br/" title="Website">Website
+						</a>
+												<a class="contact-icon contact-icon-phpbb_yahoo" href="ymsgr:sendim?kazzttor" title="Yahoo Messenger">Yahoo Messenger
+						</a>
+												<a class="contact-icon contact-icon-phpbb_aol" href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=131942&amp;sid=774ff5221d6731450d61158da4c71268" title="AOL">AOL
+						</a>
+											</dd>
+								
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content678567">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p678567">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=678567&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=678567&amp;sid=774ff5221d6731450d61158da4c71268#p678567">Tue Jan 27, 2015 12:05 am</a> </p>
+
+					
+					
+					
+					<div class="content">Hi, people,<br>
+<br>
+I made this procedure (edit file <em>/boot/config.txt</em>, but the best way to change it is by <em>raspi-config &gt; 8.  Advanced options &gt; A6. I2C</em>), but i had a trouble and my rtc with chip pcf8563 conected to my Pi.<br>
+<br>
+When I try to use the command to update time of rtc this error occours:<br>
+
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>pi@raspberrypi ~ $ sudo hwclock -w
+hwclock: select() to /dev/rtc0 to wait for clock tick timed out: Arquivo ou diretório não encontrado</code></pre></div>
+
+I also used the <em>dmesg</em> command to find any error. This is the message related of i2c and pcf8563:<br>
+
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>pi@raspberrypi ~ $ dmesg|grep i2c
+[    5.503791] bcm2708_i2c_init_pinmode(0,0)
+[    5.666925] bcm2708_i2c_init_pinmode(0,1)
+[    5.674016] bcm2708_i2c 20205000.i2c: BSC0 Controller at 0x20205000 (irq 79) (baudrate 100000)
+[    5.991503] bcm2708_i2c_init_pinmode(1,2)
+[    6.206989] bcm2708_i2c_init_pinmode(1,3)
+[    6.213990] bcm2708_i2c 20804000.i2c: BSC1 Controller at 0x20804000 (irq 79) (baudrate 100000)
+[   12.084975] i2c /dev entries driver
+[   39.789832] i2c i2c-1: new_device: Instantiated device pcf8563 at 0x51</code></pre></div>
+
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>pi@raspberrypi ~ $ dmesg|grep rtc
+[   39.782178] rtc-pcf8563 1-0051: chip found, driver version 0.4.3
+[   39.789131] rtc (null): invalid alarm value: 2015-2-6 62:47:0
+[   39.789709] rtc-pcf8563 1-0051: rtc core: registered rtc-pcf8563 as rtc0</code></pre></div>
+
+The rtc module is loaded and detected, in according with i2cdetect command:<br>
+
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>pi@raspberrypi ~ $ sudo i2cdetect -y 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- UU -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --</code></pre></div>
+
+<br>
+I don't know why rtc chip is not working. Is it necessary any configuration or the issue is with rtc chip (ex. low battery)?</div>
+
+					
+															
+															<div id="sig678567" class="signature"><strong>Kazzttor</strong><br>
+<br>
+<span style="font-size: 85%; line-height: normal">Diadema-SP, Brazil<br>
+<span style="color: #FF0000">Linux</span>-<span style="color: #0000BF">Windows</span>-<span style="color: #CCCCCC">Mac</span> User<br>
+<span style="color: #FF4080">Raspberry</span> <span style="color: #008000">Pi</span> Lover</span></div>
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p678612" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile678612">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=132601&amp;sid=774ff5221d6731450d61158da4c71268" class="username">snapdan</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=132601&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Jan 27, 2015 3:50 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content678612">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p678612">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=678612&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=678612&amp;sid=774ff5221d6731450d61158da4c71268#p678612">Tue Jan 27, 2015 3:57 am</a> </p>
+
+					
+					
+					
+					<div class="content">This may be another simple fix people can use, or it may be that my problem was unrelated, but anyway: the device_tree fix didn't work for me so I reverted the rpi-update as detailed <a href="http://raspberrypi.stackexchange.com/a/15919" class="postlink">here</a> to the commit prior to the kernel upgrade and that fixed it for me.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p678687" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile678687">
+					<dt class="no-profile-rank has-avatar">
+						<div class="avatar-container">
+																						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=73731&amp;sid=774ff5221d6731450d61158da4c71268" class="avatar"><img class="avatar" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/file.php" width="89" height="90" alt="User avatar"></a>																				</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=73731&amp;sid=774ff5221d6731450d61158da4c71268" class="username">DougieLawson</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=73731&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">30505</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Sun Jun 16, 2013 11:19 pm</dd>				
+				
+																												<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Basingstoke, UK</dd>
+													
+													<dd class="profile-contact">
+						<strong>Contact:</strong>
+												<a class="contact-icon contact-icon-phpbb_website" href="http://twitter.com/DougieLawson" title="Website">Website
+						</a>
+											</dd>
+								
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content678687">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p678687">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=678687&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=678687&amp;sid=774ff5221d6731450d61158da4c71268#p678687">Tue Jan 27, 2015 8:32 am</a> </p>
+
+					
+					
+					
+					<div class="content">add
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>device_tree_param=i2c1=on</code></pre></div>
+to /boot/config.txt</div>
+
+					
+															
+															<div id="sig678687" class="signature"><span style="font-size: 85%; line-height: normal">Microprocessor, Raspberry Pi &amp; Arduino Hacker<br>
+Mainframe database troubleshooter<br>
+MQTT Evangelist<br>
+Twitter: @DougieLawson</span><br>
+Since 2012: 1B*5, 2B*2, B+, A+, Zero*2, 3B*3<br>
+<br>
+Please post ALL technical questions <strong>on the forum</strong>. <span style="text-decoration: underline">Do not</span> send private messages.</div>
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p678860" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile678860">
+					<dt class="no-profile-rank has-avatar">
+						<div class="avatar-container">
+																						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=131942&amp;sid=774ff5221d6731450d61158da4c71268" class="avatar"><img class="avatar" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/file(1).php" width="90" height="90" alt="User avatar"></a>																				</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=131942&amp;sid=774ff5221d6731450d61158da4c71268" class="username">kazzttor</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=131942&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">4</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Wed Jan 21, 2015 2:57 am</dd>				
+				
+																																																							<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Diadema - São Paulo, Brazil</dd>
+													
+													<dd class="profile-contact">
+						<strong>Contact:</strong>
+												<a class="contact-icon contact-icon-phpbb_icq" href="https://www.icq.com/people/59900166/" title="ICQ">ICQ
+						</a>
+												<a class="contact-icon contact-icon-phpbb_website" href="http://blog.kazzttor.com.br/" title="Website">Website
+						</a>
+												<a class="contact-icon contact-icon-phpbb_yahoo" href="ymsgr:sendim?kazzttor" title="Yahoo Messenger">Yahoo Messenger
+						</a>
+												<a class="contact-icon contact-icon-phpbb_aol" href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=131942&amp;sid=774ff5221d6731450d61158da4c71268" title="AOL">AOL
+						</a>
+											</dd>
+								
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content678860">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p678860">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=678860&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=678860&amp;sid=774ff5221d6731450d61158da4c71268#p678860">Tue Jan 27, 2015 1:59 pm</a> </p>
+
+					
+					
+					
+					<div class="content">2 things that we must know about <em>/boot/config.txt</em>:<br>
+<br>
+ <img class="smilies" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/icon_exclaim.gif" width="15" height="17" alt=":!:" title="Exclamation"> <strong>Change configurations require administrative privileges</strong>. To change the <em>/boot/config.txt</em>, you must use <em>sudo nano</em> (or another text editor) <em>/boot/config.txt</em> or <em>sudo raspi-config</em><br>
+ <img class="smilies" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/icon_exclaim.gif" width="15" height="17" alt=":!:" title="Exclamation"> <strong>Changes in configurations will take effect after reboot</strong>. After saved the configuration file, you must type the command: <em>sudo reboot</em>.</div>
+
+					
+															
+															<div id="sig678860" class="signature"><strong>Kazzttor</strong><br>
+<br>
+<span style="font-size: 85%; line-height: normal">Diadema-SP, Brazil<br>
+<span style="color: #FF0000">Linux</span>-<span style="color: #0000BF">Windows</span>-<span style="color: #CCCCCC">Mac</span> User<br>
+<span style="color: #FF4080">Raspberry</span> <span style="color: #008000">Pi</span> Lover</span></div>
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p679062" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile679062">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=132679&amp;sid=774ff5221d6731450d61158da4c71268" class="username">jkbai28</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=132679&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Jan 27, 2015 6:29 pm</dd>				
+				
+																					
+													<dd class="profile-contact">
+						<strong>Contact:</strong>
+												<a class="contact-icon contact-icon-phpbb_website" href="http://www.dealbells.com/" title="Website">Website
+						</a>
+											</dd>
+								
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content679062">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p679062">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=679062&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=679062&amp;sid=774ff5221d6731450d61158da4c71268#p679062">Tue Jan 27, 2015 6:33 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Not working for me</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p679303" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile679303">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=131941&amp;sid=774ff5221d6731450d61158da4c71268" class="username">PuppetHoundZ</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=131941&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">170</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Wed Jan 21, 2015 2:57 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content679303">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p679303">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=679303&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=679303&amp;sid=774ff5221d6731450d61158da4c71268#p679303">Tue Jan 27, 2015 10:22 pm</a> </p>
+
+					
+					
+					
+					<div class="content">You can also use leafpad if you want to use X to modify config.txt:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>sudo leafpad</code></pre></div>
+Then go to file-&gt; Open-&gt; boot/config.txt<br>
+this method also works when modifying /etc/modprobe.d/raspi-blacklist.conf<br>
+<br>
+Or if you got NOOBS. Go to recovery page and select config.txt editor.  <img class="smilies" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/icon_e_smile.gif" width="15" height="17" alt=":)" title="Smile"></div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p680281" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile680281">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=132640&amp;sid=774ff5221d6731450d61158da4c71268" class="username">hugo_figueiredo</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=132640&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">13</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Jan 27, 2015 12:46 pm</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content680281">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p680281">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=680281&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=680281&amp;sid=774ff5221d6731450d61158da4c71268#p680281">Thu Jan 29, 2015 12:23 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Someone have another way to resolve the problem? the fix above, for me didnt work.<br>
+I have a raspbian installed in HDD and after i made the rpi-update, everytime i start the raspberry, a few minutes running and the raspberry loses the connection to the HDD.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p680340" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile680340">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content680340">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p680340">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=680340&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=680340&amp;sid=774ff5221d6731450d61158da4c71268#p680340">Thu Jan 29, 2015 1:44 pm</a> </p>
+
+					
+					
+					
+					<div class="content">@hugo_figueiredo I suggest you rpi-update back to an earlier version until you find when the problem first appeared. There are instructions <a href="http://raspberrypi.stackexchange.com/questions/15917/restore-kernel-version/15919#15919" class="postlink">here</a>.<br>
+<br>
+If you are overclocked you might also try turning that off for now.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p681810" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile681810">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content681810">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p681810">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=681810&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=681810&amp;sid=774ff5221d6731450d61158da4c71268#p681810">Sat Jan 31, 2015 4:59 pm</a> </p>
+
+					
+					
+					
+					<div class="content">I've updated the initial post and README to reflect a few recent changes:<br>
+<br>
+1) The next Raspbian and NOOBS releases will contain a raspi-config that can enable and disable Device Tree, and the I2C and SPI interfaces (in addition to controlling the blacklisting for the drivers).<br>
+<br>
+2) To remove any confusion surrounding the use of i2c0 and i2c1 on different board revisions, three new DT parameters have been added to the latest firmware - "i2c_arm" (the ARM's I2C interface), "i2c_vc" (the I2C used by VideoCore - don't enable unless you know what you are doing and aren't planning to use a PiCamera), and "i2c" - an alias for "i2c_arm". People using an i2c device can now add "dtparam=i2c=on" to their config.txt, regardless of the Pi model (or use raspi-config to do the same thing).<br>
+<br>
+3) The HifiBerry Amp card has an overlay, as has the pfc8523 RTC chip.<br>
+<br>
+4) The parasitic power (power and data over two wires) feature of the w1-gpio driver has been found to not work when DT is enabled. This will be fixed in a future release.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p682354" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile682354">
+					<dt class="no-profile-rank has-avatar">
+						<div class="avatar-container">
+																						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=89549&amp;sid=774ff5221d6731450d61158da4c71268" class="avatar"><img class="avatar" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/file(2).php" width="90" height="90" alt="User avatar"></a>																				</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=89549&amp;sid=774ff5221d6731450d61158da4c71268" class="username">emgi</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=89549&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">357</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Thu Nov 07, 2013 4:08 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> NL</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content682354">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p682354">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=682354&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=682354&amp;sid=774ff5221d6731450d61158da4c71268#p682354">Sun Feb 01, 2015 2:56 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Another thing which is not broken but has changed its behavior is the nfs client.<br>
+Since this update, it appears to default to nfs version 4 so nfs didn't work after rpi-update because my server was still running version 3.<br>
+<br>
+I changed /etc/fstab  to include the bold text like this:<br>
+rpi:/usb1       /usb1           nfs     <strong>nfsvers=3</strong>       0       0<br>
+<br>
+That solved the issue. <br>
+When mounting manually, you need to incorporate the version as an nfs-option.<br>
+<br>
+/emgi</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p683127" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile683127">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=133302&amp;sid=774ff5221d6731450d61158da4c71268" class="username">frickeln</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=133302&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Feb 03, 2015 8:03 am</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Hamburg</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content683127">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p683127">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=683127&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=683127&amp;sid=774ff5221d6731450d61158da4c71268#p683127">Tue Feb 03, 2015 8:14 am</a> </p>
+
+					
+					
+					
+					<div class="content">Hi,<br>
+<br>
+yesterday I made a apt-get update/upgrade and also get the problem, that I2c does not work anymore. I did no rpi-update !<br>
+<br>
+Kernel seems to be the newest one now. Anyhow, with your hints (thanks!) I managed to get it running again. <br>
+<br>
+But the i2c module seems to ignore my baud settings now. I used <br>
+<br>
+"options i2c_bcm2708 baudrate=4000" in the /etc/modprobe.d/i2c-bcm2708.conf<br>
+( see this topic: <a href="http://www.raspberrypi.org/forums/viewtopic.php?f=44&amp;t=34734" class="postlink">http://www.raspberrypi.org/forums/viewt ... 44&amp;t=34734</a>)<br>
+<br>
+When I call after the update  dmesg | grep i2c, I get:<br>
+<br>
+ bcm2708_i2c 20804000.i2c: BSC1 Controller at 0x20804000 (irq 79) (baudrate 100000)<br>
+<br>
+Anyone any idea ?<br>
+<br>
+Peter</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p683251" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile683251">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content683251">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p683251">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=683251&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=683251&amp;sid=774ff5221d6731450d61158da4c71268#p683251">Tue Feb 03, 2015 10:21 am</a> </p>
+
+					
+					
+					
+					<div class="content">Yes, sorry about that. Your module parameter is being overridden by a device tree property, and without a parameter to change that you are a bit stuck.<br>
+<br>
+The next release will add parameters to the base dtbs to set the baudrate, but for now you can use an overlay.<br>
+<br>
+Copy the following into a file - I'll assume it's called  i2c-baudrate-overlay.b64:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>0A3+7QAAAWEAAAA4AAABMAAAACgAAAARAAAAEAAAAAAAAAAxAAAA+AAAAAAAAAAAAAAAAAAAAAAA
+AAABAAAAAAAAAAMAAAANAAAAAGJyY20sYmNtMjcwOAAAAAAAAAABX19vdmVycmlkZXNfXwAAAAAA
+AAMAAAAWAAAAC96tvu9jbG9jay1mcmVxdWVuY3k6MAAAAAAAAAMAAAAWAAAAGd6tvu9jbG9jay1m
+cmVxdWVuY3k6MAAAAAAAAAIAAAABX19maXh1cHNfXwAAAAAAAwAAAB8AAAAnL19fb3ZlcnJpZGVz
+X186aTJjMF9iYXVkcmF0ZTowAAAAAAADAAAAHwAAACwvX19vdmVycmlkZXNfXzppMmMxX2JhdWRy
+YXRlOjAAAAAAAAIAAAACAAAACWNvbXBhdGlibGUAaTJjMF9iYXVkcmF0ZQBpMmMxX2JhdWRyYXRl
+AGkyYzAAaTJjMQA=
+</code></pre></div>
+Make sure the file is in the current directory on your Pi, then type:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>base64 -d i2c-baudrate-overlay.b64 &gt; i2c-baudrate-overlay.dtb
+sudo cp i2c-baudrate-overlay.dtb /boot/overlays/
+</code></pre></div>
+This overlay creates the following parameters:<br>
+* i2c0_baudrate<br>
+* i2c1_baudrate<br>
+Then you can add this to your config.txt:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>dtoverlay=i2c-baudrate,i2c1_baudrate=4000
+</code></pre></div>
+Once the update rolls out, you'll be able to replace that with:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>dtparam=i2c1_baudrate=4000
+</code></pre></div>
+In fact, if you prefer you could use this format instead:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code># Comment out or delete the next line when the base DTBs are fixed
+dtoverlay=i2c-baudrate
+dtparam=i2c1_baudrate=4000
+</code></pre></div>
+A future firmware release will add some board-specific aliases for these: i2c/i2c_arm and i2c_vc.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p683287" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile683287">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content683287">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p683287">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=683287&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=683287&amp;sid=774ff5221d6731450d61158da4c71268#p683287">Tue Feb 03, 2015 10:54 am</a> </p>
+
+					
+					
+					
+					<div class="content">For the curious, the source for the overlay looks like this:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>// Definitions for the missing i2c baudrate parameters
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2708";
+
+	__overrides__ {
+		i2c0_baudrate = &lt;&amp;i2c0&gt;,"clock-frequency:0";
+		i2c1_baudrate = &lt;&amp;i2c1&gt;,"clock-frequency:0";
+	};
+};
+</code></pre></div>
+and it can be compiled by the dtc command you get by building the latest Pi kernels, like this:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>dtc -@ -I dts O dtb -o i2c-baudrate-overlay.dtb i2c-baudrate-overlay.dts</code></pre></div>
+where the .dts file is the input and the .dtb file is the output.<br>
+<br>
+The strange "&lt;&amp;i2c1&gt;" syntax is a reference to a label, in this case the label on the DT node describing the i2c1 controller. The string that follows it identifies a property of that node ("clock-frequency") and the ":0" means that it is an integer parameter at offset 0 bytes into the property.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p683796" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile683796">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=133411&amp;sid=774ff5221d6731450d61158da4c71268" class="username">jpsa</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=133411&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">12</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Wed Feb 04, 2015 8:22 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content683796">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p683796">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=683796&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=683796&amp;sid=774ff5221d6731450d61158da4c71268#p683796">Wed Feb 04, 2015 8:49 am</a> </p>
+
+					
+					
+					
+					<div class="content">I did an apt-get upgrade (*not* an rpi-update) yesterday, and found that me 1-wire temperature probe had stopped working. After quite a bit of Googling, I fixed it by adding<br>
+<br>
+# 1-wire settings<br>
+dtoverlay=w1-gpio,gpiopin=4<br>
+<br>
+to the end of my /boot/config.txt. I'm puzzled, though, that the advice given in the first post of this sticky recommends use of<br>
+<br>
+dtoverlay=w1-gpio-pullup ...<br>
+<br>
+even if you don't need a separate pullup pin: this also seems to conflict with the README in the second post. Is this a typo?</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p683831" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile683831">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content683831">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p683831">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=683831&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=683831&amp;sid=774ff5221d6731450d61158da4c71268#p683831">Wed Feb 04, 2015 9:22 am</a> </p>
+
+					
+					
+					
+					<div class="content">Yes, that's a cut-and-paste error (now fixed).<br>
+<br>
+Thanks.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p684151" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile684151">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content684151">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p684151">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=684151&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=684151&amp;sid=774ff5221d6731450d61158da4c71268#p684151">Wed Feb 04, 2015 1:33 pm</a> </p>
+
+					
+					
+					
+					<div class="content">I've updated the README (2nd post in this thread) to reflect the w1-gpio changes. The next release will support the following overlays and parameters:
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>File:   w1-gpio-overlay.dtb
+Info:   Configures the w1-gpio Onewire interface module.
+        Use this overlay if you *don't* need a pin to drive an external pullup.
+Load:   dtoverlay=w1-gpio,&lt;param&gt;=&lt;val&gt;
+Params: gpiopin                  GPIO pin for I/O (default "4")
+
+        pullup                   Non-zero, "on", or "y" to enable the parasitic
+                                 power (2-wire, power-on-data) feature
+
+
+File:   w1-gpio-pullup-overlay.dtb
+Info:   Configures the w1-gpio Onewire interface module.
+        Use this overlay if you *do* need a pin to drive an external pullup.
+Load:   dtoverlay=w1-gpio-pullup,&lt;param&gt;=&lt;val&gt;,...
+Params: gpiopin                  GPIO pin for I/O (default "4")
+
+        pullup                   Non-zero, "on", or "y" to enable the parasitic
+                                 power (2-wire, power-on-data) feature
+
+        extpullup                GPIO pin for external pullup (default "5")
+</code></pre></div>
+
+This update separates the external pullup enable pin ("extpullup") and the parasitic power ("pullup") features of the driver, which had become conflated. But the most significant change is the fix to the pinctrl driver that makes it all work with Device Tree.<br>
+<br>
+There is likely to be an rpi-update release later today.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p684166" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile684166">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=35411&amp;sid=774ff5221d6731450d61158da4c71268" class="username">GMan2XS</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=35411&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">7</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Tue Sep 18, 2012 3:44 pm</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content684166">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p684166">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=684166&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=684166&amp;sid=774ff5221d6731450d61158da4c71268#p684166">Wed Feb 04, 2015 1:49 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Thank you so much for this thread. <br>
+<br>
+I have several Pis &amp; a couple of NAS drives on my home network. The existing Pis each have a cron job on them to backup important stuff to one of the NAS drives. Yesterday I was setting up my new Pi2 and having installed autofs &amp; configured it I tried to setup the backup job on the Pi2. It failed to connect to my normal backup drive, but would connect to the other NAS. I then discovered that one of my other Pis on which I had recently done an apt-get update/upgrade had the same problem.<br>
+<br>
+After reading this thread I downgraded the kernel on the Pi (not the Pi2) and the problem is gone from the Pi.<br>
+<br>
+Then a bit later I got a PM from jpsa telling me about this thread <a href="http://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=98524" class="postlink">http://www.raspberrypi.org/forums/viewt ... 28&amp;t=98524</a><br>
+<br>
+I tried it on the Pi2 and it works.<br>
+<br>
+Gotta love this forum =;-)</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p685735" class="post has-profile bg1">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile685735">
+					<dt class="has-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=121689&amp;sid=774ff5221d6731450d61158da4c71268" style="color: #00AA00;" class="username-coloured">PhilE</a>
+						
+					</dt>
+
+					
+					<dd class="profile-rank">Raspberry Pi Engineer &amp; Forum Moderator<br><img src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/engineer.png" alt="Raspberry Pi Engineer &amp; Forum Moderator" title="Raspberry Pi Engineer &amp; Forum Moderator"></dd>
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=121689&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">1422</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Mon Sep 29, 2014 1:07 pm</dd>				
+				
+																			<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cambridge</dd>
+													
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content685735">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p685735">Re: Breakage after rpi-update? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=685735&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=685735&amp;sid=774ff5221d6731450d61158da4c71268#p685735">Thu Feb 05, 2015 5:35 pm</a> </p>
+
+					
+					
+					
+					<div class="content">The w1-gpio/DT issues should now have been resolved, provided you rpi-update; it will take a bit longer to hit a Raspbian image. Shout if you still have problems.</div>
+
+					
+															
+															
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+														<div id="p689560" class="post has-profile bg2">
+				<div class="inner">
+
+				<dl class="postprofile" id="profile689560">
+					<dt class="no-profile-rank no-avatar">
+						<div class="avatar-container">
+																											</div>
+
+						
+						<a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=30400&amp;sid=774ff5221d6731450d61158da4c71268" class="username">msmithy12</a>
+						
+					</dt>
+
+					
+					
+					
+				<dd class="profile-posts"><strong>Posts:</strong> <a href="https://www.raspberrypi.org/forums/search.php?author_id=30400&amp;sr=posts&amp;sid=774ff5221d6731450d61158da4c71268">94</a></dd>				<dd class="profile-joined"><strong>Joined:</strong> Fri Aug 10, 2012 8:57 am</dd>				
+				
+												
+												
+				</dl>
+
+				<div class="postbody">
+										<div id="post_content689560">
+					
+					<h3><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#p689560">Re: I2C, SPI, I2S, LIRC, PPS, stopped working? Read this.</a></h3>
+
+				
+				
+															<ul class="posts-buttons">
+																																																									<li>
+									<a href="https://www.raspberrypi.org/forums/posting.php?mode=quote&amp;f=28&amp;p=689560&amp;sid=774ff5221d6731450d61158da4c71268" title="Reply with quote"><i class="fa fa-quote-left"></i><span>Quote</span></a>
+								</li>
+																				</ul>
+									
+				
+					
+					<p class="author"><a href="https://www.raspberrypi.org/forums/viewtopic.php?p=689560&amp;sid=774ff5221d6731450d61158da4c71268#p689560">Mon Feb 09, 2015 1:19 pm</a> </p>
+
+					
+					
+					
+					<div class="content">Hi, so Ive been using the spi.h include in my software as shown here<br>
+<a href="http://www.raspberry-projects.com/pi/programming-in-c/spi/using-the-spi-interface" class="postlink">http://www.raspberry-projects.com/pi/pr ... -interface</a><br>
+<br>
+and since doing the updates my SpiWriteAndRead() has been throwing up the following error<br>
+
+<div class="codebox"><p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>Error - Problem transmitting spi data..ioctl: invalid argument</code></pre></div>
+
+I am aware this cause by retVal being less than 0, but I can not seem to rectify the issue. <br>
+<br>
+Any ideas<br>
+Thanks<br>
+Matt</div>
+
+					
+															
+															<div id="sig689560" class="signature">I assume I know what I`m talking about... I probably don`t<br>
+<br>
+Home: 256mb Made in UK, Rasbmc, 40" Sony Bravia KDL-40v3000<br>
+Work: 2b+, Rasbian, 6" Lilliput touchscreen</div>
+										</div>
+
+				</div>
+
+				</div>
+											</div>
+
+			<hr class="divider">
+					
+		
+					<form id="viewtopic" method="post" action="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268">
+			<fieldset class="display-options" style="margin-top: 0; ">
+								<label>Display posts from previous:<select name="st" id="st" style="display: none;"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: auto;" title="" id="st_chosen"><a class="chosen-single" tabindex="-1"><span>All posts</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div></label><label>Sort by<select name="sk" id="sk" style="display: none;"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: auto;" title="" id="sk_chosen"><a class="chosen-single" tabindex="-1"><span>Post time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div></label><label><select name="sd" id="sd" style="display: none;"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: auto;" title="" id="sd_chosen"><a class="chosen-single" tabindex="-1"><span>Ascending</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div></label><input type="submit" name="sort" value="Go" class="button2">
+							</fieldset>
+			</form>
+		
+				<div class="action-bar bottom">
+			<div class="buttons">
+				
+							<a href="https://www.raspberrypi.org/forums/posting.php?mode=reply&amp;f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268" class="button font-icon" title="Post a reply">
+					<i class="fa fa-reply"></i>Post Reply				</a>
+			
+							</div>
+
+				<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button icon-button tools-icon dropdown-trigger dropdown-select dropdown-toggle"><i class="fa fa-wrench"></i></span>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																								<li class="font-icon icon-print"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;view=print" title="Print view" accesskey="p"><i class="fa fa-print"></i>Print view</a></li>							</ul>
+		</div>
+	</div>
+
+			
+			
+							<div class="pagination">
+					331 posts
+											<ul>
+	<li class="dropdown-container dropdown-button-control dropdown-page-jump page-jump">
+		<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" class="dropdown-trigger dropdown-toggle" title="Click to jump to page…" role="button">Page <strong>1</strong> of <strong>14</strong></a>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+				<li>Jump to page:</li>
+				<li class="page-jump-form">
+					<input type="number" name="page-number" min="1" max="999999" title="Enter the page number you wish to go to" class="inputbox tiny" data-per-page="25" data-base-url="./viewtopic.php?f=28&amp;amp;t=97314&amp;amp;sid=774ff5221d6731450d61158da4c71268" data-start-name="start">
+					<input class="button2" value="Go" type="button">
+				</li>
+			</ul>
+		</div>
+	</li><li class="active"><span>1</span></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=25" role="button">2</a></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=50" role="button">3</a></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=75" role="button">4</a></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=100" role="button">5</a></li><li class="ellipsis" role="separator"><span>…</span></li><li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=325" role="button">14</a></li><li class="next"><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=97314&amp;sid=774ff5221d6731450d61158da4c71268&amp;start=25" rel="next" role="button"><i class="fa fa-chevron-right"></i></a></li></ul>
+									</div>
+						<div class="clear"></div>
+		</div>
+
+				
+	<p class="jumpbox-return"><a href="https://www.raspberrypi.org/forums/viewforum.php?f=28&amp;sid=774ff5221d6731450d61158da4c71268" class="left-box arrow-left" accesskey="r">Return to “Troubleshooting”</a></p>
+
+	<div class="dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+		<span title="Jump to" class="dropdown-trigger button dropdown-select dropdown-toggle">
+			Jump to		</span>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																			<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=19&amp;sid=774ff5221d6731450d61158da4c71268">Community</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=63&amp;sid=774ff5221d6731450d61158da4c71268">General discussion</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=90&amp;sid=774ff5221d6731450d61158da4c71268">Other languages</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=75&amp;sid=774ff5221d6731450d61158da4c71268">Deutsch</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=76&amp;sid=774ff5221d6731450d61158da4c71268">Español</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=65&amp;sid=774ff5221d6731450d61158da4c71268">Français</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=79&amp;sid=774ff5221d6731450d61158da4c71268">Italiano</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=88&amp;sid=774ff5221d6731450d61158da4c71268">Nederlands</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=82&amp;sid=774ff5221d6731450d61158da4c71268">日本語</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=103&amp;sid=774ff5221d6731450d61158da4c71268">Polski</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=74&amp;sid=774ff5221d6731450d61158da4c71268">Português</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=84&amp;sid=774ff5221d6731450d61158da4c71268">Русский</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=89&amp;sid=774ff5221d6731450d61158da4c71268">Türkçe</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=57&amp;sid=774ff5221d6731450d61158da4c71268">User groups and events</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=106&amp;sid=774ff5221d6731450d61158da4c71268">The MagPi</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=83&amp;sid=774ff5221d6731450d61158da4c71268">The Pi Store</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=12&amp;sid=774ff5221d6731450d61158da4c71268">Using the Raspberry Pi</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=91&amp;sid=774ff5221d6731450d61158da4c71268">Beginners</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=28&amp;sid=774ff5221d6731450d61158da4c71268">Troubleshooting</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=29&amp;sid=774ff5221d6731450d61158da4c71268">Advanced users</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=102&amp;sid=774ff5221d6731450d61158da4c71268">Assistive technology and accessibility</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=17&amp;sid=774ff5221d6731450d61158da4c71268">Education</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=47&amp;sid=774ff5221d6731450d61158da4c71268">The Staffroom</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=99&amp;sid=774ff5221d6731450d61158da4c71268">Picademy</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=49&amp;sid=774ff5221d6731450d61158da4c71268">Teaching and learning resources</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=113&amp;sid=774ff5221d6731450d61158da4c71268">Code Club</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=48&amp;sid=774ff5221d6731450d61158da4c71268">Using Raspberry Pi in the classroom</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=104&amp;sid=774ff5221d6731450d61158da4c71268">Astro Pi</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=94&amp;sid=774ff5221d6731450d61158da4c71268">Mathematica</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=111&amp;sid=774ff5221d6731450d61158da4c71268">High Altitude Balloon</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=112&amp;sid=774ff5221d6731450d61158da4c71268">Weather station</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=14&amp;sid=774ff5221d6731450d61158da4c71268">Programming</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=72&amp;sid=774ff5221d6731450d61158da4c71268">Bare metal</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=33&amp;sid=774ff5221d6731450d61158da4c71268">C/C++</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=67&amp;sid=774ff5221d6731450d61158da4c71268">Graphics programming</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=68&amp;sid=774ff5221d6731450d61158da4c71268">OpenGLES</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=69&amp;sid=774ff5221d6731450d61158da4c71268">OpenVG</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=70&amp;sid=774ff5221d6731450d61158da4c71268">OpenMAX</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=81&amp;sid=774ff5221d6731450d61158da4c71268">Java</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=32&amp;sid=774ff5221d6731450d61158da4c71268">Python</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=77&amp;sid=774ff5221d6731450d61158da4c71268">Scratch</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=105&amp;sid=774ff5221d6731450d61158da4c71268">Windows 10 for IoT</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=95&amp;sid=774ff5221d6731450d61158da4c71268">Wolfram Language</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=34&amp;sid=774ff5221d6731450d61158da4c71268">Other languages</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=31&amp;sid=774ff5221d6731450d61158da4c71268">General programming discussion</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=15&amp;sid=774ff5221d6731450d61158da4c71268">Projects</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=37&amp;sid=774ff5221d6731450d61158da4c71268">Automation, sensing and robotics</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=40&amp;sid=774ff5221d6731450d61158da4c71268">Cases</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=78&amp;sid=774ff5221d6731450d61158da4c71268">Gaming</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=38&amp;sid=774ff5221d6731450d61158da4c71268">Graphics, sound and multimedia</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=39&amp;sid=774ff5221d6731450d61158da4c71268">Magazines and books</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=35&amp;sid=774ff5221d6731450d61158da4c71268">Media centres</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=36&amp;sid=774ff5221d6731450d61158da4c71268">Networking and servers</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=41&amp;sid=774ff5221d6731450d61158da4c71268">Other projects</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=16&amp;sid=774ff5221d6731450d61158da4c71268">Hardware and peripherals</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=43&amp;sid=774ff5221d6731450d61158da4c71268">Camera board</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=98&amp;sid=774ff5221d6731450d61158da4c71268">Compute Module</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=108&amp;sid=774ff5221d6731450d61158da4c71268">Official Foundation Display</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=45&amp;sid=774ff5221d6731450d61158da4c71268">Add-ons</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=100&amp;sid=774ff5221d6731450d61158da4c71268">B+ addons</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=107&amp;sid=774ff5221d6731450d61158da4c71268">Device Tree</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=44&amp;sid=774ff5221d6731450d61158da4c71268">Interfacing (DSI, CSI, I2C, etc.)</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=42&amp;sid=774ff5221d6731450d61158da4c71268">Gertboard classic</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=96&amp;sid=774ff5221d6731450d61158da4c71268">GertDuino</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=46&amp;sid=774ff5221d6731450d61158da4c71268">Recommended peripherals</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=114&amp;sid=774ff5221d6731450d61158da4c71268">AIY Projects</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=18&amp;sid=774ff5221d6731450d61158da4c71268">Operating system distributions</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=66&amp;sid=774ff5221d6731450d61158da4c71268">Raspbian</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=53&amp;sid=774ff5221d6731450d61158da4c71268">Arch</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=51&amp;sid=774ff5221d6731450d61158da4c71268">Pidora / Fedora</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=55&amp;sid=774ff5221d6731450d61158da4c71268">RISCOS</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=56&amp;sid=774ff5221d6731450d61158da4c71268">Other</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=73&amp;sid=774ff5221d6731450d61158da4c71268">Android</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=50&amp;sid=774ff5221d6731450d61158da4c71268">Debian</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=85&amp;sid=774ff5221d6731450d61158da4c71268">FreeBSD</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=54&amp;sid=774ff5221d6731450d61158da4c71268">Gentoo</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=71&amp;sid=774ff5221d6731450d61158da4c71268">Linux Kernel</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=86&amp;sid=774ff5221d6731450d61158da4c71268">NetBSD</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=87&amp;sid=774ff5221d6731450d61158da4c71268">openSUSE</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=80&amp;sid=774ff5221d6731450d61158da4c71268">Plan 9</a></li>
+																<li>&nbsp; &nbsp;&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=52&amp;sid=774ff5221d6731450d61158da4c71268">Puppy</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=116&amp;sid=774ff5221d6731450d61158da4c71268">Raspberry Pi Desktop for PC and Mac</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=20&amp;sid=774ff5221d6731450d61158da4c71268">Ye Olde Pi Shoppe</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=93&amp;sid=774ff5221d6731450d61158da4c71268">For sale</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=61&amp;sid=774ff5221d6731450d61158da4c71268">Wanted</a></li>
+																<li><a href="https://www.raspberrypi.org/forums/viewforum.php?f=21&amp;sid=774ff5221d6731450d61158da4c71268">Off topic</a></li>
+																<li>&nbsp; &nbsp;<a href="https://www.raspberrypi.org/forums/viewforum.php?f=62&amp;sid=774ff5221d6731450d61158da4c71268">Off topic discussion</a></li>
+										</ul>
+		</div>
+	</div>
+
+					<div class="stat-block online-list">
+				<h3>Who is online</h3>
+				<p>Users browsing this forum: <a href="https://www.raspberrypi.org/forums/memberlist.php?mode=viewprofile&amp;u=32633&amp;sid=774ff5221d6731450d61158da4c71268" class="username">MaxK1</a> and 36 guests</p>
+			</div>
+		
+	</div>
+</div>
+
+		
+	
+	<div id="wrap-footer">
+		<div id="site-footer-nav" role="navigation">
+			<div class="chunk">
+				<ul class="site-footer-nav" role="menubar">
+					<li class="small-icon icon-home breadcrumbs">
+																		<span class="crumb"><a href="https://www.raspberrypi.org/forums/index.php?sid=774ff5221d6731450d61158da4c71268" data-navbar-reference="index" title="Board index">Board index</a></span>
+											</li>
+					
+										<li class="rightside">All times are <span title="UTC">UTC</span></li>
+																<li class="small-icon icon-delete-cookies rightside"><a href="https://www.raspberrypi.org/forums/ucp.php?mode=delete_cookies&amp;sid=774ff5221d6731450d61158da4c71268" data-ajax="true" data-refresh="true" role="menuitem">Delete all board cookies</a></li>
+															</ul>
+			</div>
+		</div>
+
+		<div id="site-footer">
+			<div class="chunk">
+				<p>Raspberry Pi Foundation, UK Registered Charity 1129409</p>
+							</div>
+		</div>
+
+		<div id="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+			<div id="darken">&nbsp;</div>
+		</div>
+
+		<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+			<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" class="alert_close"></a>
+			<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+		</div>
+		<div id="phpbb_confirm" class="phpbb_alert">
+			<a href="https://www.raspberrypi.org/forums/viewtopic.php?p=675658#" class="alert_close"></a>
+			<div class="alert_text"></div>
+		</div>
+
+		<div style="display: none;">
+			<a id="bottom" class="anchor" accesskey="z"></a>
+					</div>
+</div>
+
+<script async="" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/analytics.js.download"></script><script type="text/javascript" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/jquery.min.js.download"></script>
+<script type="text/javascript" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/core.js.download"></script>
+<script type="text/javascript" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/js.cookie.js.download"></script>
+<script type="text/javascript" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/forum_fn.js.download"></script>
+<script type="text/javascript" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/ajax.js.download"></script>
+<script type="text/javascript" src="./STICKY_I2C, SPI, I2S, LIRC, PPS, stopped working_ Read this. - Raspberry Pi Forums_files/chosen.jquery.min.js.download"></script>
+
+
+<script>
+	$(function() {
+		$("#st, #sd, #sk, #ch").chosen({
+			disable_search: true,
+			width: "auto"
+		});
+	});
+</script>
+
+<script>
+	// $(function() {
+	//
+	// 	var sidebarRecentPostDiv = document.getElementById("sidebar-recent-posts");
+	//
+	// 	$.get('/forums/app.php/feed?sid=774ff5221d6731450d61158da4c71268', function (data) {
+	// 		$(data).find("entry").each(function (i) {
+	// 			var el = $(this);
+	// 			var entryWrap = document.createElement("div");
+	//
+	// 			var entryTitle = document.createElement("a");
+	// 			var entryAuthor = document.createElement("span");
+	// 			var entryContent = document.createElement("span");
+	//
+	// 			entryTitle.className = ("sidebar-recent-title");
+	// 			entryAuthor.className = ("sidebar-recent-author");
+	// 			entryContent.className = ("sidebar-recent-content");
+	//
+	// 			function cutText(name) {
+	// 				var elementText = el.find(name).text();
+	//
+	// 				if (name == "title") {
+	// 					elementText = elementText.substring(elementText.indexOf("•") + 2);
+	// 				} else if (name == "content") {
+	// 					elementText = elementText.replace(/(<([^>]+)>)/ig,"");
+	// 				}
+	//
+	// 				if (elementText.length > 50) {
+	// 					return elementText.substr(0, 50);
+	// 				} else {
+	// 					return elementText;
+	// 				};
+	// 			};
+	//
+	// 			entryTitle.textContent = cutText("title");
+	// 			entryAuthor.textContent = "by " + cutText("author");
+	// 			entryContent.textContent = cutText("content");
+	// 			entryURL = el.find("id").text();
+	//
+	// 			$(entryTitle).attr("href", entryURL);
+	//
+	// 			entryWrap.appendChild(entryTitle);
+	// 			entryWrap.appendChild(entryAuthor);
+	// 			entryWrap.appendChild(entryContent);
+	//
+	// 			sidebarRecentPostDiv.appendChild(entryWrap);
+	//
+	// 			if (++i >= 5) {
+	// 				return false;
+	// 			}
+	// 		});
+	// 	});
+	//
+	// });
+</script>
+
+
+
+
+
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46270871-9', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body></html>

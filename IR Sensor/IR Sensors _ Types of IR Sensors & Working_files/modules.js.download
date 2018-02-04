@@ -1,0 +1,176 @@
+
+
+temple.modules.CreateJSModule = ( function( _super ) {
+
+	__extends(CreateJSModule, _super);
+	
+	function CreateJSModule() {
+		this.version = '1.2';
+		this.canvas = typeof(arguments[0].canvas) == 'string' ? document.querySelector(arguments[0].canvas) || document.getElementById(arguments[0].canvas) : arguments[0].canvas;
+		this.libs = arguments[0].lib || ['lib'];
+		this.lib = arguments[0].lib || ['lib'];
+		this.src = arguments[0].src;
+		if (!this.canvas || !this.src) {
+			console.error('CreateJSModule needs a canvas element and a library source path. {canvas:".canvas", src:"js/export.js"}');
+			return;	
+		}
+		this.fps = arguments[0].fps;
+		this.spriteimage = arguments[0].spriteimage;
+		this.manifest = arguments[0].manifest || [];
+		this.main = !arguments[0].child;
+		this.child = arguments[0].child;
+		this.size = arguments[0].size;
+		this.childControl = [];
+
+		if (typeof(this.src) == 'string') this.src = [this.src];
+		if (typeof(this.lib) == 'string') this.lib = [this.lib];
+		if (typeof(this.spritesheet) == 'string') this.spritesheet = [this.spritesheet];
+		if (typeof(this.spriteimage) == 'string') this.spriteimage = [this.spriteimage];
+
+		if (typeof createjs == "undefined") {
+			this.getCreateJS();
+		} else {
+			this.initCreateJSModule();			
+		}
+	}
+	
+	CreateJSModule.prototype.getCreateJS = function() {
+		var cjs = 'https://s0.2mdn.net/ads/studio/cached_libs/createjs_2015.11.26_54e1c3722102182bb133912ad4442e19_min.js';
+		temple.utils.loadScript(cjs, this.initCreateJSModule.bind(this));
+	}
+	
+	CreateJSModule.prototype.initCreateJSModule = function() {
+		if (!this.src) {
+			this.handleComplete();
+			return;
+		}
+
+		var srcs = [];
+		this.ids = [];
+		
+		for (var i = 0; i < this.src.length; i++) {
+			srcs[i] = this.src[i];
+			this.ids[i] = this.src[i].replace('.js', '').split('/');
+			this.ids[i] = this.ids[i][this.ids[i].length - 1];
+		}
+
+		temple.utils.loadScript(srcs, this.initCreateJS.bind(this));
+	}
+
+	CreateJSModule.prototype.initCreateJS = function() {
+		var temp = [];
+
+		for (i = 0; i < this.lib.length; i++) {
+			temp[i] = window[this.lib[i]];
+			
+			var id = temp[i].ssMetadata[0] ? temp[i].ssMetadata[0].name.replace('_atlas_', '') : this.ids[i];
+			temp[i]._root = temp[i]['_' + id] || temp[i][id];
+		}
+		
+		this.lib = temp;
+
+		if (this.spriteimage) {
+			this.spriteimage.forEach(function() {
+				this.lib[arguments[1]].properties.manifest[0].src = arguments[0] + "?" + new Date().getTime();
+			}.bind(this));
+		}
+
+		var loader = new createjs.LoadQueue(false);
+		loader.addEventListener('fileload', this.handleFileLoad);
+		loader.addEventListener('complete', this.handleComplete.bind(this));
+
+		for (i = 0; i < this.lib.length; i++) {
+			this.lib[i].properties.manifest.forEach(function() {
+				arguments[0].lib = this.libs[i];
+			}.bind(this));
+			this.manifest = this.manifest.concat(this.lib[i].properties.manifest);
+		}
+
+		if (!this.manifest.length) {
+			this.handleComplete();
+			return;
+		}
+
+		loader.loadManifest(this.manifest);
+	}
+	
+	CreateJSModule.prototype.handleFileLoad = function(e) {
+		if (e.item.type == 'image') { images[e.item.id] = e.result; }
+	}
+	
+	CreateJSModule.prototype.handleComplete = function(e) {
+		if (e) {
+			var queue = e.target;
+			for (i = 0; i < this.lib.length; i++) {
+				for(t = 0; t < this.lib[i].ssMetadata.length; t++) {
+					s = this.lib[i].ssMetadata[t];
+					ss[s.name] = new createjs.SpriteSheet( {'images': [queue.getResult(s.name)], 'frames': s.frames} );
+				}
+			}				
+		}
+
+		this.stage = new createjs.Stage(this.canvas);
+		this.container = new createjs.Container();
+		this.stage.addChild(this.container);
+
+		if (this.size) {
+			this.canvas.setAttribute('width', this.size.width);
+			this.canvas.setAttribute('height', this.size.height);
+		} else {
+			this.canvas.setAttribute('width', this.lib[0].properties.width);
+			this.canvas.setAttribute('height', this.lib[0].properties.height);
+		}
+		
+		var r = this.canvas.getBoundingClientRect();
+		this.canvas.style.width = r.width + 'px';
+		this.canvas.style.height = r.height + 'px';
+		this.canvas.width = r.width * window.devicePixelRatio; 
+		this.canvas.height = r.height * window.devicePixelRatio; 
+		this.canvas.getContext('2d').scale(window.devicePixelRatio, window.devicePixelRatio);
+		this.container.scaleX = window.devicePixelRatio;
+		this.container.scaleY = window.devicePixelRatio;
+
+		createjs.Ticker.setFPS(this.fps || this.lib[0].properties.fps);
+
+		this.isReady();
+	}
+	
+	CreateJSModule.prototype.addChild = function(child) {
+		this.container.addChild(child);
+		this.update();
+	}
+	
+	CreateJSModule.prototype.removeChild = function(child) {
+		this.container.removeChild(child);
+		this.update();
+	}
+	
+	CreateJSModule.prototype.setChild = function(child) {
+		this.childControl.push(child);
+	}
+	
+	CreateJSModule.prototype.start = function(e) {
+		createjs.Ticker.addEventListener('tick', this.update.bind(this));
+	}	
+	
+	CreateJSModule.prototype.stop = function(e) {
+		createjs.Ticker.removeAllEventListeners('tick');
+	}
+	
+	CreateJSModule.prototype.update = function(e) {
+		if (this.main && this.childControl.length) {
+			for (var i = 0; i < this.childControl.length; i++) {
+				this.childControl[i].stage.update();
+			}
+		}
+
+		if (!this.child) {
+			this.stage.update();
+		}
+	}
+
+	return CreateJSModule;
+	
+})( temple.core.EventDispatcher );
+
+temple.CreateJSModule = temple.modules.CreateJSModule;

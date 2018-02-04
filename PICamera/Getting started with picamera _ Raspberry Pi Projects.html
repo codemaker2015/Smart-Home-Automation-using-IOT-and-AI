@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://projects.raspberrypi.org/en/projects/getting-started-with-picamera -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://projects.raspberrypi.org/favicon.ico"><script type="text/javascript" src="./Getting started with picamera _ Raspberry Pi Projects_files/58581d3af9"></script><script src="./Getting started with picamera _ Raspberry Pi Projects_files/nr-1039.min.js.download"></script><script>addEventListener("error",window.__e=function e(n){(e.q=e.q||[]).push(n)})</script><script async="" src="./Getting started with picamera _ Raspberry Pi Projects_files/analytics.js.download"></script><script async="" src="./Getting started with picamera _ Raspberry Pi Projects_files/scratchblocks-v3.1-min.js.download"></script><script>window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){return r(t[e][1][n]||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(t){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(t){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){var r=t("handle"),o=t(16),i=t("ee"),a=t("loader"),s=window.onerror,c=!1,f=0;a.features.err=!0,t(1),window.onerror=function(t,n,e,i,c){try{f?f-=1:r("err",[c||new function(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}(t,n,e)])}catch(t){try{r("ierr",[t,a.now(),!0])}catch(t){}}return"function"==typeof s&&s.apply(this,o(arguments))};try{throw new Error}catch(n){"stack"in n&&(t(8),t(7),"addEventListener"in window&&t(5),a.xhrWrappable&&t(9),c=!0)}i.on("fn-start",function(t,n,e){c&&(f+=1)}),i.on("fn-err",function(t,n,e){c&&(this.thrown=!0,function(t){r("err",[t,a.now()])}(e))}),i.on("fn-end",function(){c&&!this.thrown&&f>0&&(f-=1)}),i.on("internal-error",function(t){r("ierr",[t,a.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){t[0]instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){var t={object:function(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)},function:e}[typeof e];return t?s(t,"fn-",null,t.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){var r=t("ee").get("timer"),o=t(18)(r),i="setTimeout",a="setInterval",s="clearTimeout",c="-start";n.exports=r,o.inPlace(window,[i,"setImmediate"],i+"-"),o.inPlace(window,[a],a+"-"),o.inPlace(window,[s,"clearImmediate"],s+"-"),r.on(a+c,function(t,n,e){t[0]=o(t[0],"fn-",null,e)}),r.on(i+c,function(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=o(t[0],"fn-",this,e)})},{}],9:[function(t,n,e){function r(t,n){f.inPlace(n,["onreadystatechange"],"fn-",a)}function o(){var t=this,n=c.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,c.emit("xhr-resolved",[],t)),f.inPlace(t,w,"fn-",a)}function i(){for(var t=0;t<v.length;t++)r(0,v[t]);v.length&&(v=[])}function a(t,n){return n}t(5);var s=t("ee"),c=s.get("xhr"),f=t(18)(c),u=NREUM.o,d=u.XHR,l=u.MO,p=u.PR,h=u.SI,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=c;var y=window.XMLHttpRequest=function(t){var n=new d(t);try{c.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(t){try{c.emit("internal-error",[t])}catch(t){}}return n};if(function(t,n){for(var e in t)n[e]=t[e]}(d,y),y.prototype=d.prototype,f.inPlace(y.prototype,["open","send"],"-xhr-",a),c.on("send-xhr-start",function(t,n){r(0,n),function(t){v.push(t),l&&(g?g.then(i):h?h(i):(b=-b,x.data=b))}(n)}),c.on("open-xhr-start",r),l){var g=p&&p.resolve();if(!h&&!p){var b=1,x=document.createTextNode(b);new l(i).observe(x,{characterData:!0})}}else s.on("fn-end",function(t){t[0]&&t[0].type===m||i()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<f;r++)t.removeEventListener(c[r],this.listener,!1);if(!n.aborted){if(e.duration=o.now()-this.startTime,4===t.readyState){n.status=t.status;var a=function(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return l(r)}(t,this.lastSize);if(a&&(e.rxSize=a),this.sameOrigin){var u=t.getResponseHeader("X-NewRelic-App-Data");u&&(n.cat=u.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,s.emit("xhr-done",[t],t),i("xhr",[n,e,this.startTime])}}}var o=t("loader");if(o.xhrWrappable){var i=t("handle"),a=t(11),s=t("ee"),c=["load","error","abort","timeout"],f=c.length,u=t("id"),d=t(14),l=t(13),p=window.XMLHttpRequest;o.features.xhr=!0,t(9),s.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,d&&(d>34||d<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),s.on("open-xhr-start",function(t){this.params={method:t[0]},function(t,n){var e=a(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}(this,t[1]),this.metrics={}}),s.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),s.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],i=this;if(e&&r){var a=l(r);a&&(e.txSize=a)}this.startTime=o.now(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(t){try{s.emit("internal-error",[t])}catch(t){}}};for(var u=0;u<f;u++)n.addEventListener(c[u],this.listener,!1)}),s.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),s.on("xhr-load-added",function(t,n){var e=""+u(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),s.on("xhr-load-removed",function(t,n){var e=""+u(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),s.on("addEventListener-end",function(t,n){n instanceof p&&"load"===t[0]&&s.emit("xhr-load-added",[t[1],t[2]],n)}),s.on("removeEventListener-end",function(t,n){n instanceof p&&"load"===t[0]&&s.emit("xhr-load-removed",[t[1],t[2]],n)}),s.on("fn-start",function(t,n,e){n instanceof p&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=o.now()))}),s.on("fn-end",function(t,n){this.xhrCbStart&&s.emit("xhr-cb-time",[o.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;void 0===window.newrelic&&(newrelic=u);var d="api-",l=d+"ixn-";a(["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],function(t,n){u[n]=o(d+n,!0,"api")}),u.addPageAction=o(d+"addPageAction",!0),u.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(l+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){p[n]=o(l+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(t){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){var r=Object.prototype.hasOwnProperty;n.exports=function(t,n){var e=[],o="",i=0;for(o in t)r.call(t,o)&&(e[i]=n(o,t[o]),i+=1);return e}},{}],16:[function(t,n,e){n.exports=function(t,n,e){n||(n=0),void 0===e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}},{}],17:[function(t,n,e){n.exports={exists:void 0!==window.performance&&window.performance.timing&&void 0!==window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function c(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(t){u([t,"",[r,a,o],s])}f(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(t){throw f(n+"err",[r,a,t],s),t}finally{f(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),c[a]=t,function(t,n){if(Object.defineProperty&&Object.keys)try{return Object.keys(t).forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(t){u([t])}for(var e in t)s.call(t,e)&&(n[e]=t[e])}(t,c),c)}function f(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(t){u([t,e,r,o])}c=i}}function u(n){try{t.emit("internal-error",n)}catch(t){}}return t||(t=o),e.inPlace=function(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))},e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=p(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[m[e]];return d&&d.push([w,e,r,a]),a}}function p(t){return h[t]||[]}var h={},m={},w={on:function(t,n){h[t]=p(t).concat(n)},emit:e,get:function(t){return d[t]=d[t]||o(e)},listeners:p,context:n,buffer:function(t,n){f(t,function(t,e){n=n||"feature",m[e]=n,n in u||(u[n]=[])})},abort:a,aborted:!1};return w}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){var r=Object.prototype.hasOwnProperty;n.exports=function(t,n,e){if(r.call(t,n))return t[n];var o=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:o,writable:!0,enumerable:!1}),o}catch(t){}return t[n]=o,o}},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){var r=1,o="nr@id",i=t("gos");n.exports=function(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:i(t,o,function(){return r++})}},{}],loader:[function(t,n,e){function r(){if(!b++){var t=g.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return f.abort();c(v,function(n,e){t[n]||(t[n]=e)}),s("mark",["onload",i()+g.offset],null,"api");var e=d.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){s("mark",["domContent",i()+g.offset],null,"api")}function i(){return x.exists&&performance.now?Math.round(performance.now()):(a=Math.max((new Date).getTime(),a))-g.offset}var a=(new Date).getTime(),s=t("handle"),c=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,SI:u.setImmediate,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver};var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=n.exports={offset:a,now:i,origin:w,features:{},xhrWrappable:y};t(12),d[l]?(d[l]("DOMContentLoaded",o,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",function(){"complete"===d.readyState&&o()}),u[p]("onload",r)),s("mark",["firstbyte",a],null,"api");var b=0,x=t(17)},{}]},{},["loader",2,10,4,3]),NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"58581d3af9",applicationID:"57321747",sa:1}</script><meta name="theme-color" content="#f5f6f9"><link rel="manifest" href="https://projects.raspberrypi.org/manifest.json"><meta name="google-site-verification" content="DbEQRCm57B8ygmlhiOw2FWj31XGVinad0t29v0TyAvY"><meta name="yandex-verification" content="187b0cd22bb82d98"><meta name="msvalidate.01" content="7C9CCDF0A68F98FA2958BF187FB3734F"><link href="./Getting started with picamera _ Raspberry Pi Projects_files/main.4e1ecd80.css" rel="stylesheet"><style><![CDATA[.sb-label{font-family:Lucida Grande,Verdana,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#fff;font-size:10px;word-spacing:+1px}.sb-obsolete{fill:#d42828}.sb-motion{fill:#4a6cd4}.sb-looks{fill:#8a55d7}.sb-sound{fill:#bb42c3}.sb-pen{fill:#0e9a6c}.sb-events{fill:#c88330}.sb-control{fill:#e1a91a}.sb-sensing{fill:#2ca5e2}.sb-operators{fill:#5cb712}.sb-variables{fill:#ee7d16}.sb-list{fill:#cc5b22}.sb-custom{fill:#632d99}.sb-custom-arg{fill:#5947b1}.sb-extension{fill:#4b4a60}.sb-grey{fill:#969696}.sb-bevel{filter:url(#bevelFilter)}.sb-input{filter:url(#inputBevelFilter)}.sb-input-number,.sb-input-number-dropdown,.sb-input-string{fill:#fff}.sb-literal-dropdown,.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{font-weight:400;font-size:9px;word-spacing:0}.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{fill:#000}.sb-darker{filter:url(#inputDarkFilter)}.sb-outline{stroke:#fff;stroke-opacity:.2;stroke-width:2;fill:none}.sb-define-hat-cap{stroke:#632d99;stroke-width:1;fill:#8e2ec2}.sb-comment{fill:#ffffa5;stroke:#d0d1d2;stroke-width:1}.sb-comment-line{fill:#ffff80}.sb-comment-label{font-family:Helevetica,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#5c5d5f;word-spacing:0;font-size:12px}]]></style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-button,
+.c-button:visited {
+  font-size: 1.6rem;
+  line-height: 35px;
+  background-color: #fcf67f;
+  border-color: #fcf67f;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 0.3rem;
+  color: #222;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  padding: 0 20px;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 100ms;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease-in-out;
+  vertical-align: middle; }
+  @media screen and (min-width: 768px) {
+    .c-button,
+    .c-button:visited {
+      font-size: 1.8rem;
+      line-height: 40px; } }
+  .c-button:hover,
+  .c-button:visited:hover {
+    background-color: #444;
+    border-color: #444;
+    color: #fff; }
+
+.c-button--secondary,
+.c-button--secondary:visited {
+  background-color: transparent;
+  border-color: #999;
+  color: #999; }
+
+.c-button--light-on-dark:hover,
+.c-button--light-on-dark:visited:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #444; }
+
+.c-button--block {
+  display: block;
+  width: 100%; }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-link {
+  color: #004881;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+  transition-duration: 100ms;
+  transition-property: color;
+  transition-timing-function: ease-in-out; }
+  .c-link:hover, .c-link:hover:visited {
+    color: #222; }
+  .c-link:visited {
+    color: #a76fba; }
+
+.c-link--light-on-dark {
+  color: #eee; }
+  .c-link--light-on-dark:hover, .c-link--light-on-dark:hover:visited {
+    color: #fff; }
+  .c-link--light-on-dark:visited {
+    color: #eee; }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.25);
+  display: block;
+  overflow: hidden;
+  transition: box-shadow 100ms ease-in-out; }
+
+.c-card__image {
+  width: 100%; }
+
+.c-card__content {
+  padding: 20px; }
+
+.c-card__heading {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1em;
+  display: block;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-card__heading {
+      font-size: 1.8rem;
+      line-height: 1.5; } }
+
+.c-card--link,
+.c-card--link:active,
+.c-card--link:hover,
+.c-card--link:link,
+.c-card--link:visited {
+  color: #222;
+  cursor: pointer;
+  text-decoration: none; }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-figure {
+  margin-bottom: 1em;
+  text-align: center; }
+
+.c-figure__caption {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  background-color: #444;
+  color: #f5f6f9;
+  display: block; }
+  @media screen and (min-width: 768px) {
+    .c-figure__caption {
+      font-size: 1.6rem;
+      line-height: 1.5; } }
+
+.c-figure__image {
+  display: block;
+  max-width: 100%;
+  width: 100%; }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-hr {
+  background-color: #eee;
+  border-width: 0;
+  height: 0.2rem;
+  margin: 0 0 40px; }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-light-on-dark {
+  color: #eee; }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-pagination {
+  margin-bottom: 20px;
+  text-align: center; }
+
+.c-pagination__label {
+  font-size: 1.6rem;
+  line-height: 40px;
+  color: #999;
+  display: inline-block;
+  font-weight: 500;
+  padding: 0 15px;
+  vertical-align: top; }
+  @media screen and (min-width: 768px) {
+    .c-pagination__label {
+      font-size: 1.8rem;
+      line-height: 40px; } }
+
+.c-pagination__link {
+  background-color: #f5f6f9;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  border-color: #999;
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 0.2rem;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  transition-duration: 150ms;
+  transition-property: background-color, border-color;
+  transition-timing-function: ease-in-out;
+  vertical-align: top;
+  width: 40px; }
+  .c-pagination__link:hover {
+    background-color: #999; }
+
+.c-pagination__link--disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  pointer-events: none; }
+
+.c-pagination__link--next {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTdweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMTcgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5JY29ucy9DaGV2cm9uL0dyZXk8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQnV0dG9ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkJ1dHRvbnMvQ2lyY2xlL1NlY29uZGFyeSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI3LjAwMDAwMCwgLTIxLjAwMDAwMCkiIGZpbGw9IiM5OTk5OTkiPgogICAgICAgICAgICA8ZyBpZD0iSWNvbnMvQ2hldnJvbi9MZWZ0L0dyZXktQ29weS0yIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDIwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTQuODQ4MDE3OTgsMTkuNDM2MjUzMyBMNC44NDgwMTc5OCw2LjQ5NTA3NjggQzQuODQ4MDE3OTgsNS4xOTU1ODMyNyAzLjc5NDU3MDMzLDQuMTQyMTM1NjIgMi40OTUwNzY4LDQuMTQyMTM1NjIgTDIuNDk1MDc2OCw0LjE0MjEzNTYyIEwyLjQ5NTA3NjgsNC4xNDIxMzU2MiBDMS4xOTU1ODMyNyw0LjE0MjEzNTYyIDAuMTQyMTM1NjI0LDUuMTk1NTgzMjcgMC4xNDIxMzU2MjQsNi40OTUwNzY4IEwwLjE0MjEzNTYyNCw2LjQ5NTA3NjggTDAuMTQyMTM1NjI0LDIxLjc4OTE5NDQgQzAuMTQyMTM1NjI0LDIyLjQzODk0MTIgMC40MDU0OTc1MzYsMjMuMDI3MTc2NSAwLjgzMTI5NjEzOSwyMy40NTI5NzUxIEMxLjI1NzA5NDc0LDIzLjg3ODc3MzcgMS44NDUzMzAwNCwyNC4xNDIxMzU2IDIuNDk1MDc2OCwyNC4xNDIxMzU2IEwxNy43ODkxOTQ0LDI0LjE0MjEzNTYgQzE5LjA4ODY4OCwyNC4xNDIxMzU2IDIwLjE0MjEzNTYsMjMuMDg4Njg4IDIwLjE0MjEzNTYsMjEuNzg5MTk0NCBDMjAuMTQyMTM1NiwyMC40ODk3MDA5IDE5LjA4ODY4OCwxOS40MzYyNTMzIDE3Ljc4OTE5NDQsMTkuNDM2MjUzMyBMNC44NDgwMTc5OCwxOS40MzYyNTMzIFoiIGlkPSJDb21iaW5lZC1TaGFwZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAuMTQyMTM2LCAxNC4xNDIxMzYpIHNjYWxlKC0xLCAxKSByb3RhdGUoLTMxNS4wMDAwMDApIHRyYW5zbGF0ZSgtMTAuMTQyMTM2LCAtMTQuMTQyMTM2KSAiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+"); }
+  .c-pagination__link--next:hover {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTdweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMTcgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5JY29ucy9DaGV2cm9uL0dyZXk8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQnV0dG9ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkJ1dHRvbnMvQ2lyY2xlL1NlY29uZGFyeS1ob3ZlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI3LjAwMDAwMCwgLTIxLjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iSWNvbnMvQ2hldnJvbi9MZWZ0L0xpZ2h0LUNvcHktMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAuMDAwMDAwLCAyMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik00Ljg0ODAxNzk4LDE5LjQzNjI1MzMgTDQuODQ4MDE3OTgsNi40OTUwNzY4IEM0Ljg0ODAxNzk4LDUuMTk1NTgzMjcgMy43OTQ1NzAzMyw0LjE0MjEzNTYyIDIuNDk1MDc2OCw0LjE0MjEzNTYyIEwyLjQ5NTA3NjgsNC4xNDIxMzU2MiBMMi40OTUwNzY4LDQuMTQyMTM1NjIgQzEuMTk1NTgzMjcsNC4xNDIxMzU2MiAwLjE0MjEzNTYyNCw1LjE5NTU4MzI3IDAuMTQyMTM1NjI0LDYuNDk1MDc2OCBMMC4xNDIxMzU2MjQsNi40OTUwNzY4IEwwLjE0MjEzNTYyNCwyMS43ODkxOTQ0IEMwLjE0MjEzNTYyNCwyMi40Mzg5NDEyIDAuNDA1NDk3NTM2LDIzLjAyNzE3NjUgMC44MzEyOTYxMzksMjMuNDUyOTc1MSBDMS4yNTcwOTQ3NCwyMy44Nzg3NzM3IDEuODQ1MzMwMDQsMjQuMTQyMTM1NiAyLjQ5NTA3NjgsMjQuMTQyMTM1NiBMMTcuNzg5MTk0NCwyNC4xNDIxMzU2IEMxOS4wODg2ODgsMjQuMTQyMTM1NiAyMC4xNDIxMzU2LDIzLjA4ODY4OCAyMC4xNDIxMzU2LDIxLjc4OTE5NDQgQzIwLjE0MjEzNTYsMjAuNDg5NzAwOSAxOS4wODg2ODgsMTkuNDM2MjUzMyAxNy43ODkxOTQ0LDE5LjQzNjI1MzMgTDQuODQ4MDE3OTgsMTkuNDM2MjUzMyBaIiBpZD0iQ29tYmluZWQtU2hhcGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwLjE0MjEzNiwgMTQuMTQyMTM2KSBzY2FsZSgtMSwgMSkgcm90YXRlKC0zMTUuMDAwMDAwKSB0cmFuc2xhdGUoLTEwLjE0MjEzNiwgLTE0LjE0MjEzNikgIj48L3BhdGg+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="); }
+  .c-pagination__link--next:disabled {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTdweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMTcgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5JY29ucy9DaGV2cm9uL0dyZXk8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQnV0dG9ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkJ1dHRvbnMvQ2lyY2xlL1RlcnRpYXJ5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjcuMDAwMDAwLCAtMjEuMDAwMDAwKSIgZmlsbD0iI0NDQ0NDQyI+CiAgICAgICAgICAgIDxnIGlkPSJJY29ucy9DaGV2cm9uL0xlZnQvTGlnaHQtZ3JleS1Db3B5LTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwLjAwMDAwMCwgMjAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNC44NDgwMTc5OCwxOS40MzYyNTMzIEw0Ljg0ODAxNzk4LDYuNDk1MDc2OCBDNC44NDgwMTc5OCw1LjE5NTU4MzI3IDMuNzk0NTcwMzMsNC4xNDIxMzU2MiAyLjQ5NTA3NjgsNC4xNDIxMzU2MiBMMi40OTUwNzY4LDQuMTQyMTM1NjIgTDIuNDk1MDc2OCw0LjE0MjEzNTYyIEMxLjE5NTU4MzI3LDQuMTQyMTM1NjIgMC4xNDIxMzU2MjQsNS4xOTU1ODMyNyAwLjE0MjEzNTYyNCw2LjQ5NTA3NjggTDAuMTQyMTM1NjI0LDYuNDk1MDc2OCBMMC4xNDIxMzU2MjQsMjEuNzg5MTk0NCBDMC4xNDIxMzU2MjQsMjIuNDM4OTQxMiAwLjQwNTQ5NzUzNiwyMy4wMjcxNzY1IDAuODMxMjk2MTM5LDIzLjQ1Mjk3NTEgQzEuMjU3MDk0NzQsMjMuODc4NzczNyAxLjg0NTMzMDA0LDI0LjE0MjEzNTYgMi40OTUwNzY4LDI0LjE0MjEzNTYgTDE3Ljc4OTE5NDQsMjQuMTQyMTM1NiBDMTkuMDg4Njg4LDI0LjE0MjEzNTYgMjAuMTQyMTM1NiwyMy4wODg2ODggMjAuMTQyMTM1NiwyMS43ODkxOTQ0IEMyMC4xNDIxMzU2LDIwLjQ4OTcwMDkgMTkuMDg4Njg4LDE5LjQzNjI1MzMgMTcuNzg5MTk0NCwxOS40MzYyNTMzIEw0Ljg0ODAxNzk4LDE5LjQzNjI1MzMgWiIgaWQ9IkNvbWJpbmVkLVNoYXBlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMC4xNDIxMzYsIDE0LjE0MjEzNikgc2NhbGUoLTEsIDEpIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC0xMC4xNDIxMzYsIC0xNC4xNDIxMzYpICI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="); }
+
+.c-pagination__link--prev {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMTYgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5JY29ucy9DaGV2cm9uL0dyZXk8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQnV0dG9ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkJ1dHRvbnMvQ2lyY2xlL1NlY29uZGFyeSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI1LjAwMDAwMCwgLTIxLjAwMDAwMCkiIGZpbGw9IiM5OTk5OTkiPgogICAgICAgICAgICA8ZyBpZD0iSWNvbnMvQ2hldnJvbi9MZWZ0L0dyZXkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwLjAwMDAwMCwgMjAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTIuODQ4MDE4LDE5LjQzNjI1MzMgTDEyLjg0ODAxOCw2LjQ5NTA3NjggQzEyLjg0ODAxOCw1LjE5NTU4MzI3IDExLjc5NDU3MDMsNC4xNDIxMzU2MiAxMC40OTUwNzY4LDQuMTQyMTM1NjIgTDEwLjQ5NTA3NjgsNC4xNDIxMzU2MiBMMTAuNDk1MDc2OCw0LjE0MjEzNTYyIEM5LjE5NTU4MzI3LDQuMTQyMTM1NjIgOC4xNDIxMzU2Miw1LjE5NTU4MzI3IDguMTQyMTM1NjIsNi40OTUwNzY4IEw4LjE0MjEzNTYyLDYuNDk1MDc2OCBMOC4xNDIxMzU2MiwyMS43ODkxOTQ0IEM4LjE0MjEzNTYyLDIyLjQzODk0MTIgOC40MDU0OTc1NCwyMy4wMjcxNzY1IDguODMxMjk2MTQsMjMuNDUyOTc1MSBDOS4yNTcwOTQ3NCwyMy44Nzg3NzM3IDkuODQ1MzMwMDQsMjQuMTQyMTM1NiAxMC40OTUwNzY4LDI0LjE0MjEzNTYgTDI1Ljc4OTE5NDQsMjQuMTQyMTM1NiBDMjcuMDg4Njg4LDI0LjE0MjEzNTYgMjguMTQyMTM1NiwyMy4wODg2ODggMjguMTQyMTM1NiwyMS43ODkxOTQ0IEMyOC4xNDIxMzU2LDIwLjQ4OTcwMDkgMjcuMDg4Njg4LDE5LjQzNjI1MzMgMjUuNzg5MTk0NCwxOS40MzYyNTMzIEwxMi44NDgwMTgsMTkuNDM2MjUzMyBaIiBpZD0iQ29tYmluZWQtU2hhcGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE4LjE0MjEzNiwgMTQuMTQyMTM2KSByb3RhdGUoLTMxNS4wMDAwMDApIHRyYW5zbGF0ZSgtMTguMTQyMTM2LCAtMTQuMTQyMTM2KSAiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+"); }
+  .c-pagination__link--prev:hover {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMTYgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5JY29ucy9DaGV2cm9uL0dyZXk8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQnV0dG9ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkJ1dHRvbnMvQ2lyY2xlL1NlY29uZGFyeS1ob3ZlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI1LjAwMDAwMCwgLTIxLjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iSWNvbnMvQ2hldnJvbi9MZWZ0L0xpZ2h0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMC4wMDAwMDAsIDIwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTEyLjg0ODAxOCwxOS40MzYyNTMzIEwxMi44NDgwMTgsNi40OTUwNzY4IEMxMi44NDgwMTgsNS4xOTU1ODMyNyAxMS43OTQ1NzAzLDQuMTQyMTM1NjIgMTAuNDk1MDc2OCw0LjE0MjEzNTYyIEwxMC40OTUwNzY4LDQuMTQyMTM1NjIgTDEwLjQ5NTA3NjgsNC4xNDIxMzU2MiBDOS4xOTU1ODMyNyw0LjE0MjEzNTYyIDguMTQyMTM1NjIsNS4xOTU1ODMyNyA4LjE0MjEzNTYyLDYuNDk1MDc2OCBMOC4xNDIxMzU2Miw2LjQ5NTA3NjggTDguMTQyMTM1NjIsMjEuNzg5MTk0NCBDOC4xNDIxMzU2MiwyMi40Mzg5NDEyIDguNDA1NDk3NTQsMjMuMDI3MTc2NSA4LjgzMTI5NjE0LDIzLjQ1Mjk3NTEgQzkuMjU3MDk0NzQsMjMuODc4NzczNyA5Ljg0NTMzMDA0LDI0LjE0MjEzNTYgMTAuNDk1MDc2OCwyNC4xNDIxMzU2IEwyNS43ODkxOTQ0LDI0LjE0MjEzNTYgQzI3LjA4ODY4OCwyNC4xNDIxMzU2IDI4LjE0MjEzNTYsMjMuMDg4Njg4IDI4LjE0MjEzNTYsMjEuNzg5MTk0NCBDMjguMTQyMTM1NiwyMC40ODk3MDA5IDI3LjA4ODY4OCwxOS40MzYyNTMzIDI1Ljc4OTE5NDQsMTkuNDM2MjUzMyBMMTIuODQ4MDE4LDE5LjQzNjI1MzMgWiIgaWQ9IkNvbWJpbmVkLVNoYXBlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOC4xNDIxMzYsIDE0LjE0MjEzNikgcm90YXRlKC0zMTUuMDAwMDAwKSB0cmFuc2xhdGUoLTE4LjE0MjEzNiwgLTE0LjE0MjEzNikgIj48L3BhdGg+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="); }
+  .c-pagination__link--prev:disabled {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMTYgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5JY29ucy9DaGV2cm9uL0dyZXk8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQnV0dG9ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkJ1dHRvbnMvQ2lyY2xlL1RlcnRpYXJ5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjUuMDAwMDAwLCAtMjEuMDAwMDAwKSIgZmlsbD0iI0NDQ0NDQyI+CiAgICAgICAgICAgIDxnIGlkPSJJY29ucy9DaGV2cm9uL0xlZnQvTGlnaHQtZ3JleSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAuMDAwMDAwLCAyMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMi44NDgwMTgsMTkuNDM2MjUzMyBMMTIuODQ4MDE4LDYuNDk1MDc2OCBDMTIuODQ4MDE4LDUuMTk1NTgzMjcgMTEuNzk0NTcwMyw0LjE0MjEzNTYyIDEwLjQ5NTA3NjgsNC4xNDIxMzU2MiBMMTAuNDk1MDc2OCw0LjE0MjEzNTYyIEwxMC40OTUwNzY4LDQuMTQyMTM1NjIgQzkuMTk1NTgzMjcsNC4xNDIxMzU2MiA4LjE0MjEzNTYyLDUuMTk1NTgzMjcgOC4xNDIxMzU2Miw2LjQ5NTA3NjggTDguMTQyMTM1NjIsNi40OTUwNzY4IEw4LjE0MjEzNTYyLDIxLjc4OTE5NDQgQzguMTQyMTM1NjIsMjIuNDM4OTQxMiA4LjQwNTQ5NzU0LDIzLjAyNzE3NjUgOC44MzEyOTYxNCwyMy40NTI5NzUxIEM5LjI1NzA5NDc0LDIzLjg3ODc3MzcgOS44NDUzMzAwNCwyNC4xNDIxMzU2IDEwLjQ5NTA3NjgsMjQuMTQyMTM1NiBMMjUuNzg5MTk0NCwyNC4xNDIxMzU2IEMyNy4wODg2ODgsMjQuMTQyMTM1NiAyOC4xNDIxMzU2LDIzLjA4ODY4OCAyOC4xNDIxMzU2LDIxLjc4OTE5NDQgQzI4LjE0MjEzNTYsMjAuNDg5NzAwOSAyNy4wODg2ODgsMTkuNDM2MjUzMyAyNS43ODkxOTQ0LDE5LjQzNjI1MzMgTDEyLjg0ODAxOCwxOS40MzYyNTMzIFoiIGlkPSJDb21iaW5lZC1TaGFwZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTguMTQyMTM2LCAxNC4xNDIxMzYpIHJvdGF0ZSgtMzE1LjAwMDAwMCkgdHJhbnNsYXRlKC0xOC4xNDIxMzYsIC0xNC4xNDIxMzYpICI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="); }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-panel {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.25);
+  padding: 10px; }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-slice {
+  background-attachment: scroll;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 25px 0; }
+  @media screen and (min-width: 768px) {
+    .c-slice {
+      padding: 50px 0; } }
+
+.c-slice--white {
+  background-color: #fff;
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0.1rem 0 0;
+  box-shadow: 0 0.1rem 0.3rem -0.1rem rgba(0, 0, 0, 0.25); }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-type-base {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-type-base {
+      font-size: 1.8rem;
+      line-height: 1.5; } }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-type-caption {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-type-caption {
+      font-size: 1.6rem;
+      line-height: 1.5; } }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-type-display {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-type-display {
+      font-size: 2.8rem;
+      line-height: 1.5; } }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-type-display-large {
+  font-size: 2.4rem;
+  line-height: 1.5;
+  font-weight: 700;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-type-display-large {
+      font-size: 3.6rem;
+      line-height: 1.5; } }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-type-heading {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-type-heading {
+      font-size: 2.2rem;
+      line-height: 1.5; } }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-type-sub-heading {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-type-sub-heading {
+      font-size: 1.8rem;
+      line-height: 1.5; } }
+</style><style type="text/css">/*                 tl             tr             br             bl           */
+/*
+scss-lint:disable SpaceAfterComma
+Type name
+| Breakpoints
+| |      Font size - relative to 10px on <html> element
+| |      |                                 Line height
+| |      |                                 |
+v v      v                                 v */
+/**
+ * Grid columns. This setting is shared between
+ * iotaCSS grid objects and size, pull & push
+ * utilities. You can change it also locally to
+ * each module.
+ *
+ * Type: Unitless Number / List
+ */
+/**
+ * Global namespace for Objects, Components and
+ * Utilities
+ *
+ * Type: String
+ */
+/**
+ * Default gutters. This setting is shared between
+ * multiple objects and utilities as the default value
+ * for gutters. You can change it also locally to each
+ * module.
+ *
+ * Type: Number / List / Map
+ */
+/**
+ * Enables flexbox across the app. If you do not want
+ * all modules to use flexbox you can keep this value
+ * false and set it to true separately to each one of
+ * them locally.
+ *
+ * Type: Boolean
+ */
+/**
+ * Enables rtl across the app. If you enable this setting
+ * the final CSS will be converted to RTL.
+ *
+ * Type: Boolean
+ */
+/**
+ * Default global breakpoints map. These are the
+ * default breakpoints map that will be shared across
+ * all iotaCSS modules. You can change it also locally
+ * to each module.
+ *
+ * Type: Map
+ */
+/**
+ * Global breakpoint suffix naming setting. All breakpoint
+ * specific styles have a '@breakpointName' suffix by default.
+ * The \ character is used to escape the @ character.
+ *
+ * Type: String
+ */
+/**
+ * Global delimiter naming setting for Size, Push and Pull
+ * utilities. By default it is '/' (.u-1/2) and you can change
+ * it for example to 'of' so that the generated HTML class will be
+ * 'u-1of2'.
+ *
+ * Type: String
+ */
+/**
+ * The base value the scale starts at.
+ *
+ * Number
+ */
+/**
+ * The ratio the scale is built on
+ *
+ * Unitless Number
+ */
+/**
+ * Length of scale (right part of the decimal
+ * point) ms will be rounded to.
+ *
+ * Unitless Number
+ */
+.c-wysiwyg a {
+  color: #004881;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+  transition-duration: 100ms;
+  transition-property: color;
+  transition-timing-function: ease-in-out; }
+  .c-wysiwyg a:hover, .c-wysiwyg a:hover:visited {
+    color: #222; }
+  .c-wysiwyg a:visited {
+    color: #a76fba; }
+
+.c-wysiwyg h1 {
+  font-size: 2.4rem;
+  line-height: 1.5;
+  font-weight: 700;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-wysiwyg h1 {
+      font-size: 3.6rem;
+      line-height: 1.5; } }
+
+.c-wysiwyg h2 {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-wysiwyg h2 {
+      font-size: 2.8rem;
+      line-height: 1.5; } }
+
+.c-wysiwyg h3 {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-wysiwyg h3 {
+      font-size: 2.2rem;
+      line-height: 1.5; } }
+
+.c-wysiwyg h4 {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-wysiwyg h4 {
+      font-size: 1.8rem;
+      line-height: 1.5; } }
+
+.c-wysiwyg p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-wysiwyg p {
+      font-size: 1.8rem;
+      line-height: 1.5; } }
+
+.c-wysiwyg ul {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-wysiwyg ul {
+      font-size: 1.8rem;
+      line-height: 1.5; } }
+
+.c-wysiwyg ol {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 768px) {
+    .c-wysiwyg ol {
+      font-size: 1.8rem;
+      line-height: 1.5; } }
+
+.c-wysiwyg--light-on-dark a {
+  color: #eee; }
+  .c-wysiwyg--light-on-dark a:hover, .c-wysiwyg--light-on-dark a:hover:visited {
+    color: #fff; }
+  .c-wysiwyg--light-on-dark a:visited {
+    color: #eee; }
+</style><script type="text/javascript" charset="utf-8" async="" src="./Getting started with picamera _ Raspberry Pi Projects_files/7.25c5b128.chunk.js.download"></script><script type="text/javascript" charset="utf-8" async="" src="./Getting started with picamera _ Raspberry Pi Projects_files/ProjectContainer.14125b7d.chunk.js.download"></script><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/25ca1075-1fc0-4994-bb6c-bb6549f74e17"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/036a2bdb-8f7c-4476-9268-4209ca320543"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/2c4013cd-91ef-4122-8924-267972452e86"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/6330b258-09ee-4273-9a76-3bd08ea55ae9"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/5a5a1b54-0510-412a-bbb4-51211ffc2817"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/c8f17d14-e279-4f61-af28-08e937064e5c"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/7f0e4040-2b34-4213-bf70-54a280b8bd47"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/7d388e84-ec2e-48f8-98e3-b5603e496226"><link type="text/css" rel="stylesheet" href="blob:https://projects.raspberrypi.org/1162fdce-c135-4038-b375-dc6a788b9626"><title>Getting started with picamera | Raspberry Pi Projects</title></head><body><noscript>We're sorry, but this site requires JavaScript to operate.</noscript><div id="root"><div><div><header class="c-site-header" id="c-site-header" role="banner"><div class="c-site-header__container"><a class="c-site-header__external-link" href="https://raspberrypi.org/"><img alt="" class="c-site-header__logomark" src="./Getting started with picamera _ Raspberry Pi Projects_files/logomark.20300533.svg"></a><span class="nav-separator"></span><a class="c-site-header__home-link" href="https://projects.raspberrypi.org/"><span class="c-site-header__title">Projects</span></a><a class="u-float-right u-hidden u-block@sm c-site-header__codeclub-link" data-on="click" data-event-category="Navigation" data-event-action="Clicked Code Club Projects Link" data-event-label="navigation" href="https://projects.raspberrypi.org/en/codeclub"><span class="c-site-header__codeclub-title">Code Club projects</span></a></div></header><div><div class="c-project t-green"><header class="c-project__header"><div class="c-project-header "><div class="c-project-header__info"><h1 class="c-project-header__title o-type-display-large">Getting started with picamera</h1><small><a class="c-project-header__link" href="https://projects.raspberrypi.org/en/projects?technologies[]=physical%20computing">physical computing</a><a class="c-project-header__link" href="https://projects.raspberrypi.org/en/projects?technologies[]=python">python</a><a class="c-project-header__link c-project-header__link--print" href="https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/print"><span class="u-hidden">Print this project</span></a></small></div><figure class="c-project-header__illustration"><div class="c-project-header__decoration"></div><img alt="" class="c-project-header__image" src="./Getting started with picamera _ Raspberry Pi Projects_files/banner.png"></figure></div></header><main class="c-project__layout  u-clearfix" id="c-project__layout"><menu class="c-project__menu"><div class="c-project-navigation"><input type="checkbox" class="c-project-navigation__toggle-checkbox u-hidden" id="c-project-navigation__toggle-checkbox" value="on"><label class="c-project-navigation__toggle-label" for="c-project-navigation__toggle-checkbox">Contents<span class="c-project-navigation__toggle-icon"></span></label><ul class="c-project-navigation__list"><li class="c-project-navigation__item"><a class="c-project-navigation__link c-project-navigation__link--is-first c-project-navigation__link--is-done" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">Introduction</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link c-project-navigation__link--is-done" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">What you will need</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link c-project-navigation__link--is-done" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">Getting started with picamera</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link c-project-navigation__link--is-done" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">Connect the Camera Module</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link c-project-navigation__link--is-current" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">Camera preview</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">Still pictures</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">Recording video</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">Effects</a></li><li class="c-project-navigation__item"><a class="c-project-navigation__link c-project-navigation__link--is-last" data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Navigation Link">What next?</a></li></ul></div></menu><section class="c-project__content "><div class="c-project-steps "><span><div class="c-project-steps__wrapper"><div class="c-wysiwyg "><div class="c-project-steps__content"><h2 id="camera-preview">Camera preview</h2>
+
+<p>Now your camera is connected and the software is enabled, you can get started by trying out the camera preview.</p>
+
+<ul>
+  <li>
+    <p>Open <strong>Python 3</strong> from the main menu:</p>
+
+    <p><img src="./Getting started with picamera _ Raspberry Pi Projects_files/python3-app-menu.png" alt="Open Python 3"></p>
+  </li>
+  <li>
+    <p>Open a new file and save it as <code>camera.py</code>. It’s important that you <strong>do not</strong> save it as <code>picamera.py</code>.</p>
+  </li>
+  <li>
+    <p>Enter the following code:</p>
+
+    <div class="language-python highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>  <span class="keyword">from</span> <span class="include">picamera</span> <span class="keyword">import</span> <span class="include">PiCamera</span>
+  <span class="keyword">from</span> <span class="include">time</span> <span class="keyword">import</span> <span class="include">sleep</span>
+
+  camera = PiCamera()
+
+  camera.start_preview()
+  sleep(<span class="integer">10</span>)
+  camera.stop_preview()
+</pre></div>
+</div>
+    </div>
+  </li>
+  <li>
+    <p>Save with <strong>Ctrl + S</strong> and run with <strong>F5</strong>. The camera preview should be shown for 10 seconds, and then close. Move the camera around to preview what the camera sees.</p>
+
+    <p>The live camera preview should fill the screen like so:</p>
+
+    <p><img src="./Getting started with picamera _ Raspberry Pi Projects_files/preview.jpg" alt="Image preview"></p>
+
+    <p><strong>Note that the camera preview only works when a monitor is connected to the Pi, so remote access (such as SSH and VNC) will not allow you to see the camera preview</strong></p>
+  </li>
+  <li>
+    <p>If your preview was upside-down, you can rotate it with the following code:</p>
+
+    <div class="language-python highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>  camera.rotation = <span class="integer">180</span>
+  camera.start_preview()
+  sleep(<span class="integer">10</span>)
+  camera.stop_preview()
+</pre></div>
+</div>
+    </div>
+
+    <p>You can rotate the image by <code>90</code>, <code>180</code>, or <code>270</code> degrees, or you can set it to <code>0</code> to reset.</p>
+  </li>
+  <li>
+    <p>You can alter the transparency of the camera preview by setting an alpha level:</p>
+
+    <div class="language-python highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>  <span class="keyword">from</span> <span class="include">picamera</span> <span class="keyword">import</span> <span class="include">PiCamera</span>
+  <span class="keyword">from</span> <span class="include">time</span> <span class="keyword">import</span> <span class="include">sleep</span>
+
+  camera = PiCamera()
+
+  camera.start_preview(alpha=<span class="integer">200</span>)
+  sleep(<span class="integer">10</span>)
+  camera.stop_preview()
+</pre></div>
+</div>
+    </div>
+
+    <p><code>alpha</code> can be any value between <code>0</code> and <code>255</code>.</p>
+  </li>
+</ul>
+
+</div></div></div></span></div></section><nav class="c-project__pagination"><div class="c-project-arrows"><button class="c-project-arrows__link c-project-arrows__link--previous " data-on="click" data-event-category="Getting started with picamera" data-event-action="Clicked Arrow"><span class="c-project-arrows__link-icon"></span></button><button class="c-project-arrows__link c-project-arrows__link--next"><span class="c-project-arrows__link-icon c-project-arrows__link-icon--next"></span></button></div></nav></main><footer class="c-project-footer"><p>Spotted a mistake? Enjoying the project? Any opinions on the website? Let us know!</p><button class="c-project-footer__feedback-prompt">Send feedback </button><form class="c-project-footer__feedback-form c-project-footer__feedback-form--hidden"><textarea class="c-project-footer__feedback-textarea" cols="40" placeholder="Leave your feedback" rows="6"></textarea><button class="c-project-footer__feedback-submit" type="submit">Send feedback</button></form><div class="c-project-footer__feedback-thanks c-project-footer__feedback-thanks--hidden">Thank you!</div><p>Published by <a class="c-project-footer__link c-project-footer__link--rpi" href="https://www.raspberrypi.org/">Raspberry Pi Foundation</a> under a <a class="c-project-footer__link c-project-footer__link--creative-commons" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons license</a>.<span><br><a class="c-project-footer__link c-project-footer__link--github" href="https://github.com/RaspberryPiLearning/getting-started-with-picamera">View project &amp; license on GitHub</a></span></p></footer></div></div></div></div></div><script type="text/javascript" src="./Getting started with picamera _ Raspberry Pi Projects_files/main.01f97451.js.download"></script></body></html>

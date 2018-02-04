@@ -1,0 +1,143 @@
+(function($) {
+	get_iframe_document = function(iframeid){
+	  var iframedata = document.getElementById(iframeid);
+	  var iframedata_document = iframedata.contentDocument || iframedata.contentWindow.document;
+	  return iframedata_document.body.innerHTML.length;		
+	}
+	
+	Drupal.behaviors.WelcomeUnit = {
+		attach : function(context, settings){
+			$(document).on('keyup', function(evt) {
+				if (evt.keyCode == 27){
+					$('#cst-overlay-content').hide();
+					$('#cst-overlay').hide();
+				}
+			});
+			$('a.close').on('click', function(){
+				$('#cst-overlay-content').hide();
+				$('#cst-overlay').hide();
+			});
+			$('#cst-overlay').on('click', function(){
+				$('#cst-overlay-content').hide();
+				$('#cst-overlay').hide();
+			});
+			setTimeout(function(){
+				var pp = $('.module-content iframe').length; 
+				var getfrm = $('#cst-overlay-content .module-content iframe').attr('id');
+				if((document.getElementById(getfrm).src.indexOf("http") >= 0) || (get_iframe_document(getfrm) > 0)){
+					var myIFrame = document.getElementById(''+getfrm+'').name.length;
+					if(myIFrame>10){
+						if($('.module-content iframe').attr('id')==getfrm){
+							if(hidegaddval == 'always'){
+								jQuery.removeCookie('hidegadd');
+							}
+							if(hidegaddval == 'never'){
+								jQuery.cookie('hidegadd', '1');
+							}
+							var cookieValue=jQuery.cookie('hidegadd');
+							if(!cookieValue){
+								var sec = 16;
+								var timer = setInterval(function() {
+									$('.timer-box').html(' ' + sec-- + ' second(s) left to wait, or skip <span style=float:right>');
+									if (sec ==-1){
+										$('#cst-overlay-content').hide();
+										$('#cst-overlay').hide();
+									}
+									if(hidegaddval == 'daily'){
+										jQuery.cookie('hidegadd', '1', { expires: 1}); 
+									}
+									else if(hidegaddval == 'once'){
+										jQuery.cookie('hidegadd', '1', { expires: 365}); 
+									}
+									else if(hidegaddval == 'weekly'){
+										jQuery.cookie('hidegadd', '1', { expires: 7});
+									}
+									else if(hidegaddval == 'always'){
+										jQuery.removeCookie('hidegadd');
+									}
+								},1000);
+								$('#cst-overlay-content').show();
+								$('#cst-overlay').show();
+							}
+						}
+						else{
+							$('#cst-overlay-content').remove();
+							$('#cst-overlay').remove();
+						}
+					}
+					else{
+						$('#cst-overlay-content').remove();
+						$('#cst-overlay').remove();
+					}	
+				}
+			},5000);
+
+		}
+	}
+}(jQuery));;
+/**
+ * Attaches the calendar behavior to all required fields
+ */
+(function($) {
+  function makeFocusHandler(e) {
+    if (!$(this).hasClass('date-popup-init')) {
+      var datePopup = e.data;
+      // Explicitely filter the methods we accept.
+      switch (datePopup.func) {
+        case 'datepicker':
+          $(this)
+            .datepicker(datePopup.settings)
+            .addClass('date-popup-init');
+          $(this).click(function(){
+            $(this).focus();
+          });
+          break;
+
+        case 'timeEntry':
+          $(this)
+            .timeEntry(datePopup.settings)
+            .addClass('date-popup-init');
+          $(this).click(function(){
+            $(this).focus();
+          });
+          break;
+
+        case 'timepicker':
+          // Translate the PHP date format into the style the timepicker uses.
+          datePopup.settings.timeFormat = datePopup.settings.timeFormat
+            // 12-hour, leading zero,
+            .replace('h', 'hh')
+            // 12-hour, no leading zero.
+            .replace('g', 'h')
+            // 24-hour, leading zero.
+            .replace('H', 'HH')
+            // 24-hour, no leading zero.
+            .replace('G', 'H')
+            // AM/PM.
+            .replace('A', 'p')
+            // Minutes with leading zero.
+            .replace('i', 'mm')
+            // Seconds with leading zero.
+            .replace('s', 'ss');
+
+          datePopup.settings.startTime = new Date(datePopup.settings.startTime);
+          $(this)
+            .timepicker(datePopup.settings)
+            .addClass('date-popup-init');
+          $(this).click(function(){
+            $(this).focus();
+          });
+          break;
+      }
+    }
+  }
+
+  Drupal.behaviors.date_popup = {
+    attach: function (context) {
+      for (var id in Drupal.settings.datePopup) {
+        $('#'+ id).bind('focus', Drupal.settings.datePopup[id], makeFocusHandler);
+      }
+    }
+  };
+})(jQuery);
+;

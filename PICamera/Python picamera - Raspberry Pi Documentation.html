@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://www.raspberrypi.org/documentation/usage/camera/python/README.md -->
+<html lang="en-GB"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Python picamera - Raspberry Pi Documentation</title>
+    <meta name="description" content="We&#39;ve provided some basic examples to help you discover possible uses for your Raspberry Pi and to get started with software available in Raspbian.">
+    <link rel="icon" type="image/png" href="https://www.raspberrypi.org/wp-content/themes/mind-control/images/favicon.png">
+    <link rel="publisher" href="https://plus.google.com/+RaspberryPi">
+    <!--[if lt IE 9]>
+    <script src="/wp-content/themes/mind-control/js/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="./Python picamera - Raspberry Pi Documentation_files/prism.css">
+    <link rel="stylesheet" href="./Python picamera - Raspberry Pi Documentation_files/style.css">
+    <link rel="stylesheet" href="./Python picamera - Raspberry Pi Documentation_files/mobile.css">
+    <link rel="stylesheet" href="./Python picamera - Raspberry Pi Documentation_files/css">
+    <link rel="stylesheet" href="./Python picamera - Raspberry Pi Documentation_files/css(1)">
+    <link rel="stylesheet" href="./Python picamera - Raspberry Pi Documentation_files/hack.css">
+    <style>
+    .entry-content code {
+        font-family: Hack, monospace;  
+    }
+    </style>
+    <script type="text/javascript" async="" src="./Python picamera - Raspberry Pi Documentation_files/ga.js.download"></script><script src="./Python picamera - Raspberry Pi Documentation_files/jquery.min.js.download"></script>
+    <script src="./Python picamera - Raspberry Pi Documentation_files/jquery.main.js.download"></script>
+    <script src="./Python picamera - Raspberry Pi Documentation_files/prism.js.download"></script>
+
+    <script type="text/javascript">//<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-46270871-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+        //]]></script>
+
+    <link rel="canonical" href="https://www.raspberrypi.org/">
+    <link rel="shortlink" href="https://www.raspberrypi.org/">
+</head>
+
+<body class="documentation">
+    <div class="container">
+        <header id="header">
+            <nav id="nav">
+                <ul id="menu-nav-bar" class="menu"><li id="menu-item-6901" class="home mobile menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5372 current_page_item menu-item-6901"><a href="https://www.raspberrypi.org/">Home</a></li>
+                    <li id="menu-item-8279" class="close-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-8279"><a href="https://www.raspberrypi.org/documentation/usage/camera/python/README.md#">Close Menu</a></li>
+                    <li id="menu-item-6902" class="yellow menu-item menu-item-type-post_type menu-item-object-page menu-item-6902"><a href="https://www.raspberrypi.org/blog/">Blog</a></li>
+                    <li id="menu-item-6903" class="red menu-item menu-item-type-post_type menu-item-object-page menu-item-6903"><a href="https://www.raspberrypi.org/downloads/">Downloads</a></li>
+                    <li id="menu-item-6904" class="purple menu-item menu-item-type-post_type menu-item-object-page menu-item-6904"><a href="https://www.raspberrypi.org/community/">Community</a></li>
+                    <li id="menu-item-6905" class="green menu-item menu-item-type-post_type menu-item-object-page menu-item-6905"><a href="https://www.raspberrypi.org/help/">Help</a></li>
+                    <li id="menu-item-6907" class="pink menu-item menu-item-type-custom menu-item-object-custom menu-item-6907"><a href="https://www.raspberrypi.org/forums/">Forums</a></li>
+                    <li id="menu-item-18868" class="blue menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-18868"><a href="https://www.raspberrypi.org/education/">Education</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-6908" class="blue2 menu-item menu-item-type-post_type menu-item-object-page menu-item-6908"><a href="https://www.raspberrypi.org/resources/">Resources</a></li>
+                            <li id="menu-item-18869" class="blue3 menu-item menu-item-type-post_type menu-item-object-page menu-item-18869"><a href="https://www.raspberrypi.org/picademy/">Training</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-item-7165" class="menu mobile menu-item menu-item-type-custom menu-item-object-custom menu-item-7165"><a href="https://www.raspberrypi.org/documentation/usage/camera/python/README.md#">Menu</a></li>
+                    <li id="menu-item-6912" class="search mobile menu-item menu-item-type-custom menu-item-object-custom menu-item-6912"><a href="https://www.raspberrypi.org/documentation/usage/camera/python/README.md#">Search</a></li>
+                    <li id="menu-item-7154" class="shop menu-item menu-item-type-post_type menu-item-object-page menu-item-7154"><a href="https://www.raspberrypi.org/buy/">Buy</a></li>
+                </ul>
+            </nav>
+            <form class="search" action="https://www.raspberrypi.org/">
+                <input name="s" class="search" value="">
+                <input type="submit" class="submit" value="Search">
+            </form>
+        </header>
+
+        <div class="main">
+
+<nav class="breadcrumbs">
+    <a href="https://www.raspberrypi.org/documentation">documentation</a> &gt; <a href="https://www.raspberrypi.org/documentation/usage">usage</a> &gt; <a href="https://www.raspberrypi.org/documentation/usage/camera">camera</a> &gt; <a href="https://www.raspberrypi.org/documentation/usage/camera/python">python</a></nav>
+
+<article class="entry-content">
+    <h1>Python picamera</h1>
+<p><code>python-picamera</code> is a pure Python interface to the Raspberry Pi camera module for Python 2.7 (or above) or Python 3.2 (or above). The library is written and maintained by <a href="https://github.com/waveform80">Dave Jones</a>.</p>
+<p>Also see the <a href="https://www.raspberrypi.org/documentation/usage/camera/python/README.md">camera setup</a> page.</p>
+<h2>Enable the camera</h2>
+<p>Run <code>sudo raspi-config</code> and choose in the menu to enable the pi camera. A reboot is needed after this.</p>
+<h2>Installation</h2>
+<p>The <code>python-picamera</code> library is available in the Raspbian archives. Install with <code>apt</code>:</p>
+<pre class=" language-bash"><code class=" language-bash">sudo apt<span class="token operator">-</span>get update
+sudo apt<span class="token operator">-</span>get install python<span class="token operator">-</span>picamera</code></pre>
+<p>Alternatively, the Python3 package is installed with <code>sudo apt-get install python3-picamera</code>. An offline version of the <a href="http://picamera.readthedocs.org/">documentation</a> is available with <code>sudo apt-get install python-picamera-docs</code>.</p>
+<h2>Usage</h2>
+<p>First, at the Python prompt or at the top of a Python script, enter:</p>
+<pre class=" language-python"><code class=" language-python"><span class="token keyword">import</span> picamera</code></pre>
+<p>This will make the library available to the script. Now create an instance of the PiCamera class:</p>
+<pre class=" language-python"><code class=" language-python">camera <span class="token operator">=</span> picamera<span class="token punctuation">.</span>PiCamera<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>And take a picture:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>capture<span class="token punctuation">(</span><span class="token string">'image.jpg'</span><span class="token punctuation">)</span></code></pre>
+<h3>Horizontal and Vertical flip</h3>
+<p>Like with the <code>raspistill</code> command, you can apply a horizontal and vertical flip if your camera is positioned upside-down. This is done by changing the <code>hflip</code> and <code>vflip</code> properties directly:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>hflip <span class="token operator">=</span> <span class="token boolean">True</span>
+camera<span class="token punctuation">.</span>vflip <span class="token operator">=</span> <span class="token boolean">True</span></code></pre>
+<p>Be sure to use an upper case <code>T</code> in <code>True</code> as this is a keyword in Python.</p>
+<h3>Preview</h3>
+<p>You can display a preview showing the camera feed on screen. Warning: this will overlay your Python session by default; if you have trouble stopping the preview, simply pressing <code>Ctrl+D</code> to terminate the Python session is usually enough to restore the display:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>start_preview<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>You can use the <code>stop_preview</code> method to remove the preview overlay and restore the display:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>stop_preview<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>Alternatively, you can access the Pi using <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/README.md">SSH</a> from another computer, open a Python prompt and enter these commands, displaying the preview on the monitor connected to the Pi (not the computer you're connected from).</p>
+<h3>Camera settings</h3>
+<p>You can change other camera configuration by editing property values, for example:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>brightness <span class="token operator">=</span> <span class="token number">70</span></code></pre>
+<p>This will change the brightness setting from its default <code>50</code> to <code>70</code> (values between 0 and 100).</p>
+<p>Other settings are available. Here is a list with their default values:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>sharpness <span class="token operator">=</span> <span class="token number">0</span>
+camera<span class="token punctuation">.</span>contrast <span class="token operator">=</span> <span class="token number">0</span>
+camera<span class="token punctuation">.</span>brightness <span class="token operator">=</span> <span class="token number">50</span>
+camera<span class="token punctuation">.</span>saturation <span class="token operator">=</span> <span class="token number">0</span>
+camera<span class="token punctuation">.</span>ISO <span class="token operator">=</span> <span class="token number">0</span>
+camera<span class="token punctuation">.</span>video_stabilization <span class="token operator">=</span> <span class="token boolean">False</span>
+camera<span class="token punctuation">.</span>exposure_compensation <span class="token operator">=</span> <span class="token number">0</span>
+camera<span class="token punctuation">.</span>exposure_mode <span class="token operator">=</span> <span class="token string">'auto'</span>
+camera<span class="token punctuation">.</span>meter_mode <span class="token operator">=</span> <span class="token string">'average'</span>
+camera<span class="token punctuation">.</span>awb_mode <span class="token operator">=</span> <span class="token string">'auto'</span>
+camera<span class="token punctuation">.</span>image_effect <span class="token operator">=</span> <span class="token string">'none'</span>
+camera<span class="token punctuation">.</span>color_effects <span class="token operator">=</span> None
+camera<span class="token punctuation">.</span>rotation <span class="token operator">=</span> <span class="token number">0</span>
+camera<span class="token punctuation">.</span>hflip <span class="token operator">=</span> <span class="token boolean">False</span>
+camera<span class="token punctuation">.</span>vflip <span class="token operator">=</span> <span class="token boolean">False</span>
+camera<span class="token punctuation">.</span>crop <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span></code></pre>
+<h3>Sleep</h3>
+<p>You can add pauses between commands using <code>sleep</code> from the <code>time</code> module:</p>
+<pre class=" language-python"><code class=" language-python"><span class="token keyword">import</span> picamera
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+
+camera <span class="token operator">=</span> picamera<span class="token punctuation">.</span>PiCamera<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+camera<span class="token punctuation">.</span>capture<span class="token punctuation">(</span><span class="token string">'image1.jpg'</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+camera<span class="token punctuation">.</span>capture<span class="token punctuation">(</span><span class="token string">'image2.jpg'</span><span class="token punctuation">)</span></code></pre>
+<p>You can also use <code>sleep</code> in a preview to adjust settings over time:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>start_preview<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    camera<span class="token punctuation">.</span>brightness <span class="token operator">=</span> i
+    sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span></code></pre>
+<h3>Video recording</h3>
+<p>Record 5 seconds of video:</p>
+<pre class=" language-python"><code class=" language-python">camera<span class="token punctuation">.</span>start_recording<span class="token punctuation">(</span><span class="token string">'video.h264'</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+camera<span class="token punctuation">.</span>stop_recording<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h2>Documentation</h2>
+<p>Full documentation for <code>python-picamera</code> is available at <a href="http://picamera.readthedocs.org/">picamera.readthedocs.org</a></p>
+<h2>Development</h2>
+<p>The <code>python-picamera</code> project is written and maintained by <a href="https://github.com/waveform80">Dave Jones</a> and the source can be found at <a href="https://github.com/waveform80/picamera">github.com/waveform80/picamera</a> where you can open issues or contribute to the project.</p></article>
+
+                <footer class="licence">
+                    <aside class="octocat">
+                        <a href="https://github.com/raspberrypi/documentation/blob/master/usage/camera/python/README.md"><img src="./Python picamera - Raspberry Pi Documentation_files/octocat.jpg"></a>
+                    </aside>
+                    <aside class="links">
+                        <a href="https://github.com/raspberrypi/documentation/blob/master/usage/camera/python/README.md" class="github">View/Edit this page on GitHub</a><br>
+                        <a href="https://www.raspberrypi.org/creative-commons/">Read our usage and contributions policy</a><br>
+                        <a href="https://www.raspberrypi.org/creative-commons/" class="cc"><img src="./Python picamera - Raspberry Pi Documentation_files/88x31.png" alt="Creative Commons Licence"></a>
+                    </aside>
+                </footer>
+
+                <div style="clear: both;"></div>
+
+            </div>
+
+        <div style="clear: both;"></div>
+
+        <footer id="footer">
+            <div class="footer-contents">
+                <ul class="about-us menu">
+                    <li>
+                        <h2>About</h2>
+                        <ul>
+                            <li><a href="https://www.raspberrypi.org/about/">About us</a></li>
+                            <li><a href="https://www.raspberrypi.org/about/team/">Team</a></li>
+                            <li><a href="https://www.raspberrypi.org/about/governance/">Governance</a></li>
+                            <li><a href="https://www.raspberrypi.org/about/partners/">Partners</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Support</h2>
+                        <ul>
+                            <li><a href="https://www.raspberrypi.org/help/">Help</a></li>
+                            <li><a href="https://www.raspberrypi.org/documentation/">Documentation</a></li>
+                            <li><a href="https://www.raspberrypi.org/resources/">Learning resources</a></li>
+                            <li><a href="https://www.raspberrypi.org/picademy/">Training</a></li>
+                            <li><a href="https://www.raspberrypi.org/downloads/">Downloads</a></li>
+                            <li><a href="https://www.raspberrypi.org/help/faqs/">FAQs</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Contact</h2>
+                        <ul>
+                            <li><a href="https://www.raspberrypi.org/contact/">Contact us</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Social</h2>
+                        <ul>
+                            <li><a href="https://twitter.com/Raspberry_Pi">Twitter</a></li>
+                            <li><a href="https://www.facebook.com/raspberrypi">Facebook</a></li>
+                            <li><a href="https://plus.google.com/+RaspberryPi">Google+</a></li>
+                            <li><a href="http://raspberrypi.github.io/">GitHub</a></li>
+                            <li><a href="https://vimeo.com/raspberrypi">Vimeo</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCFIjVWFZ__KhtTXHDJ7vgng">YouTube</a></li>
+                            <li><a href="https://instagram.com/raspberrypifoundation">Instagram</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <footer>
+                    <div class="info">Raspberry Pi Foundation<br>UK registered charity 1129409</div>
+
+                    <ul class="site-links menu">
+                        <li><a href="https://www.raspberrypi.org/cookies/">Cookies</a></li>
+                        <li><a href="https://www.raspberrypi.org/trademark-rules/">Trademark rules and brand guidelines</a></li>
+                    </ul>
+                </footer>
+            </div>
+        </footer>
+    </div>
+
+
+</body></html>

@@ -1,0 +1,70 @@
+/*
+
+Your custom css
+
+*/
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	//width: 100%;
+	height: auto;
+}
+
+.entry-content img, 
+.entry-content iframe, 
+.entry-content object, 
+.entry-content embed {
+        max-width: 100%;
+}
+.center-ad {
+     margin-left: auto;
+     margin-right: auto;
+}
+#theme-page h1, #theme-page h3, #theme-page h3  {
+	text-transform: none !important;
+}
+
+.menu-teal {
+   color: 4e4052 !important;
+}
+
+#wallpaperad {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 0px;
+    background-attachment: fixed;
+    cursor:pointer;
+}
+
+#wallpaperad_mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100%;
+    height: 50px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: #fafafa;
+}
+
+@media (min-width: 1200px) {
+	#theme-page { 
+		width: 1200px !important; 
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+

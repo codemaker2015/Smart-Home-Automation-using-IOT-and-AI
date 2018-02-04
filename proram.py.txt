@@ -1,0 +1,51 @@
+Software Setup
+To start with update your package lists and install a few Python libraries :
+sudo apt-get update
+sudo apt-get install build-essential python-dev
+Then clone the Adafruit library from their repository :
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+cd Adafruit_Python_DHT
+Then install the library for Python 2 and Python 3 :
+sudo python setup.py install
+sudo python3 setup.py install
+1/21/2018 DHT11 Temperature and Humidity Sensor and the Raspberry Pi
+https://www.raspberrypi-spy.co.uk/2017/09/dht11-temperature-and-humidity-sensor-raspberry-pi/ 4/6
+Hopefully at this point the library is installed and ready to be used within a Python script.
+Adafruit Example Python Script
+Adafruit provide an example script that you can use to check your sensor is operating correctly.
+cd ~
+cd Adafruit_Python_DHT
+cd examples
+Then :
+python AdafruitDHT.py 11 17
+The example script takes two parameters. The ??rst is the sensor type so is set to “11” to represent the DHT11. The
+second is the GPIO number so for my example I am using “17” for GPIO17. You can change this if you are using a
+di??erent GPIO pin for your data/out wire.
+You should see an output similar to this :
+Temp=22.0* Humidity=68.0%
+Using the Library In Other Python Scripts
+Once the Adafruit library is installed and you’ve got the example script to work you can use the sensor in your own
+scripts. Simply import the module, setup a few variables and call the “read_retry” function :
+This script can be downloaded directly to your Pi using :
+wget https://bitbucket.org/MattHawkinsUK/rpispy-misc/raw/master/python/dht11.py
+and run using :
+python dht11.py
+Buying a DHT11
+The DHT11 is available from many electrical component sellers. Here are a selection :
+
+Some may only sell the device itself so you may need to shop around if you would prefer the 3-pin module.
+
+import Adafruit_DHT
+# Set sensor type : Options are DHT11,DHT22 or AM2302
+sensor=Adafruit_DHT.DHT11
+# Set GPIO sensor is connected to
+gpio=17
+# Use read_retry method. This will retry up to 15 times to
+# get a sensor reading (waiting 2 seconds between each retry).
+humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
+# Reading the DHT11 is very sensitive to timings and occasionally
+# the Pi might fail to get a valid reading. So check if readings are valid.
+if humidity is not None and temperature is not None:
+print('Temp={0:0.1f}*C Humidity={1:0.1f}%'.format(temperature, humidity))
+else:
+print('Failed to get reading. Try again!')

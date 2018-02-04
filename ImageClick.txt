@@ -1,0 +1,36 @@
+<script>
+  function diffImage(img) 
+  {
+    if(img.src.match(/blank/))
+    {
+      console.log('black');
+      img.src = "http://www.tutorialsscripts.com/free-icons/alphabet-characters/upper-case-letter/B-icon/black-upper-case-letter-character-B-icon-32-x-32.jpg";
+    }
+    else
+    {
+      console.log('blank');
+      img.src = "http://www.vaddio.com/images/doc_icon_blank.jpg";
+    }
+  }
+</script>    
+<img src="http://www.tutorialsscripts.com/free-icons/alphabet-characters/upper-case-letter/B-icon/black-upper-case-letter-character-B-icon-32-x-32.jpg" id="image1" onclick=diffImage(this) />
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p>JavaScript can change HTML attributes.</p>
+
+<p>In this case JavaScript changes the src (source) attribute of an image.</p>
+
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-GB" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-GB" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-GB" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>Page not found - Raspberry Pi</title>
+    <link rel="icon" type="image/png" href="https://www.raspberrypi.org/app/themes/mind-control/images/favicon.png" />
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="pingback" href="https://www.raspberrypi.org/wp/xmlrpc.php" />
+    <link rel="publisher" href="https://plus.google.com/+RaspberryPi" />
+    <!--[if lt IE 9]><script src="https://www.raspberrypi.org/app/themes/mind-control/js/html5.js"></script><![endif]-->
+
+    
+<!-- This site is optimized with the Yoast SEO plugin v5.9.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<link rel="publisher" href="https://plus.google.com/+RaspberryPi"/>
+<meta property="og:locale" content="en_GB" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="Page not found - Raspberry Pi" />
+<meta property="og:site_name" content="Raspberry Pi" />
+<meta property="fb:admins" content="10152786633561863" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Page not found - Raspberry Pi" />
+<meta name="twitter:site" content="@Raspberry_Pi" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.raspberrypi.org\/","name":"Raspberry Pi","alternateName":"Raspberry Pi Foundation","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.raspberrypi.org\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":false,"sameAs":["https:\/\/www.facebook.com\/raspberrypi","https:\/\/plus.google.com\/+RaspberryPi","https:\/\/www.youtube.com\/channel\/UCFIjVWFZ__KhtTXHDJ7vgng","https:\/\/twitter.com\/Raspberry_Pi"],"@id":"#organization","name":"Raspberry Pi Foundation","logo":"https:\/\/www.raspberrypi.org\/wp-content\/uploads\/2015\/08\/raspberry-pi-logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v6.2.6 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+		var disableStr = 'ga-disable-UA-46270871-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-46270871-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview','/404.html?page=' + document.location.pathname + document.location.search + '&from=' + document.referrer);
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.raspberrypi.org\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='main-css'  href='https://www.raspberrypi.org/app/themes/mind-control/style.min.css?ver=1512738076' type='text/css' media='all' />
+<link rel='stylesheet' id='flags-css'  href='https://www.raspberrypi.org/app/themes/mind-control/css/flags.css?ver=1512738076' type='text/css' media='all' />
+<link rel='stylesheet' id='fullcalendar-css'  href='https://www.raspberrypi.org/app/themes/mind-control/js/fullcalendar/fullcalendar.css?ver=1512738076' type='text/css' media='all' />
+<link rel='stylesheet' id='modaal-css'  href='https://www.raspberrypi.org/app/themes/mind-control/css/modal/modaal.min.css?ver=1512738076' type='text/css' media='all' />
+<link rel='stylesheet' id='prism-css'  href='https://www.raspberrypi.org/app/themes/mind-control/css/prism.css?ver=1512738076' type='text/css' media='all' />
+<link rel='stylesheet' id='qtip-css'  href='https://www.raspberrypi.org/app/themes/mind-control/js/qtip/jquery.qtip.min.css?ver=1512738076' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.raspberrypi.org/wp/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/wp/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/fullcalendar/lib/moment.min.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/fullcalendar/fullcalendar.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/prism.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/qtip/jquery.qtip.min.js?ver=1512738076'></script>
+<link rel='https://api.w.org/' href='https://www.raspberrypi.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.raspberrypi.org/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.raspberrypi.org/wp/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.1" />
+</head>
+
+<body class="error404">
+    <div class="container">
+        <header id="header">
+            <nav id="nav">
+                <ul id="menu-nav-bar" class="menu"><li id="menu-item-6901" class="home mobile menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6901"><a href="https://www.raspberrypi.org/">Home</a></li>
+<li id="menu-item-8314" class="close-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-8314"><a href="#">Close Menu</a></li>
+<li id="menu-item-6902" class="yellow menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-6902"><a href="https://www.raspberrypi.org/blog/">Blog</a></li>
+<li id="menu-item-6903" class="red menu-item menu-item-type-post_type menu-item-object-page menu-item-6903"><a href="https://www.raspberrypi.org/downloads/">Downloads</a></li>
+<li id="menu-item-6904" class="purple menu-item menu-item-type-post_type menu-item-object-page menu-item-6904"><a href="https://www.raspberrypi.org/community/">Community</a></li>
+<li id="menu-item-6905" class="green menu-item menu-item-type-post_type menu-item-object-page menu-item-6905"><a href="https://www.raspberrypi.org/help/">Help</a></li>
+<li id="menu-item-6907" class="pink menu-item menu-item-type-custom menu-item-object-custom menu-item-6907"><a href="http://www.raspberrypi.org/forums/">Forums</a></li>
+<li id="menu-item-18868" class="blue menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-18868"><a href="https://www.raspberrypi.org/education/">Education</a>
+<ul class="sub-menu">
+	<li id="menu-item-39292" class="blue2 menu-item menu-item-type-custom menu-item-object-custom menu-item-39292"><a href="https://projects.raspberrypi.org">Projects</a></li>
+	<li id="menu-item-34467" class="blue3 menu-item menu-item-type-post_type menu-item-object-page menu-item-34467"><a href="https://www.raspberrypi.org/training/">Training</a></li>
+</ul>
+</li>
+<li id="menu-item-8315" class="menu mobile menu-item menu-item-type-custom menu-item-object-custom menu-item-8315"><a href="#">Menu</a></li>
+<li id="menu-item-6912" class="search mobile menu-item menu-item-type-custom menu-item-object-custom menu-item-6912"><a href="#">Search</a></li>
+<li id="menu-item-33918" class="shop menu-item menu-item-type-custom menu-item-object-custom menu-item-33918"><a href="/products">Buy</a></li>
+</ul>            </nav>
+            <form class="search" action="https://www.raspberrypi.org/">
+    <input name="s" class="search" value="" />
+    <input type="submit" class="submit" value="Search" />
+</form>
+        </header>
+
+        <div class="main">
+
+<h1>404 - Page Not Found</h1>
+
+<p>What is this page?</p>
+
+<div style="text-align:center;">
+    <a href="https://www.youtube.com/watch?v=Kh0Y2hVe_bw"><img src="https://www.raspberrypi.org/app/themes/mind-control/images/birds.png" alt="Image of bird with question mark above its head." /></a>
+</div>
+
+<p>We just don't know.</p>
+
+<a class="twitter-share-button" href="https://twitter.com/share" data-text="#blamenuttall" data-size="large" data-related="raspberry_pi,ben_nuttall" data-count="none" data-url="raspberrypi.org">#blamenuttall</a>
+<script type="text/javascript">// <![CDATA[
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+// ]]></script>
+
+        <div style="clear: both;"></div>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+    <footer id="footer">
+        <div class="footer-contents">
+            <ul class="about-us menu">
+                <li>
+                    <h2>About</h2>
+                    <ul id="menu-about-us" class="menu"><li id="menu-item-6888" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6888"><a href="https://www.raspberrypi.org/about/">About Us</a></li>
+<li id="menu-item-23728" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23728"><a href="https://www.raspberrypi.org/about/team/">Team</a></li>
+<li id="menu-item-23729" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23729"><a href="https://www.raspberrypi.org/about/governance/">Governance</a></li>
+<li id="menu-item-23730" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23730"><a href="https://www.raspberrypi.org/about/supporters/">Our Supporters</a></li>
+<li id="menu-item-32260" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32260"><a href="https://raspberrypi.workable.com/">Jobs</a></li>
+</ul>                </li>
+                <li>
+                    <h2>Support</h2>
+                    <ul id="menu-support" class="menu"><li id="menu-item-23731" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23731"><a href="https://www.raspberrypi.org/help/">Help</a></li>
+<li id="menu-item-23732" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23732"><a href="/documentation/">Documentation</a></li>
+<li id="menu-item-23733" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23733"><a href="https://www.raspberrypi.org/resources/">Learning Resources</a></li>
+<li id="menu-item-38276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38276"><a href="https://www.raspberrypi.org/training/">Training</a></li>
+<li id="menu-item-23735" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23735"><a href="https://www.raspberrypi.org/downloads/">Downloads</a></li>
+<li id="menu-item-30416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30416"><a href="https://www.raspberrypi.org/research-and-insights/">Research and Insights</a></li>
+<li id="menu-item-23968" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23968"><a href="https://www.raspberrypi.org/help/faqs/">FAQs</a></li>
+</ul>                </li>
+                <li>
+                    <h2>Contact</h2>
+                    <ul id="menu-contact" class="menu"><li id="menu-item-23736" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23736"><a href="https://www.raspberrypi.org/contact/">Contact Us</a></li>
+</ul>                </li>
+                <li>
+                    <h2>Social</h2>
+                    <ul id="menu-social" class="menu"><li id="menu-item-23737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23737"><a href="https://twitter.com/Raspberry_Pi">Twitter</a></li>
+<li id="menu-item-23738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23738"><a href="https://www.facebook.com/raspberrypi">Facebook</a></li>
+<li id="menu-item-23739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23739"><a href="https://plus.google.com/+RaspberryPi">Google+</a></li>
+<li id="menu-item-23740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23740"><a href="http://raspberrypi.github.io/">GitHub</a></li>
+<li id="menu-item-23741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23741"><a href="https://vimeo.com/raspberrypi">Vimeo</a></li>
+<li id="menu-item-23742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23742"><a href="https://www.youtube.com/channel/UCFIjVWFZ__KhtTXHDJ7vgng">YouTube</a></li>
+<li id="menu-item-31625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31625"><a href="https://www.instagram.com/raspberrypifoundation/">Instagram</a></li>
+</ul>                </li>
+            </ul>
+
+            <footer>
+                <div class="info">Raspberry Pi Foundation<br />UK registered charity 1129409</div>
+
+                <ul class="site-links menu">
+                    <li><a href="/cookies/">Cookies</a></li>
+                    <li><a href="/trademark-rules/">Trademark rules and brand guidelines</a></li>
+                </ul>
+            </footer>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript">
+// Constants, but we use `var` since `const` support is only in >=IE11
+var RESELLER_API_URL = 'https://api.resellers.raspberrypi.org';
+var SENTRY_PUBLIC_DSN = 'https://d228a2075e31456ba68cf45963ecfec6@sentry.io/160628';
+</script>
+
+<script type="text/javscript">
+    ga = __gaTracker;
+</script>
+
+<script type='text/javascript' src='https://www.raspberrypi.org/app/plugins/social-polls-by-opinionstage/public/js/shortcodes.js?ver=19.2.4'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/plugins/wp-gallery-custom-links/wp-gallery-custom-links.js?ver=1.1'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/sentry/raven.min.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/sentry/sentry.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/cookies-resolver.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/modal/modaal.min.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/modal/display-modal.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/geo/geoip2.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/geo/location-resolver.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/modal/product-modal.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/product.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/helpers.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/tracking.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/app/themes/mind-control/js/vimeo.ga.min.js?ver=1512738076'></script>
+<script type='text/javascript' src='https://www.raspberrypi.org/wp/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+
+</body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Page Caching using memcached
+Minified using memcached
+
+ Served from: www.raspberrypi.org @ 2017-12-20 09:56:47 by W3 Total Cache -->

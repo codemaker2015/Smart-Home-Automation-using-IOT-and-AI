@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://www.electronicshub.org/ir-sensor/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- This site is optimized with the Yoast SEO plugin v5.9.3 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>IR (Infrared) Obstacle Detection Sensor Circuit</title>
+<meta name="description" content="Here is basic tutorial about Infrared Sensor, different types of IR sensors, IR transmitter and receiver, IR sensor circuit diagram and its working.">
+<link rel="canonical" href="https://www.electronicshub.org/ir-sensor/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IR (Infrared) Obstacle Detection Sensor Circuit">
+<meta property="og:description" content="Here is basic tutorial about Infrared Sensor, different types of IR sensors, IR transmitter and receiver, IR sensor circuit diagram and its working.">
+<meta property="og:url" content="https://www.electronicshub.org/ir-sensor/">
+<meta property="og:site_name" content="Electronics Hub">
+<meta property="article:author" content="http://www.facebook.com/electronicshub.org">
+<meta property="article:section" content="IO DEVICES">
+<meta property="article:published_time" content="2015-02-02T08:41:06+00:00">
+<meta property="article:modified_time" content="2015-06-06T04:48:36+00:00">
+<meta property="og:updated_time" content="2015-06-06T04:48:36+00:00">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/1.-IR-Sensors.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/1.-IR-Sensors.jpg">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/IR-LED.png">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/IR-LED.png">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/2.-Infrared-Transmitter.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/2.-Infrared-Transmitter.jpg">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/IR-Receiver.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/IR-Receiver.jpg">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/3.-Infrared-Receiver.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/3.-Infrared-Receiver.jpg">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/4.-Working-principle-of-IR-sensor.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/4.-Working-principle-of-IR-sensor.jpg">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/5.-IR-Sensor-Circuit.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/5.-IR-Sensor-Circuit.jpg">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/6.-Distinguishing-Between-Black-and-White-Colors.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/6.-Distinguishing-Between-Black-and-White-Colors.jpg">
+<meta property="og:image" content="https://www.electronicshub.org/wp-content/uploads/2015/01/7.-directivity.jpg">
+<meta property="og:image:secure_url" content="https://www.electronicshub.org/wp-content/uploads/2015/01/7.-directivity.jpg">
+<script src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/rum.js.download"></script><script type="text/javascript" async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/rtbspub"></script><script src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/browserfp.min.js.download"></script><script type="text/javascript" async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/platform.js.download" gapi_processed="true"></script><script type="text/javascript" async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/rtbspub(1)"></script><script src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/browserfp.min.js.download"></script><script src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/ca-pub-8940481053168351.js.download"></script><script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/videoAds.js.download" async=""></script><script type="text/javascript" async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/analytics.js.download"></script><script async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/prum.min.js.download"></script><script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.electronicshub.org\/","name":"Electronics Hub","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.electronicshub.org\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://www.electronicshub.org/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Electronics Hub » Feed" href="https://www.electronicshub.org/feed/">
+<link rel="alternate" type="application/rss+xml" title="Electronics Hub » Comments Feed" href="https://www.electronicshub.org/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Electronics Hub » IR SENSOR Comments Feed" href="https://www.electronicshub.org/ir-sensor/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.electronicshub.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="news-pro-theme-css" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="ez-icomoon-css" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="ez-toc-css" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/screen.min.css" type="text/css" media="all">
+<style id="ez-toc-inline-css" type="text/css">
+div#ez-toc-container ul li {font-size: 95%;}
+</style>
+<link rel="stylesheet" id="dashicons-css" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-css" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/default.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-tabs-stylesheet-css" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/style(1).css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://www.electronicshub.org/wp-content/themes/genesis/lib/js/html5shiv.js?ver=3.7.3'></script>
+<![endif]-->
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/jquery.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/responsive-menu.js.download"></script>
+<link rel="https://api.w.org/" href="https://www.electronicshub.org/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.electronicshub.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.electronicshub.org/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.9.1">
+<link rel="shortlink" href="https://www.electronicshub.org/?p=5536">
+<link rel="alternate" type="application/json+oembed" href="https://www.electronicshub.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.electronicshub.org%2Fir-sensor%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.electronicshub.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.electronicshub.org%2Fir-sensor%2F&amp;format=xml">
+<meta name="p:domain_verify" content="ccb004a7cb67c1769d53ea98d0d44fbe">
+<script>
+var _prum = [['id', '53502263abe53d5332427270'],
+             ['mark', 'firstbyte', (new Date()).getTime()]];
+(function() {
+    var s = document.getElementsByTagName('script')[0]
+      , p = document.createElement('script');
+    p.async = 'async';
+    p.src = '//rum-static.pingdom.net/prum.min.js';
+    s.parentNode.insertBefore(p, s);
+})();
+</script>
+
+<script type="text/javascript">
+    window._mNHandle = window._mNHandle || {};
+    window._mNHandle.queue = window._mNHandle.queue || [];
+    medianet_versionId = "3121199"; 
+</script>
+<script src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/dmedianet.js.download" async="async"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-40919084-1');
+</script><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+<link rel="icon" href="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-32x32.jpg" sizes="32x32">
+<link rel="icon" href="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://www.electronicshub.org/wp-content/uploads/2016/08/cropped-ehl-270x270.jpg">
+<link rel="preload" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/integrator.js.download" as="script"><script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/integrator.js.download"></script><link rel="preload" href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/integrator.js(1).download"></script><style>.ez-toc-widget-container ul.ez-toc-list li::before{line-height:undefined;height:undefined}</style></head>
+<body class="post-template-default single single-post postid-5536 single-format-standard custom-background custom-header header-full-width content-sidebar news-pro-blue" itemscope="" itemtype="https://schema.org/WebPage"><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="0" width="0" id="_mN_cksync_0" style="display: none !important;" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource.html"></iframe><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="0" width="0" id="_mNX_beacons" style="display: none !important;" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(1).html"></iframe><div class="site-container"><header class="site-header" itemscope="" itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.electronicshub.org/">Electronics Hub</a></p><p class="site-description" itemprop="description">projects | tutorials | courses | kits</p></div></div></header><nav class="nav-primary" itemscope="" itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><div class="responsive-menu-icon"></div><ul id="menu-eh-menu-3" class="menu genesis-nav-menu menu-primary responsive-menu"><li id="menu-item-7959" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7959"><a href="https://www.electronicshub.org/" itemprop="url"><span itemprop="name">HOME</span></a></li>
+<li id="menu-item-7960" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7960"><a href="https://www.electronicshub.org/ir-sensor/#" itemprop="url"><span itemprop="name">PROJECTS</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7961" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7961"><a href="https://www.electronicshub.org/electronics-mini-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">MINI PROJECTS</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7963" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7963"><a href="https://www.electronicshub.org/top-electrical-mini-projects/?ref=menu" itemprop="url"><span itemprop="name">TOP ELECTRONICS</span></a></li>
+		<li id="menu-item-7964" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7964"><a href="https://www.electronicshub.org/microcontroller-based-mini-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">MICROCONTROLLER</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7962" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7962"><a href="https://www.electronicshub.org/electrical-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">ELECTRICAL</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-8434" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8434"><a href="https://www.electronicshub.org/top-electrical-mini-projects/?ref=menu" itemprop="url"><span itemprop="name">TOP ELECTRICAL</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7965" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7965"><a href="https://www.electronicshub.org/electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">ELECTRONICS</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7966" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7966"><a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">TOP</span></a></li>
+		<li id="menu-item-7967" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7967"><a href="https://www.electronicshub.org/latest-electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">LATEST</span></a></li>
+		<li id="menu-item-7968" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7968"><a href="https://www.electronicshub.org/led-projects-circuits-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">LED</span></a></li>
+		<li id="menu-item-7969" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7969"><a href="https://www.electronicshub.org/vlsi-projects-for-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">VLSI</span></a></li>
+		<li id="menu-item-7970" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7970"><a href="https://www.electronicshub.org/matlab-projects-for-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">MATLAB</span></a></li>
+		<li id="menu-item-7971" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7971"><a href="https://www.electronicshub.org/sensor-based-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">SENSOR</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7976" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7976"><a href="https://www.electronicshub.org/arduino-project-ideas/?ref=menu" itemprop="url"><span itemprop="name">ARDUINO</span></a></li>
+	<li id="menu-item-11983" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11983"><a href="https://www.electronicshub.org/home-automation-projects/" itemprop="url"><span itemprop="name">HOME AUTOMATION</span></a></li>
+	<li id="menu-item-12523" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12523"><a href="https://www.electronicshub.org/raspberry-pi-projects/?ref=menu" itemprop="url"><span itemprop="name">RASPBERRY PI</span></a></li>
+	<li id="menu-item-12313" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12313"><a href="https://www.electronicshub.org/iot-project-ideas/?ref=menu" itemprop="url"><span itemprop="name">IOT</span></a></li>
+	<li id="menu-item-7972" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7972"><a href="https://www.electronicshub.org/embedded-systems-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">EMBEDDED</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7973" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7973"><a href="https://www.electronicshub.org/8051-microcontroller-projects-engineering-students/?ref=menu" itemprop="url"><span itemprop="name">8051</span></a></li>
+		<li id="menu-item-7974" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7974"><a href="https://www.electronicshub.org/avr-microcontroller/?ref=menu" itemprop="url"><span itemprop="name">AVR</span></a></li>
+		<li id="menu-item-7975" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7975"><a href="https://www.electronicshub.org/top-pic-microcontroller-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">PIC</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7977" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7977"><a href="https://www.electronicshub.org/communication-based-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">COMMUNICATION</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7978" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7978"><a href="https://www.electronicshub.org/dtmf-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">DTMF</span></a></li>
+		<li id="menu-item-7979" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7979"><a href="https://www.electronicshub.org/gsm-based-projects/?ref=menu" itemprop="url"><span itemprop="name">GSM</span></a></li>
+		<li id="menu-item-7980" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7980"><a href="https://www.electronicshub.org/rfid-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">RFID</span></a></li>
+		<li id="menu-item-7981" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7981"><a href="https://www.electronicshub.org/wireless-communication-based-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">WIRELESS</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-8430" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8430"><a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">POWER ELECTRONICS</span></a></li>
+	<li id="menu-item-8982" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8982"><a href="https://www.electronicshub.org/arm-based-projects/?ref=menu" itemprop="url"><span itemprop="name">ARM PROJECTS</span></a></li>
+	<li id="menu-item-7982" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7982"><a href="https://www.electronicshub.org/robotics-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">ROBOTICS</span></a></li>
+	<li id="menu-item-7983" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7983"><a href="https://www.electronicshub.org/solar-energy-projects-ideas/?ref=menu" itemprop="url"><span itemprop="name">SOLAR</span></a></li>
+</ul>
+</li>
+<li id="menu-item-8017" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8017"><a href="https://www.electronicshub.org/electronics-mini-project-circuits/?ref=menu" itemprop="url"><span itemprop="name">MINI PROJECTS</span></a></li>
+<li id="menu-item-7984" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7984"><a href="https://www.electronicshub.org/free-project-circuits/?ref=menu" itemprop="url"><span itemprop="name">FREE CIRCUITS</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7985" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7985"><a href="https://www.electronicshub.org/electronics-mini-project-circuits/?ref=menu" itemprop="url"><span itemprop="name">MINI PROJECTS</span></a></li>
+	<li id="menu-item-7986" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7986"><a href="https://www.electronicshub.org/free-project-circuits/electronics/?ref=menu" itemprop="url"><span itemprop="name">ELECTRONICS</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7987" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7987"><a href="https://www.electronicshub.org/555-timer/?ref=menu" itemprop="url"><span itemprop="name">555 TIMER</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7988" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7988"><a href="https://www.electronicshub.org/free-project-circuits/embedded/?ref=menu" itemprop="url"><span itemprop="name">EMBEDDED</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-7989" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7989"><a href="https://www.electronicshub.org/free-project-circuits/embedded/8051/?ref=menu" itemprop="url"><span itemprop="name">8051</span></a></li>
+		<li id="menu-item-7990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7990"><a href="https://www.electronicshub.org/free-project-circuits/embedded/avr/?ref=menu" itemprop="url"><span itemprop="name">AVR</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-7991" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7991"><a href="https://www.electronicshub.org/free-project-circuits/communication/?ref=menu" itemprop="url"><span itemprop="name">COMMUNICATION</span></a></li>
+	<li id="menu-item-7992" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7992"><a href="https://www.electronicshub.org/free-project-circuits/electrical/?ref=menu" itemprop="url"><span itemprop="name">ELECTRICAL</span></a></li>
+	<li id="menu-item-7993" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7993"><a href="https://www.electronicshub.org/free-project-circuits/robotics/?ref=menu" itemprop="url"><span itemprop="name">ROBOTICS</span></a></li>
+	<li id="menu-item-7994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7994"><a href="https://www.electronicshub.org/free-project-circuits/solar/?ref=menu" itemprop="url"><span itemprop="name">SOLOR</span></a></li>
+	<li id="menu-item-7995" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7995"><a href="https://www.electronicshub.org/free-project-circuits/sensor/?ref=menu" itemprop="url"><span itemprop="name">SENSOR</span></a></li>
+</ul>
+</li>
+<li id="menu-item-7996" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7996"><a href="https://www.electronicshub.org/tutorials/?ref=menu" itemprop="url"><span itemprop="name">TUTORIALS</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7997" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7997"><a href="https://www.electronicshub.org/tutorials/#1_Capacitors" itemprop="url"><span itemprop="name">CAPACITORS</span></a></li>
+	<li id="menu-item-7998" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7998"><a href="https://www.electronicshub.org/tutorials/#2_Resistors" itemprop="url"><span itemprop="name">RESISTORS</span></a></li>
+	<li id="menu-item-7999" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7999"><a href="https://www.electronicshub.org/tutorials/#3_Filters" itemprop="url"><span itemprop="name">FILTERS</span></a></li>
+	<li id="menu-item-8000" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8000"><a href="https://www.electronicshub.org/tutorials/#4_Operational_Amplifiers" itemprop="url"><span itemprop="name">OPERATIONAL AMPLIFIERS</span></a></li>
+	<li id="menu-item-8001" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8001"><a href="https://www.electronicshub.org/tutorials/#5_Diodes" itemprop="url"><span itemprop="name">DIODES</span></a></li>
+	<li id="menu-item-8002" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8002"><a href="https://www.electronicshub.org/tutorials/#6_Transistors" itemprop="url"><span itemprop="name">TRANSISTORS</span></a></li>
+	<li id="menu-item-8003" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8003"><a href="https://www.electronicshub.org/tutorials/#7_Number_Systems" itemprop="url"><span itemprop="name">NUMBER SYSTEMS</span></a></li>
+	<li id="menu-item-8004" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8004"><a href="https://www.electronicshub.org/tutorials/#8_IO_Devices" itemprop="url"><span itemprop="name">IO DEVICES</span></a></li>
+	<li id="menu-item-8005" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8005"><a href="https://www.electronicshub.org/tutorials/#9_Miscellaneous" itemprop="url"><span itemprop="name">MISCELLANEOUS</span></a></li>
+	<li id="menu-item-8006" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8006"><a href="https://www.electronicshub.org/tutorials/#10_DC_Circuit_Theory" itemprop="url"><span itemprop="name">DC CIRCUIT THEORY</span></a></li>
+	<li id="menu-item-8007" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8007"><a href="https://www.electronicshub.org/tutorials/#11_Thyristors" itemprop="url"><span itemprop="name">THYRISTORS</span></a></li>
+	<li id="menu-item-8008" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8008"><a href="https://www.electronicshub.org/tutorials/#12_Sequential_Logic_Circuits" itemprop="url"><span itemprop="name">SEQUENTIAL LOGIC CIRCUITS</span></a></li>
+</ul>
+</li>
+<li id="menu-item-8009" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8009"><a href="https://www.electronicshub.org/symbols/?ref=menu" itemprop="url"><span itemprop="name">SYMBOLS</span></a></li>
+<li id="menu-item-11121" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-11121"><a href="https://www.electronicshub.org/diy-projects/" itemprop="url"><span itemprop="name">DIY</span></a></li>
+<li id="menu-item-8010" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8010"><a href="https://electronicshub-store.myshopify.com/" itemprop="url"><span itemprop="name">PROJECT KITS</span></a></li>
+<li id="menu-item-11476" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11476"><a href="https://electronicshub.teachable.com/" itemprop="url"><span itemprop="name">COURSES</span></a></li>
+<li id="menu-item-8011" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8011"><a href="https://www.electronicshub.org/contact/?ref=menu" itemprop="url"><span itemprop="name">CONTACT US</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-8012" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8012"><a href="https://www.electronicshub.org/contact/" itemprop="url"><span itemprop="name">FOLLOW US</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-8013" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8013"><a href="https://www.facebook.com/electronicshub.org" itemprop="url"><span itemprop="name">FACEBOOK</span></a></li>
+		<li id="menu-item-8014" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8014"><a href="https://www.youtube.com/user/electronicshuborg" itemprop="url"><span itemprop="name">YOUTUBE</span></a></li>
+		<li id="menu-item-15526" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15526"><a href="https://www.instagram.com/eh_org/" itemprop="url"><span itemprop="name">INSTAGRAM</span></a></li>
+		<li id="menu-item-8015" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8015"><a href="https://plus.google.com/+ElectronicsHubOrg?prsrc=5" itemprop="url"><span itemprop="name">GOOGLE PLUS</span></a></li>
+		<li id="menu-item-8016" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8016"><a href="http://twitter.com/eh_org" itemprop="url"><span itemprop="name">TWITTER</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div></nav><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><div class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a href="https://www.electronicshub.org/" rel="v:url" property="v:title">Home</a> » <span rel="v:child" typeof="v:Breadcrumb"><a href="https://www.electronicshub.org/io-devices/" rel="v:url" property="v:title">IO DEVICES</a> » <span class="breadcrumb_last">IR SENSOR</span></span></span></span></div><article class="post-5536 post type-post status-publish format-standard category-io-devices entry" itemscope="" itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">IR SENSOR</h1>
+<p class="entry-meta"><time class="entry-time" itemprop="datePublished" datetime="2015-02-02T08:41:06+00:00">February 2, 2015</time> By <span class="entry-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person"><a href="https://www.electronicshub.org/author/elktros/" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">Administrator</span></a></span> <span class="entry-comments-link"><a href="https://www.electronicshub.org/ir-sensor/#comments">16 Comments</a></span> </p></header><div class="entry-content" itemprop="text"><div style="width: 600px;  padding: 5px 5px 5px 0; margin-right: 0;"><script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/wurfl.js.download"></script><script type="text/javascript"> if(WURFL.is_mobile){ document.write('<ins class="adsbygoogle" style="background:#fff;display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-8940481053168351" data-ad-slot="7527713422"></ins>'); } else { document.write('<ins class="adsbygoogle" style="background:#fff;display:inline-block;width:600px;height:300px" data-ad-client="ca-pub-8940481053168351" data-ad-slot="3097513828"></ins>'); } (adsbygoogle= window.adsbygoogle || []).push({}); </script><script async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/adsbygoogle.js.download"></script></div><div id="ez-toc-container" class="counter-hierarchy counter-decimal ez-toc-transparent">
+<div class="ez-toc-title-container">
+<p class="ez-toc-title">Table of Contents</p>
+<span class="ez-toc-title-toggle"><a class="pull-right btn btn-xs btn-default ez-toc-toggle"><i class="glyphicon ez-toc-icon-toggle"></i></a></span></div>
+<ul class="ez-toc-list"><li><a href="https://www.electronicshub.org/ir-sensor/#Introduction" title="Introduction">Introduction</a></li><li><a href="https://www.electronicshub.org/ir-sensor/#Types_of_IR_Sensors" title="Types of IR Sensors">Types of IR Sensors</a></li><li><a href="https://www.electronicshub.org/ir-sensor/#IR_Transmitter" title="IR Transmitter">IR Transmitter</a></li><li><a href="https://www.electronicshub.org/ir-sensor/#IR_Receiver" title="IR Receiver">IR Receiver</a></li><li><a href="https://www.electronicshub.org/ir-sensor/#Principle_of_Working" title="Principle of Working">Principle of Working</a></li><li><a href="https://www.electronicshub.org/ir-sensor/#Obstacle_Sensing_Circuit_or_IR_Sensor_Circuit" title="Obstacle Sensing Circuit or IR Sensor Circuit">Obstacle Sensing Circuit or IR Sensor Circuit</a></li><li><a href="https://www.electronicshub.org/ir-sensor/#Distinguishing_Between_Black_and_White_Colors" title="Distinguishing Between Black and White Colors">Distinguishing Between Black and White Colors</a></li></ul></div>
+<h3><span class="ez-toc-section" id="Introduction"><a name="top"></a><span style="color: #000000;">Introduction</span></span></h3>
+<p><span style="color: #000000;">Infrared technology addresses a wide variety of wireless applications. The main areas are sensing and remote controls. In the electromagnetic spectrum, the infrared portion is divided into three regions: near infrared region, mid infrared region and far infrared region.</span></p>
+<p><span style="color: #000000;">The wavelengths of these regions and their applications are shown below.</span></p><div style="width: 600px;  padding: 5px 5px 5px 0; margin-right: 0;margin-left:0px;"><script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/wurfl.js.download"></script><script type="text/javascript"> if(WURFL.is_mobile){ document.write('<ins class="adsbygoogle" style="background:#fff;display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-8940481053168351" data-ad-slot="9004446621"></ins>'); } else { document.write('<ins class="adsbygoogle" style="background:#fff;display:inline-block;width:600px;height:300px" data-ad-client="ca-pub-8940481053168351" data-ad-slot="4574247026"></ins>'); } (adsbygoogle= window.adsbygoogle || []).push({}); </script><script async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/adsbygoogle.js.download"></script></div>
+<ul>
+<li><span style="color: #000000;">Near infrared region — 700 nm to 1400 nm — IR sensors, fiber optic</span></li>
+<li><span style="color: #000000;">Mid infrared region — 1400 nm to 3000 nm — Heat sensing</span></li>
+<li><span style="color: #000000;">Far infrared region — 3000 nm to 1 mm — Thermal imaging</span></li>
+</ul>
+<p><span style="color: #000000;">The frequency range of infrared is higher than microwave and lesser than visible light.</span></p>
+<p><span style="color: #000000;">For optical sensing and optical communication, photo optics technologies are used in the near infrared region as the light is less complex than RF when implemented as a source of signal. Optical wireless communication is done with IR data transmission for short range applications.</span></p>
+<p><span style="color: #000000;">An infrared sensor emits and/or detects infrared radiation to sense its surroundings.</span></p>
+<p><span style="color: #000000;">The working of any Infrared sensor is governed by three laws: Planck’s Radiation law, Stephen – Boltzmann law and Wien’s Displacement law.</span></p>
+<p><span style="color: #000000;">Planck’s law states that “every object emits radiation at a temperature not equal to&nbsp;</span>0<sup>0</sup>K”. Stephen – Boltzmann law states that “at all wavelengths, the total energy emitted by a black body is proportional to the fourth power of the absolute temperature”. According to Wien’s Displacement law, “the radiation curve of a black body for different temperatures will reach its peak at a wavelength inversely proportional to the temperature”.</p>
+<p><span style="color: #000000;">The basic concept of an Infrared Sensor which is used as Obstacle detector is to transmit an infrared signal, this infrared signal bounces from the surface of an object and the signal is received at the infrared receiver.</span></p>
+<p><span style="color: #000000;">There are five basic elements used in a typical infrared detection system: an infrared source, a transmission medium, optical component, infrared detectors or receivers and signal processing. Infrared lasers and Infrared LED’s of specific wavelength can be used as infrared sources. The three main types of media used for infrared transmission are vacuum, atmosphere and optical fibers. Optical components are used to focus the infrared radiation or to limit the spectral response. Optical lenses made of Quartz, Germanium and Silicon are used to focus the infrared radiation. Infrared receivers can be photodiodes, phototransistors etc. some important specifications of infrared receivers are photosensitivity, detectivity and noise equivalent power. Signal processing is done by amplifiers as the output of infrared detector is very small.</span></p>
+<p style="text-align: right;"><strong><a href="https://www.electronicshub.org/ir-sensor/#top">BACK TO TOP</a></strong></p>
+<h3><span class="ez-toc-section" id="Types_of_IR_Sensors"><a name="TypesofIRSensors"></a><span style="color: #000000;"><strong>Types of IR Sensors</strong></span></span></h3>
+<p><span style="color: #000000;">Infrared sensors can be passive or active. Passive infrared sensors are basically Infrared detectors. Passive infrared sensors do not use any infrared source and detects energy emitted by obstacles in the field of view. They are of two types: quantum and thermal. Thermal infrared sensors use infrared energy as the source of heat and are independent of wavelength. Thermocouples, pyroelectric detectors and bolometers are the common types of thermal infrared detectors.</span></p>
+<p><span style="color: #000000;">Quantum type infrared detectors offer higher detection performance and are faster than thermal type infrared detectors. The photosensitivity of quantum type detectors is wavelength dependent. Quantum type detectors are further classified into two types: intrinsic and extrinsic types. Intrinsic type quantum detectors are photoconductive cells and photovoltaic cells.</span></p>
+<p><span style="color: #000000;">Active infrared sensors consist of two elements: infrared source and infrared detector. Infrared sources include an LED or infrared laser diode. Infrared detectors include photodiodes or phototransistors. The energy emitted by the infrared source is reflected by an object and falls on the infrared detector.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/1.-IR-Sensors.jpg"><img class="aligncenter size-full wp-image-5551" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/1.-IR-Sensors.jpg" alt="1. IR Sensors" width="498" height="335" srcset="https://www.electronicshub.org/wp-content/uploads/2015/01/1.-IR-Sensors.jpg 498w, https://www.electronicshub.org/wp-content/uploads/2015/01/1.-IR-Sensors-300x202.jpg 300w, https://www.electronicshub.org/wp-content/uploads/2015/01/1.-IR-Sensors-150x101.jpg 150w" sizes="(max-width: 498px) 100vw, 498px"></a></p>
+<p style="text-align: right;"><strong><a href="https://www.electronicshub.org/ir-sensor/#top">BACK TO TOP</a></strong></p>
+<h3><span class="ez-toc-section" id="IR_Transmitter"><a name="IRTransmitter"></a><span style="color: #000000;"><strong>IR Transmitter</strong></span></span></h3>
+<p><span style="color: #000000;">Infrared Transmitter is a light emitting diode (LED) which emits infrared radiations. Hence, they are called IR LED’s. Even though an IR LED looks like a normal LED, the radiation emitted by it is invisible to the human eye.</span></p>
+<p><span style="color: #000000;">The picture of a typical Infrared LED is shown below.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/IR-LED.png"><img class="aligncenter size-full wp-image-5558" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/IR-LED.png" alt="IR LED" width="195" height="147"></a></p>
+<p><span style="color: #000000;">There are different types of infrared transmitters depending on their wavelengths, output power and response time.</span></p>
+<p><span style="color: #000000;">A simple infrared transmitter can be constructed using an infrared LED, a current limiting resistor and a power supply. The schematic of a typical IR transmitter is shown below.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/2.-Infrared-Transmitter.jpg"><img class="aligncenter size-full wp-image-5552" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/2.-Infrared-Transmitter.jpg" alt="2. Infrared Transmitter" width="600" height="425" srcset="https://www.electronicshub.org/wp-content/uploads/2015/01/2.-Infrared-Transmitter.jpg 600w, https://www.electronicshub.org/wp-content/uploads/2015/01/2.-Infrared-Transmitter-300x213.jpg 300w" sizes="(max-width: 600px) 100vw, 600px"></a></p>
+<p><span style="color: #000000;">When operated at a supply of 5V, the IR transmitter consumes about 3 to 5 mA of current. Infrared transmitters can be modulated to produce a particular frequency of infrared light. The most commonly used modulation is OOK (ON – OFF – KEYING) modulation.</span></p>
+<p><span style="color: #000000;">IR transmitters can be found in several applications. Some applications require infrared heat and the best infrared source is infrared transmitter. When infrared emitters are used with Quartz, solar cells can be made.</span></p>
+<p style="text-align: right;"><strong><a href="https://www.electronicshub.org/ir-sensor/#top">BACK TO TOP</a></strong></p>
+<h3><span class="ez-toc-section" id="IR_Receiver"><a name="IRReceiver"></a><span style="color: #000000;"><strong>IR Receiver</strong></span></span></h3>
+<p><span style="color: #000000;">Infrared receivers are also called as infrared sensors as they detect the radiation from an IR transmitter. IR receivers come in the form of photodiodes and phototransistors. Infrared Photodiodes are different from normal photo diodes as they detect only infrared radiation. The picture of a typical IR receiver or a photodiode is shown below.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/IR-Receiver.jpg"><img class="aligncenter size-full wp-image-5564" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/IR-Receiver.jpg" alt="IR Receiver" width="150" height="300"></a></p>
+<p><span style="color: #000000;">Different types of IR receivers exist based on the wavelength, voltage, package, etc. When used in an infrared transmitter – receiver combination, the wavelength of the receiver should match with that of the transmitter.</span></p>
+<p><span style="color: #000000;">A typical infrared receiver circuit using a phototransistor is shown below.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/3.-Infrared-Receiver.jpg"><img class="aligncenter size-full wp-image-5553" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/3.-Infrared-Receiver.jpg" alt="3. Infrared Receiver" width="650" height="920" srcset="https://www.electronicshub.org/wp-content/uploads/2015/01/3.-Infrared-Receiver.jpg 650w, https://www.electronicshub.org/wp-content/uploads/2015/01/3.-Infrared-Receiver-212x300.jpg 212w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
+<p><span style="color: #000000;">It consists of an IR phototransistor, a diode, a MOSFET, a potentiometer and an LED. When the phototransistor receives any infrared radiation, current flows through it and MOSFET turns on. This in turn lights up the LED which acts as a load. The potentiometer is used to control the sensitivity of the phototransistor.</span></p>
+<p style="text-align: right;"><strong><a href="https://www.electronicshub.org/ir-sensor/#top">BACK TO TOP</a></strong></p>
+<h3><span class="ez-toc-section" id="Principle_of_Working"><a name="PrincipleofWorking"></a><span style="color: #000000;"><strong>Principle of Working</strong></span></span></h3>
+<p><span style="color: #000000;">The principle of an IR sensor working as an Object Detection Sensor can be explained using the following figure. An IR sensor consists of an IR LED and an IR Photodiode; together they are called as Photo – Coupler or Opto – Coupler.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/4.-Working-principle-of-IR-sensor.jpg"><img class="aligncenter size-full wp-image-5554" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/4.-Working-principle-of-IR-sensor.jpg" alt="4. Working principle of IR sensor" width="484" height="319" srcset="https://www.electronicshub.org/wp-content/uploads/2015/01/4.-Working-principle-of-IR-sensor.jpg 484w, https://www.electronicshub.org/wp-content/uploads/2015/01/4.-Working-principle-of-IR-sensor-300x198.jpg 300w" sizes="(max-width: 484px) 100vw, 484px"></a></p>
+<p><span style="color: #000000;">When the IR transmitter emits radiation, it reaches the object and some of the radiation reflects back to the IR receiver. Based on the intensity of the reception by the IR receiver, the output of the sensor is defined.</span></p>
+<p style="text-align: right;"><strong><a href="https://www.electronicshub.org/ir-sensor/#top">BACK TO TOP</a></strong></p>
+<h3><span class="ez-toc-section" id="Obstacle_Sensing_Circuit_or_IR_Sensor_Circuit"><a name="OSCorIRSC"></a><span style="color: #000000;"><strong>Obstacle Sensing Circuit or IR Sensor Circuit</strong></span></span></h3>
+<p><span style="color: #000000;">A typical IR sensing circuit is shown below.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/5.-IR-Sensor-Circuit.jpg"><img class="aligncenter size-full wp-image-5555" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/5.-IR-Sensor-Circuit.jpg" alt="5. IR Sensor Circuit" width="680" height="464" srcset="https://www.electronicshub.org/wp-content/uploads/2015/01/5.-IR-Sensor-Circuit.jpg 680w, https://www.electronicshub.org/wp-content/uploads/2015/01/5.-IR-Sensor-Circuit-300x205.jpg 300w" sizes="(max-width: 680px) 100vw, 680px"></a></p>
+<p><span style="color: #000000;">It consists of an IR LED, a photodiode, a potentiometer, an IC Operational amplifier and an LED.</span></p>
+<p><span style="color: #000000;">IR LED emits infrared light. The Photodiode detects the infrared light. An IC Op – Amp is used as a voltage comparator. The potentiometer is used to calibrate the output of the sensor according to the requirement.</span></p>
+<p><span style="color: #000000;">When the light emitted by the IR LED is incident on the photodiode after hitting an object, the resistance of the photodiode falls down from a huge value. One of the input of the op – amp is at threshold value set by the potentiometer. The other input to the op-amp is from the photodiode’s series resistor. When the incident radiation is more on the photodiode, the voltage drop across the series resistor will be high. In the IC, both the threshold voltage and the voltage across the series resistor are compared. If the voltage across the resistor series to photodiode is greater than that of the threshold voltage, the output of the IC Op – Amp is high. As the output of the IC is connected to an LED, it lightens up. The threshold voltage can be adjusted by adjusting the potentiometer depending on the environmental conditions.</span></p>
+<p><span style="color: #000000;">The positioning of the IR LED and the IR Receiver is an important factor. When the IR LED is held directly in front of the IR receiver, this setup is called Direct Incidence. In this case, almost the entire radiation from the IR LED will fall on the IR receiver. Hence there is a line of sight communication between the infrared transmitter and the receiver. If an object falls in this line, it obstructs the radiation from reaching the receiver either by reflecting the radiation or absorbing the radiation.</span></p>
+<p style="text-align: right;"><strong><a href="https://www.electronicshub.org/ir-sensor/#top">BACK TO TOP</a></strong></p>
+<h3><span class="ez-toc-section" id="Distinguishing_Between_Black_and_White_Colors"><a name="DistinguishingBetweenBlackandWhiteColors"></a><span style="color: #000000;"><strong>Distinguishing Between Black and White Colors</strong></span></span></h3>
+<p><span style="color: #000000;">It is universal that black color absorbs the entire radiation incident on it and white color reflects the entire radiation incident on it. Based on this principle, the second positioning of the sensor couple can be made. The IR LED and the photodiode are placed side by side. When the IR transmitter emits infrared radiation, since there is no direct line of contact between the transmitter and receiver, the emitted radiation must reflect back to the photodiode after hitting any object. The surface of the object can be divided into two types: reflective surface and non-reflective surface. If the surface of the object is reflective in nature i.e. it is white or other light color, most of the radiation incident on it will get reflected back and reaches the photodiode. Depending on the intensity of the radiation reflected back, current flows in the photodiode.</span></p>
+<p><span style="color: #000000;">If the surface of the object is non-reflective in nature i.e. it is black or other dark color, it absorbs almost all the radiation incident on it. As there is no reflected radiation, there is no radiation incident on the photodiode and the resistance of the photodiode remains higher allowing no current to flow. This situation is similar to there being no object at all.</span></p>
+<p><span style="color: #000000;">The pictorial representation of the above scenarios is shown below.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/6.-Distinguishing-Between-Black-and-White-Colors.jpg"><img class="aligncenter size-full wp-image-5556" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/6.-Distinguishing-Between-Black-and-White-Colors.jpg" alt="6. Distinguishing Between Black and White Colors" width="650" height="278" srcset="https://www.electronicshub.org/wp-content/uploads/2015/01/6.-Distinguishing-Between-Black-and-White-Colors.jpg 650w, https://www.electronicshub.org/wp-content/uploads/2015/01/6.-Distinguishing-Between-Black-and-White-Colors-300x128.jpg 300w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
+<p><span style="color: #000000;">The positioning and enclosing of the IR transmitter and Receiver is very important. Both the transmitter and the receiver must be placed at a certain angle, so that the detection of an object happens properly. This angle is the directivity of the sensor which is +/- 45 degrees.</span></p>
+<p><span style="color: #000000;">The directivity is shown below.</span></p>
+<p><a href="./IR (Infrared) Obstacle Detection Sensor Circuit_files/7.-directivity.jpg"><img class="aligncenter size-full wp-image-5557" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/7.-directivity.jpg" alt="7. directivity" width="316" height="263" srcset="https://www.electronicshub.org/wp-content/uploads/2015/01/7.-directivity.jpg 316w, https://www.electronicshub.org/wp-content/uploads/2015/01/7.-directivity-300x250.jpg 300w" sizes="(max-width: 316px) 100vw, 316px"></a></p>
+<p><span style="color: #000000;">In order to avoid reflections from surrounding objects other than the object, both the IR transmitter and the IR receiver must be enclosed properly. Generally the enclosure is made of plastic and is painted with black color.</span></p>
+<p style="text-align: right;"><strong><a href="https://www.electronicshub.org/ir-sensor/#top">BACK TO TOP</a></strong></p>
+<p><span style="color: #800000;"><a style="color: #800000;" href="https://www.electronicshub.org/light-sensors/"><strong>PREVIOUS – LIGHT SENSORS</strong></a></span></p>
+<p style="text-align: right;"><span style="color: #800000;"><a style="color: #800000;" href="https://www.electronicshub.org/touch-sensors/"><strong>NEXT – TOUCH SENSORS</strong></a></span></p>
+<p></p><p></p><meta itemprop="dateModified" content="2015-06-06T04:48:36+00:00"><meta itemprop="mainEntityOfPage" content="https://www.electronicshub.org/ir-sensor/"></div><div class="ad-after-content"><section id="text-15" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p><script async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/adsbygoogle.js.download"></script><br>
+<!-- EH - After Post - 336*280 --><br>
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-8940481053168351" data-ad-slot="1481179828" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><iframe width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:336px;height:280px;" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(2).html"></iframe></ins></ins></ins><br>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</div></section>
+</div><!-- end .ad-after-content --><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="https://www.electronicshub.org/io-devices/" rel="category tag">IO DEVICES</a></span> </p></footer></article><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-192816">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/c7d5bdd618796ff56dfb77b4f5714c7b" srcset="https://secure.gravatar.com/avatar/c7d5bdd618796ff56dfb77b4f5714c7b?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">mel</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-12-02T10:35:35+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-192816" class="comment-time-link" itemprop="url">December 2, 2015 at 10:35 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>very much usfull to know basics</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-192816" onclick="return addComment.moveForm( &quot;comment-192816&quot;, &quot;192816&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to mel">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-194851">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/9047d8a18132b24beb4d81afe06ee454" srcset="https://secure.gravatar.com/avatar/9047d8a18132b24beb4d81afe06ee454?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">Meet</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-12-18T00:25:40+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-194851" class="comment-time-link" itemprop="url">December 18, 2015 at 12:25 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>A PERFECT WEBSITE FOR PROJECTS.</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-194851" onclick="return addComment.moveForm( &quot;comment-194851&quot;, &quot;194851&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to Meet">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-200937">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/50f74f8e9ec975f8da03c20ae2abac2f" srcset="https://secure.gravatar.com/avatar/50f74f8e9ec975f8da03c20ae2abac2f?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">lucky</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-01-26T13:39:17+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-200937" class="comment-time-link" itemprop="url">January 26, 2016 at 1:39 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>it is very clearly understand what i required</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-200937" onclick="return addComment.moveForm( &quot;comment-200937&quot;, &quot;200937&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to lucky">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-208999">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/ef0e7ad40c241f3ba59e30e706d63a6d" srcset="https://secure.gravatar.com/avatar/ef0e7ad40c241f3ba59e30e706d63a6d?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name"><a href="http://no/" class="comment-author-link" rel="external nofollow" itemprop="url">charan</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-03-22T22:44:36+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-208999" class="comment-time-link" itemprop="url">March 22, 2016 at 10:44 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>How can i use this ckt to calculate the distance of an object……</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-208999" onclick="return addComment.moveForm( &quot;comment-208999&quot;, &quot;208999&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to charan">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-212596">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/f610ced7628cfe4b2c0b596934d23778" srcset="https://secure.gravatar.com/avatar/f610ced7628cfe4b2c0b596934d23778?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">raman</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-04-16T04:43:28+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-212596" class="comment-time-link" itemprop="url">April 16, 2016 at 4:43 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>i want to design the same but i want this ir sensor to measure obstacle upto 1metre<br>
+what changes should i make in the circuit.<br>
+please reply</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-212596" onclick="return addComment.moveForm( &quot;comment-212596&quot;, &quot;212596&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to raman">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-217101">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/f869d8ad16e1a86038acc3c819ce30f0" srcset="https://secure.gravatar.com/avatar/f869d8ad16e1a86038acc3c819ce30f0?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">sabbir</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-05-14T08:19:26+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-217101" class="comment-time-link" itemprop="url">May 14, 2016 at 8:19 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>hello sir please help?????                i want to make a infra red sensor besed nightvision divice  at home so please tell me that the infrared sensor type watt n volt capasity ????????????</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-217101" onclick="return addComment.moveForm( &quot;comment-217101&quot;, &quot;217101&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to sabbir">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-224358">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/f07a07202042cf099153136ba0554ea7" srcset="https://secure.gravatar.com/avatar/f07a07202042cf099153136ba0554ea7?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">kiran</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-07-08T04:43:41+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-224358" class="comment-time-link" itemprop="url">July 8, 2016 at 4:43 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Dear sir, your giving an clear information about the obstacle detector. But this type of IR led can suits in less distance. i.e about 30CM only. for long distances, what type of IR led’s can be used?. please suggest to me.<br>
+Thanks</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-224358" onclick="return addComment.moveForm( &quot;comment-224358&quot;, &quot;224358&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to kiran">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-224359">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/f07a07202042cf099153136ba0554ea7" srcset="https://secure.gravatar.com/avatar/f07a07202042cf099153136ba0554ea7?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">kiran</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-07-08T04:48:54+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-224359" class="comment-time-link" itemprop="url">July 8, 2016 at 4:48 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>it was very useful to us. but it works in short distance about 30cm only. for more than 1meter, what type of IR led’s used?.<br>
+thanks</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-224359" onclick="return addComment.moveForm( &quot;comment-224359&quot;, &quot;224359&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to kiran">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-225842">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/550a293a032a8e64f2e4df98f8539c66" srcset="https://secure.gravatar.com/avatar/550a293a032a8e64f2e4df98f8539c66?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">Suman</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-07-26T07:01:29+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-225842" class="comment-time-link" itemprop="url">July 26, 2016 at 7:01 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>How can I use it it in my mobile</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-225842" onclick="return addComment.moveForm( &quot;comment-225842&quot;, &quot;225842&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to Suman">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-261991">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/876b7abe8285269fc854c5d845e1950f" srcset="https://secure.gravatar.com/avatar/876b7abe8285269fc854c5d845e1950f?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">parth pandya</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-03-23T17:42:16+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-261991" class="comment-time-link" itemprop="url">March 23, 2017 at 5:42 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>hello sir i want to make the automatic gate opener circuit without any remote control. It would like just detecting the vehicle gate should be open. How can i do it??</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-261991" onclick="return addComment.moveForm( &quot;comment-261991&quot;, &quot;261991&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to parth pandya">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-264425">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/8248feb05792be7ccf4ec11f28a468a0" srcset="https://secure.gravatar.com/avatar/8248feb05792be7ccf4ec11f28a468a0?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">Manik Chandey</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-04-08T07:07:34+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-264425" class="comment-time-link" itemprop="url">April 8, 2017 at 7:07 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>How can I use it in left right and straight direction???</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-264425" onclick="return addComment.moveForm( &quot;comment-264425&quot;, &quot;264425&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to Manik Chandey">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-265042">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/3ab00af4ec3b63f612ff4656b8f2ca8f" srcset="https://secure.gravatar.com/avatar/3ab00af4ec3b63f612ff4656b8f2ca8f?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">sathin menon</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-04-11T12:32:36+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-265042" class="comment-time-link" itemprop="url">April 11, 2017 at 12:32 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>i want an introduction and conclusion for ir proximity sensor</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-265042" onclick="return addComment.moveForm( &quot;comment-265042&quot;, &quot;265042&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to sathin menon">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-265903">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/cce4d78dbce7c8871880803ea0143568" srcset="https://secure.gravatar.com/avatar/cce4d78dbce7c8871880803ea0143568?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">kartheek juvvadi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-04-21T02:42:32+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-265903" class="comment-time-link" itemprop="url">April 21, 2017 at 2:42 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>need ir based colour sensor, can u pls quote the price of this sensor</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-265903" onclick="return addComment.moveForm( &quot;comment-265903&quot;, &quot;265903&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to kartheek juvvadi">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-278268">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/057828ebad599fe09916e6a0461c8c40" srcset="https://secure.gravatar.com/avatar/057828ebad599fe09916e6a0461c8c40?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">didos</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-07-23T05:53:00+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-278268" class="comment-time-link" itemprop="url">July 23, 2017 at 5:53 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>who is author?</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-278268" onclick="return addComment.moveForm( &quot;comment-278268&quot;, &quot;278268&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to didos">Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-raviteja even depth-2" id="comment-293086">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/5a0bcadc76e253174f46b5ab678408de" srcset="https://secure.gravatar.com/avatar/5a0bcadc76e253174f46b5ab678408de?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">EH Staff</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-10-09T02:39:24+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-293086" class="comment-time-link" itemprop="url">October 9, 2017 at 2:39 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I am.</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-293086" onclick="return addComment.moveForm( &quot;comment-293086&quot;, &quot;293086&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to EH Staff">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-291739">
+	<article itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+				<img alt="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/8ac2cc7280a8dd69f012cf9aacdffed7" srcset="https://secure.gravatar.com/avatar/8ac2cc7280a8dd69f012cf9aacdffed7?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48"><span itemprop="name">sandeep</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-10-02T14:51:39+00:00" itemprop="datePublished"><a href="https://www.electronicshub.org/ir-sensor/#comment-291739" class="comment-time-link" itemprop="url">October 2, 2017 at 2:51 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>What is the range of this sensors?</p>
+		</div>
+
+		<div class="comment-reply"><a rel="nofollow" class="comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#comment-291739" onclick="return addComment.moveForm( &quot;comment-291739&quot;, &quot;291739&quot;, &quot;respond&quot;, &quot;5536&quot; )" aria-label="Reply to sandeep">Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ol></div>	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.electronicshub.org/ir-sensor/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.electronicshub.org/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="5536" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>			</form>
+			</div><!-- #respond -->
+	</main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" itemscope="" itemtype="https://schema.org/WPSideBar"><section id="search-2" class="widget widget_search"><div class="widget-wrap"><form class="search-form" itemprop="potentialAction" itemscope="" itemtype="https://schema.org/SearchAction" method="get" action="https://www.electronicshub.org/" role="search"><meta itemprop="target" content="https://www.electronicshub.org/?s={s}"><input itemprop="query-input" type="search" name="s" placeholder="Search this website …"><input type="submit" value="Search"></form></div></section>
+<section id="text-21" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p><a href="https://www.utsource.net/?utm_source=ElectronicsHub" target="_blank" rel="noopener"><img src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/utsource_3.jpg"></a></p>
+</div>
+		</div></section>
+<section id="text-22" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p><a href="https://www.wellpcb.com/?utm_source=ElectronicsHub" target="_blank" rel="noopener"><img src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/wellpcb2.gif"></a></p>
+</div>
+		</div></section>
+<section id="text-23" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p><a href="https://www.ourpcb.com/?utm_source=ElectronicsHub" target="_blank" rel="noopener"><img src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/ourpcb2.gif"></a></p>
+</div>
+		</div></section>
+<section id="text-14" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p></p><center><p></p>
+<ul>
+<strong><a href="https://goo.gl/forms/E2c7upx9XbAtA88t2" target="_blank" rel="noopener">Suggest A Topic [or] Project</a><br>
+</strong></ul></center><p></p><strong>
+</strong></div><strong>
+		</strong></div></section><strong>
+<section id="text-16" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><!--
+  ~ Copyright (C) 2014 Media.net Advertising FZ-LLC All Rights Reserved
+  -->
+<div id="242658310">
+  	<script type="text/javascript">
+	  try {
+		   window._mNHandle.queue.push(function () {
+		   	window._mNDetails.loadTag("242658310", "336x280", "242658310");
+		  	});
+		  }
+	  catch (error) {}
+	</script><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="280" width="336" id="_mN_gpt_242658310" sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-pointer-lock allow-popups-to-escape-sandbox" style="display: none !important;" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(3).html"></iframe><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="280" width="100%" id="_mN_main_242658310_n" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(4).html"></iframe><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="0" width="0" id="_mN_dy_242658310" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(5).html"></iframe>
+  </div></div>
+		</div></section>
+<section id="text-5" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><script async="" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/adsbygoogle.js.download"></script>
+<!-- EH - SideBar - 336*280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-8940481053168351" data-ad-slot="2957913021" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><iframe width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:336px;height:280px;" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(6).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</div></section>
+<section id="text-9" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><!-- Place this tag after the last widget tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script></div>
+		</div></section>
+<section id="text-12" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><!--
+  ~ Copyright (C) 2014 Media.net Advertising FZ-LLC All Rights Reserved
+  -->
+<div id="442352159">
+  	<script type="text/javascript">
+	  try {
+		   window._mNHandle.queue.push(function () {
+		   	window._mNDetails.loadTag("442352159", "300x600", "442352159");
+		  	});
+		  }
+	  catch (error) {}
+	</script><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="600" width="300" id="_mN_gpt_442352159" sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-pointer-lock allow-popups-to-escape-sandbox" style="display: none !important;" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(7).html"></iframe><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="600" width="100%" id="_mN_main_442352159_n" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(8).html"></iframe><iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" height="0" width="0" id="_mN_dy_442352159" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/saved_resource(9).html"></iframe>
+  </div>
+</div>
+		</div></section>
+<section id="text-18" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Projects By Category</h4>
+			<div class="textwidget"><a href="https://www.electronicshub.org/arduino-project-ideas/?ref=sidebar">Arduino Projects</a> (200+)	<br>
+<a href="https://www.electronicshub.org/electronics-mini-projects-ideas/?ref=sidebar">Electronics Projects</a> (250+)	<br>
+<a href="https://www.electronicshub.org/electronics-mini-project-circuits/?ref=sidebar">Mini Project Circuits</a> (160+)	<br>
+<a href="https://www.electronicshub.org/electronics-projects-ideas/?ref=sidebar">Mini Project Ideas</a> (150+)	<br>
+<a href="https://www.electronicshub.org/ece-projects-ideas/?ref=sidebar">ECE Projects</a> (150+)	<br>
+<a href="https://www.electronicshub.org/eee-projects-ideas/?ref=sidebar">EEE Projects</a> (150+)	<br>
+<a href="https://www.electronicshub.org/8051-microcontroller-projects-engineering-students/?ref=sidebar">8051 Projects</a> (110+)	<br>
+<a href="https://www.electronicshub.org/raspberry-pi-projects/?ref=sidebar">Raspberry Pi Projects</a> (101+)	<br>
+<a href="https://www.electronicshub.org/electrical-projects-ideas/?ref=sidebar">Electrical Project Ideas</a> (100+)	<br>
+<a href="https://www.electronicshub.org/embedded-systems-projects-ideas/?ref=sidebar">Embedded Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/latest-electronics-projects-ideas/?ref=sidebar">Latest Electronics Ideas</a> (100+)	<br>
+<a href="https://www.electronicshub.org/microcontroller-based-mini-projects-ideas/?ref=sidebar">Microcontroller Mini Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/robotics-projects-ideas/?ref=sidebar">Robotics Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/vlsi-projects-for-engineering-students/?ref=sidebar">VLSI Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/solar-energy-projects-ideas/?ref=sidebar">Solar Projects</a> (100+)	<br>
+<a href="https://www.electronicshub.org/iot-project-ideas/?ref=sidebar">IOT Projects</a> (100+)	<br>
+<hr>
+
+<a href="https://www.electronicshub.org/communication-based-projects-ideas/?ref=sidebar">Communication Projects</a> (70+)	<br>
+<a href="https://www.electronicshub.org/led-projects-circuits-engineering-students/?ref=sidebar">LED Projects</a> (70+)	<br>
+<a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/?ref=sidebar">Power Electronics Projects </a> (60+)	<br>
+<a href="https://www.electronicshub.org/rfid-projects-ideas/?ref=sidebar">RFID Projects</a> (60+)	<br>
+<a href="https://www.electronicshub.org/home-automation-projects/?ref=sidebar">Home Automation Projects</a> (50+)	<br>
+<a href="https://www.electronicshub.org/matlab-projects-for-engineering-students/?ref=sidebar">Matlab Projects</a> (50+)	<br>
+<a href="https://www.electronicshub.org/eie-projects-ideas/?ref=sidebar">EIE Projects</a> (50+)	<br>
+<a href="https://www.electronicshub.org/wireless-communication-based-projects-ideas/?ref=sidebar">Wireless Projects </a>	(50+)<br>
+<a href="https://www.electronicshub.org/labview-projects/?ref=sidebar">LabView Projects</a> (45+)	<br>
+<a href="https://www.electronicshub.org/zigbee-projects/?ref=sidebar">Zigbee Projects </a>	(45+)<br>
+<a href="https://www.electronicshub.org/gsm-based-projects/?ref=sidebar">GSM Projects</a> (40+)	<br>
+<a href="https://www.electronicshub.org/555-timer-circuits/?ref=sidebar">555 Timer Circuits</a> (40+)	<br>
+<a href="https://www.electronicshub.org/sensor-based-projects-ideas/?ref=sidebar">Sensor Projects</a> (40+)	<br>
+<a href="https://www.electronicshub.org/arm-based-projects/?ref=sidebar">ARM Projects</a> (60+)	<br>
+<a href="https://www.electronicshub.org/dtmf-projects-ideas/?ref=sidebar">DTMF Projects</a> (30+)	<br>
+<a href="https://www.electronicshub.org/top-pic-microcontroller-projects-ideas/?ref=sidebar">PIC Projects</a> (30+)	<br>
+<a href="https://www.electronicshub.org/top-electrical-mini-projects/?ref=sidebar">Electrical Mini Projects</a> (25)	<br></div>
+		</div></section>
+</strong></aside></div></div><div class="footer-widgets"><div class="wrap"><div class="widget-area footer-widgets-1 footer-widget-area"><section id="nav_menu-2" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle"><strong>GENERAL</strong></h4><strong>
+<div class="menu-eh-ft-1-container"><ul id="menu-eh-ft-1" class="menu"><li id="menu-item-8633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8633"><a href="https://www.electronicshub.org/tutorials/" itemprop="url">Tutorials</a></li>
+<li id="menu-item-8634" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8634"><a href="https://www.electronicshub.org/symbols/" itemprop="url">Symbols</a></li>
+<li id="menu-item-11477" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11477"><a href="http://courses.electronicshub.org/" itemprop="url">Courses</a></li>
+<li id="menu-item-8635" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8635"><a href="https://www.electronicshub.org/tools/" itemprop="url">Calculator</a></li>
+<li id="menu-item-8636" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8636"><a href="https://www.electronicshub.org/contact/" itemprop="url">Contact</a></li>
+</ul></div></strong></div></section><strong>
+</strong></div><div class="widget-area footer-widgets-2 footer-widget-area"><section id="nav_menu-3" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle"><strong>PROJECTS</strong></h4><strong>
+<div class="menu-eh-ft-2-container"><ul id="menu-eh-ft-2" class="menu"><li id="menu-item-8637" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8637"><a href="https://www.electronicshub.org/electrical-projects-ideas/" itemprop="url">Electrical</a></li>
+<li id="menu-item-8638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8638"><a href="https://www.electronicshub.org/electronics-projects-ideas/" itemprop="url">Electronics</a></li>
+<li id="menu-item-8639" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8639"><a href="https://www.electronicshub.org/embedded-systems-projects-ideas/" itemprop="url">Embedded</a></li>
+<li id="menu-item-8640" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8640"><a href="https://www.electronicshub.org/top-power-electronics-projects-ideas/" itemprop="url">Power</a></li>
+<li id="menu-item-8641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8641"><a href="https://www.electronicshub.org/robotics-projects-ideas/" itemprop="url">Robotics</a></li>
+<li id="menu-item-8983" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8983"><a href="https://www.electronicshub.org/arm-based-projects/" itemprop="url">ARM</a></li>
+<li id="menu-item-12314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12314"><a href="https://www.electronicshub.org/iot-project-ideas/" itemprop="url">IOT</a></li>
+</ul></div></strong></div></section><strong>
+</strong></div><div class="widget-area footer-widgets-3 footer-widget-area"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle"><strong>PROJECTS</strong></h4><strong>
+<div class="menu-eh-ft-3-container"><ul id="menu-eh-ft-3" class="menu"><li id="menu-item-8642" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8642"><a href="https://www.electronicshub.org/electronics-mini-project-circuits/" itemprop="url">Mini projects</a></li>
+<li id="menu-item-8643" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8643"><a href="https://www.electronicshub.org/microcontroller-based-mini-projects-ideas/" itemprop="url">Microcontroller</a></li>
+<li id="menu-item-8644" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8644"><a href="https://www.electronicshub.org/arduino-project-ideas/" itemprop="url">Arduino</a></li>
+<li id="menu-item-8645" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8645"><a href="https://www.electronicshub.org/solar-energy-projects-ideas/" itemprop="url">Solar</a></li>
+<li id="menu-item-8646" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8646"><a href="https://www.electronicshub.org/free-project-circuits/" itemprop="url">Free circuits</a></li>
+<li id="menu-item-11985" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11985"><a href="https://www.electronicshub.org/home-automation-projects/" itemprop="url">Home Automation</a></li>
+<li id="menu-item-15549" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15549"><a href="https://www.electronicshub.org/seminar-topics-ece-students/" itemprop="url">Seminar Topics</a></li>
+<li id="menu-item-15550" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15550"><a href="https://www.electronicshub.org/basic-electronics-questions/" itemprop="url">Electronics Questions</a></li>
+</ul></div></strong></div></section><strong>
+</strong></div><div class="widget-area footer-widgets-4 footer-widget-area"><section id="nav_menu-5" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle"><strong>TUTORIALS</strong></h4><strong>
+<div class="menu-eh-ft-4-container"><ul id="menu-eh-ft-4" class="menu"><li id="menu-item-8647" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8647"><a href="https://www.electronicshub.org/tutorials/#1_Capacitors" itemprop="url">Capacitors</a></li>
+<li id="menu-item-8648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8648"><a href="https://www.electronicshub.org/tutorials/#2_Resistors" itemprop="url">Resistors</a></li>
+<li id="menu-item-8649" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8649"><a href="https://www.electronicshub.org/tutorials/#3_Filters" itemprop="url">Filters</a></li>
+<li id="menu-item-8650" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8650"><a href="https://www.electronicshub.org/tutorials/#5_Diodes" itemprop="url">Diodes</a></li>
+<li id="menu-item-8651" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8651"><a href="https://www.electronicshub.org/tutorials/#6_Transistors" itemprop="url">Transistors</a></li>
+</ul></div></strong></div></section><strong>
+</strong></div><div class="widget-area footer-widgets-5 footer-widget-area"><section id="nav_menu-7" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle"><strong>TUTORIALS</strong></h4><strong>
+<div class="menu-eh-ft-5-container"><ul id="menu-eh-ft-5" class="menu"><li id="menu-item-8664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8664"><a href="https://www.electronicshub.org/tutorials/#4_Operational_Amplifiers" itemprop="url">Amplifiers</a></li>
+<li id="menu-item-8665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8665"><a href="https://www.electronicshub.org/tutorials/#8_IO_Devices" itemprop="url">IO Devices</a></li>
+<li id="menu-item-8666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8666"><a href="https://www.electronicshub.org/tutorials/#11_Thyristors" itemprop="url">Thyristors</a></li>
+<li id="menu-item-8667" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8667"><a href="https://www.electronicshub.org/tutorials/#10_DC_Circuit_Theory" itemprop="url">DC Circuits</a></li>
+<li id="menu-item-8668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8668"><a href="https://www.electronicshub.org/tutorials/#7_Number_Systems" itemprop="url">Number System</a></li>
+</ul></div></strong></div></section><strong>
+</strong></div><div class="widget-area footer-widgets-6 footer-widget-area"><section id="nav_menu-6" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle"><strong>FOLLOW US</strong></h4><strong>
+<div class="menu-eh-ft-6-container"><ul id="menu-eh-ft-6" class="menu"><li id="menu-item-15525" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15525"><a href="https://www.instagram.com/eh_org/" itemprop="url">Instagram</a></li>
+<li id="menu-item-8661" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8661"><a href="https://www.youtube.com/user/electronicshuborg" itemprop="url">Youtube</a></li>
+<li id="menu-item-8660" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8660"><a href="https://www.facebook.com/electronicshub.org" itemprop="url">Facebook</a></li>
+<li id="menu-item-8662" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8662"><a href="https://plus.google.com/+ElectronicsHubOrg?prsrc=5" itemprop="url">Google Plus</a></li>
+<li id="menu-item-8663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8663"><a href="http://twitter.com/eh_org" itemprop="url">Twitter</a></li>
+</ul></div></strong></div></section><strong>
+</strong></div></div></div><footer class="site-footer" itemscope="" itemtype="https://schema.org/WPFooter"><div class="wrap"><div class="gototop"><p></p></div><div class="creds"><p><strong>Copyright ©&nbsp;2017 Electronicshub.org</strong></p></div></div></footer></div><script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/comment-reply.min.js.download"></script><strong>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/core.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/widget.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/tabs.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/wp-embed.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/jquery.smooth-scroll.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/js.cookie.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/jquery.sticky-kit.min.js.download"></script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/jquery.waypoints.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ezTOC = {"smooth_scroll":"1","visibility_hide_by_default":"","width":"auto","scroll_offset":"30"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./IR (Infrared) Obstacle Detection Sensor Circuit_files/front.min.js.download"></script>
+<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>
+
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Page Caching using disk: enhanced (SSL caching disabled) 
+Fragment Caching 1/1 fragments using disk
+
+Served from: electronicshub.org @ 2017-12-19 05:26:26 by W3 Total Cache
+--></strong><div id="html1" class="testClass" style="display: none;"><p>I'm an inserted element</p>abcdOh, how quick that fox was!</div><div id="html3"></div><table id="testTable" style="display: none;"><tbody><tr><td>cell is row 1 column 1</td><td>cell is row 1 column 2</td><td id="cellIndexTest">cell is row 1 column 3</td></tr><tr><td>cell is row 2 column 1</td><td>cell is row 2 column 2</td><td>cell is row 2 column 3</td></tr></tbody></table><div id="userdata_el" style="visibility: hidden; position: absolute;"></div></body></html>

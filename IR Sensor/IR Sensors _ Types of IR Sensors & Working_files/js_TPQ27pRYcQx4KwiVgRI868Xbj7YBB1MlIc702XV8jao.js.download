@@ -1,0 +1,567 @@
+(function ($) {
+var captcha_status = new Array(); 
+var captchaPerformed = false;
+Drupal.behaviors.ajax_captcha = {
+  attach: function (context) {
+  	if(typeof CKEDITOR != 'undefined') {
+  	  for (var i in CKEDITOR.instances) {
+       CKEDITOR.instances[i].on('focus', function() {jQuery('.captcha').show();});
+     }
+   }
+    
+    $('div.ajax-captcha-process-form:not(ajax-captcha-processed)').each(function() {
+    	
+      var form_id = $(this).find('input[name="form_id"]').attr('value');
+      var form_wrapper = $(this);
+      
+    	form_wrapper.find('textarea').click(function(e) {
+        form_wrapper.find('.captcha').slideDown();
+      });
+      
+      // Don't do anything if there is no captcha fieldset
+      if (form_wrapper.find('fieldset.captcha').length == 0) {
+        return;
+      }
+      captcha_status[form_id] = 'default';
+      if (!captchaPerformed) {
+        if (captcha_status[form_id] == 'default') {
+          // Disable form submission till AJAX returns
+          form_wrapper.find('form').submit(function() {
+            if (captcha_status[form_id] != 'loaded') {
+              e.preventDefault();
+              return false;
+            }
+            return true;
+          });
+          captcha_status[form_id] = 'processing';
+          // Fetch captcha using ajax
+          $.ajax({
+            url: Drupal.settings.basePath + 'ajax/ajax-captcha/get-captcha/' + form_id,
+            dataType: "html",
+            success: function(data) {
+              form_wrapper.find('fieldset.captcha').replaceWith(data);
+              captchaPerformed = true;
+              Drupal.attachBehaviors(form_wrapper.find('fieldset.captcha'));
+              captcha_status[form_id] = 'loaded';
+              // If captcha is recaptcha re-process the recaptcha and refresh it
+              if (form_wrapper.find('input[name="captcha_response"]').attr('value') == 'Google no captcha') {
+                var recaptcha_id = 'recaptcha_ajax_api_container_' + form_id;
+                if (form_wrapper.find('div.' + recaptcha_id).length == 0) {
+                  form_wrapper.find('fieldset.captcha div').before($('<div id="' + recaptcha_id + '"></div>'));
+                }
+                // load Recaptcha if not already loaded
+                if (typeof(Recaptcha) != "object") { 
+                  $.ajax({
+                    url: 'https://www.google.com/recaptcha/api.js',
+                    dataType: "script",
+                    success: function() {
+                    }
+                  });
+                }
+              }
+            }
+          });
+        }
+      }
+    }).addClass('ajax-captcha-processed');
+  }
+};  
+})(jQuery);
+;
+(function ($) {
+
+  $(function () {
+    var googleCSEWatermark = function (id) {
+      var f = $(id)[0];
+      if (f && (f.query || f['edit-search-block-form--2'] || f['edit-keys'])) {
+        var q = f.query ? f.query : (f['edit-search-block-form--2'] ? f['edit-search-block-form--2'] : f['edit-keys']);
+        var n = navigator;
+        var l = location;
+        if (n.platform == 'Win32') {
+          q.style.cssText = 'border: 1px solid #7e9db9; padding: 2px;';
+        }
+        var b = function () {
+          if (q.value == '') {
+            q.style.background = '#FFFFFF url(https://www.google.com/cse/intl/' + Drupal.settings.googleCSE.language + '/images/google_custom_search_watermark.gif) left no-repeat';
+          }
+        };
+        var f = function () {
+          q.style.background = '#ffffff';
+        };
+        q.onfocus = f;
+        q.onblur = b;
+//      if (!/[&?]query=[^&]/.test(l.search)) {
+        b();
+//      }
+      }
+    };
+    googleCSEWatermark('#search-block-form.google-cse');
+    googleCSEWatermark('#search-form.google-cse');
+    googleCSEWatermark('#google-cse-results-searchbox-form');
+  });
+
+})(jQuery);
+;
+(function ($) {
+    Drupal.behaviors.modal_login = {
+        attach: function (context, settings) {
+            var sett = settings.modal_login;
+
+            // hide Registration form on submit
+            if ($('.modal-login-show .user-register-step2 #modal-login--user-register .messages.status').size() == 1) {
+                $('.modal-login-show .modal-login-inner').addClass('user-register-success');
+
+            }
+
+            $('#modal-login--user-login form .form-actions').once('modal-login', function() {
+                $(this).append('<span class="modal-login-check-user"></span>');
+                $(this).find('.modal-login-check-user').click(function(){
+                    $buttonS = $(this).closest('.form-actions').find('input[type="submit"]');
+                    if ($buttonS.hasClass('disabled')) {
+                        return;
+                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: 'modal_login/logged',
+	
+                        beforeSend: function(){
+                            $buttonS.addClass('disabled');
+                            $buttonS.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div><div class="message">'+ Drupal.t('Please wait...') +'</div></div>');
+                        },
+                        success: function(data) {
+                            $buttonS.removeClass('disabled');
+                            $buttonS.next('.ajax-progress').remove();
+                            if (!data.user) {
+                                $buttonS.trigger('mousedown');
+                            }
+                            else {
+                                $('#modal-login-wrapper-user-login').html('<div class="messages error"><ul><li>'+ Drupal.t('You are already Logged-in') +'</li></ul></div>');
+                            }
+                        }
+                    });
+                });
+            });
+
+            function attachToLinks() {
+                $.each(sett.attach, function (href, attribute) {
+                    // Attach action to urls that we know are login / register links
+                    $('a[href^="' + href + '"]').once('modal-login-attach', function () {
+                        $(this).attr('data-modal-login', attribute);
+                        $(this).attr('data-modal-login-full-url', $(this).attr('href'));
+
+                        // Handle clicks
+                        $(this).click(function (e) {
+                            var tabType = $(this).attr('data-modal-login');
+                            var fullUrl = $(this).attr('data-modal-login-full-url');
+                            $('[data-modal-login-target]').attr('data-modal-login-full-url', '');
+                            $('[data-modal-login-target="' + tabType + '"]').attr('data-modal-login-full-url', fullUrl).click();
+
+                            $('body').addClass('modal-login-show');
+                            $('.modal-login-show .modal-login-inner').removeClass('user-register-success');
+	
+                            e.preventDefault();
+                            e.stopPropagation();
+                        })
+                    });
+                });
+            }
+
+            function resetForm($form) {
+                $form.find('form').each(function(){
+
+                    $(this).find('input[type="text"], input[type="password"], input[type="file"]').val('');
+                    $(this).find('input[name="pass[pass1]"]').focus();
+
+                    $(this).find('select[name="field_user_profession[und]"]').val('_none');
+                    $(this).find('select[name="field_user_profession"]').change();
+                    $(this).find('select[name="field_job_role[und]"]').val('_none');
+                    $(this).find('select[name="field_user_country[und]"]').val('_none');
+
+                    $(this).find('input[type="checkbox"]').removeAttr('checked');
+                });
+
+                $form.find('.messages').remove();
+            }
+
+			if (typeof sett !== "undefined") //IMCE buttons not showing because of undefined sett variable
+            attachToLinks();
+
+            $('.modal-login-wrapper').each(function () {
+                // Handle close button
+                var $wrapper = $(this);
+                var $tabs = $wrapper.find('.modal-login-tabs');
+                var $content = $wrapper.find('.modal-login-content');
+
+                //modal-login-content
+                $wrapper.find('.modal-login-close').click(function(){
+                    resetForm($wrapper);
+                    $('body').removeClass('modal-login-show');
+	                //location.reload();
+                });
+
+                // Handle tab switch
+                $tabs.each(function(){
+                    $tabs.find('.modal-login-tab-target').click(function() {
+                        $tabs.find('.modal-login-tab-target').removeClass('active');
+                        $(this).addClass('active');
+
+                        // Activate tab
+                        var target = $(this).attr('data-modal-login-target');
+                        $content.find('.modal-login-tab-content').removeClass('show');
+                        $content.find('#'+target).addClass('show');
+
+                        // Add redirection
+                        var fullUrl = $(this).attr('data-modal-login-full-url');
+                        $content.find('#'+target+' input[name="modal_login_destination"]').val(fullUrl);
+
+                        // Add special class when register form is shown
+                        if (target == 'modal-login--user-register') {
+                            $wrapper.find('.modal-login-inner').addClass('user-register');
+                            $wrapper.find('.modal-login-inner').removeClass('user-register-step2');
+                            $wrapper.find('.modal-login-inner').addClass('user-register-step1');
+		                    //$("#edit-captcha-form").css({"display":"none"});
+		                    $(".ok_close").css({"display":"none"});
+		                    $(".captcha.fieldset.form-wrapper.titled.fieldgroup-effects-processed").css({"display":"none"});
+		                    $(".form-item.form-type-textfield.form-item-captcha-response").css({"display":"none"});	
+                        }
+                        else {
+                            $wrapper.find('.modal-login-inner').removeClass('user-register');
+                            $wrapper.find('.modal-login-inner').removeClass('user-register-step1 user-register-step2');
+                        }
+                    });
+                });
+
+                
+                /* Code added by RAHUL LAMKHADE */
+                $('.modal-login-right .field-name-field-user-birth-date .form-item label').html('Date of Birth <span class="form-required" title="This field is required.">*</span>');
+                // Placeholders
+                $content.find('.form-type-textfield > label, .form-type-password > label').each(function(){
+                    var txt = $(this).text();
+                    $(this).next('input').attr('placeholder', txt);
+                });                               
+
+                // Selects
+                $content.find('.form-type-select > label:not(.element-invisible)').each(function(){
+                    var txt = $(this).text();
+                    $(this).next('select').find('option').eq(0).text(txt);
+                });	
+
+                // Group options
+                $content.find('.field-name-field-area-of-interest .form-checkboxes').each(function(){
+                    var size = Math.ceil($(this).find('> .form-type-checkbox').size() / 3);
+                    $(this).find('> .form-type-checkbox:lt('+size+')').wrapAll('<div class="column">');
+                    $(this).find('> .form-type-checkbox:lt('+size+')').wrapAll('<div class="column">');
+                    $(this).find('> .form-type-checkbox:lt('+size+')').wrapAll('<div class="column">');
+                });
+                $content.find('.field-name-field-industry-interests .form-checkboxes').each(function(){
+                    var size = Math.ceil($(this).find('> .form-type-checkbox').size() / 2);
+                    $(this).find('> .form-type-checkbox:lt('+size+')').wrapAll('<div class="column">');
+                    $(this).find('> .form-type-checkbox:lt('+size+')').wrapAll('<div class="column">');
+                });
+
+                // Next / Prev / Reset buttons
+                $content.find('#modal-login--user-register .form-actions').once('modal-login-actions', function(){
+                    $(this).prepend('<span class="form-submit form-reset">'+ Drupal.t('Reset') +'</span>');
+                    $(this).prepend('<span class="form-submit form-next">'+ Drupal.t('Next') +'</span>');
+                    $(this).prepend('<span class="form-submit form-back">'+ Drupal.t('Back') +'</span>');
+					$("#modal-login-wrapper-user-register-form").prepend('<span class="form-submit ok_close">'+ Drupal.t('OK') +'</span>');
+                });
+ 
+
+                $content.find('.form-next').click(function(){
+                    if ($(this).hasClass('disabled')) {
+                        return;
+                    }
+
+                    // Validate form
+                    var $form = $(this).closest('form');
+                    var fields = ['field_full_name[und][0][value]', 'field_last_name[und][0][value]', 'mail', 'pass[pass1]', 'field_user_profession[und]', 'field_user_address_city[und][0][value]', 'field_user_country[und]', 'field_user_organization[und][0][value]','field_user_birth_date[und][0][value][date]'];
+                    var messages = [];
+
+                    $button = $(this);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/modal_login/email',
+                        data: {email: $form.find('input[name="mail"]').val()},
+                        beforeSend: function(){
+                            $button.addClass('disabled');
+                            $button.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div><div class="message">'+ Drupal.t('Please wait...') +'</div></div>');
+                        },
+                        success: function(data) {
+                            $button.removeClass('disabled');
+                            $button.next('.ajax-progress').remove();
+                            if (data.user_exists_msg) {
+                                messages.push(data.user_exists_msg);
+                            }
+
+                            $.each(fields, function(index, name) {
+                                $input = $form.find('[name="'+ name +'"]');
+                                var val = $input.val();
+
+                                if ($input.is('select')) {
+                                    val == '_none'? val = '' : false;
+                                }
+                            
+
+                                if (val == '') {
+                                    var label = $($input).prev('label').text();
+                                    label = label.replace(' *', '');
+                                    messages.push(label+ '&nbsp; field is required.');
+                                }
+                            });
+
+                            if ($form.find('[name="pass[pass1]"]').val() != '' && $form.find('[name="pass[pass1]"]').val() != $form.find('[name="pass[pass2]"]').val()) {
+                                messages.push('The specified passwords do not match.');
+                            }
+
+                            $form.closest('.modal-login-tab-content').find('.messages').remove();
+
+                            if (messages.length) {
+                                // Display error
+                                $form.closest('.modal-login-tab-content').prepend('<div class="messages error"><ul><li>'+ messages.join('</li><li>') +'</li></ul></div>');
+                                attachToLinks();
+                            }
+                            else {
+                                $wrapper.find('.modal-login-inner').removeClass('user-register-step1');
+                                $wrapper.find('.modal-login-inner').addClass('user-register-step2');
+		$("#edit-captcha-form").removeAttr("style");
+		$(".form-item.form-type-textfield.form-item-captcha-response").removeAttr("style");
+		$(".captcha.fieldset.form-wrapper.titled.fieldgroup-effects-processed").removeAttr("style");
+								
+								
+								
+                            }
+                        },
+                    });
+
+
+                });
+
+                $content.find('.form-back').click(function(){
+                    $wrapper.find('.modal-login-inner').removeClass('user-register-step2');
+                    $wrapper.find('.modal-login-inner').addClass('user-register-step1');
+					//$("#edit-captcha-form").css({"display":"none"});
+		$(".form-item.form-type-textfield.form-item-captcha-response").css({"display":"none"});
+		$(".captcha.fieldset.form-wrapper.titled.fieldgroup-effects-processed").css({"display":"none"});
+                });
+
+                $content.find('.form-reset').click(function(){
+                    resetForm($(this).closest('.modal-login-wrapper'));
+                    $wrapper.find('.modal-login-inner').removeClass('user-register-step2');
+                    $wrapper.find('.modal-login-inner').addClass('user-register-step1');
+					//$("#edit-captcha-form").css({"display":"none"});
+		$(".form-item.form-type-textfield.form-item-captcha-response").css({"display":"none"});
+		$(".captcha.fieldset.form-wrapper.titled.fieldgroup-effects-processed").css({"display":"none"});
+                });
+				
+				$content.find('.ok_close').click(function(){
+					resetForm($wrapper);
+                    $('body').removeClass('modal-login-show');
+                    window.location.reload(false);
+                    });
+
+                // Esc button pressed
+                $('body').once('modal-login-keyup', function(){
+                    $(document).keyup(function(e) {
+                        if (e.keyCode == 27) {
+                            // Esc
+                            $('.modal-login-close').click();
+                        }
+                    });
+                });
+
+                // Enter inside form
+                $('#modal-login--user-register, #modal-login--user-login').each(function(){
+                    var $inputs = $(this).find('input[type="text"], input[type="password"]');
+                    $inputs.keypress(function(e) {
+                        if (e.keyCode == 13) {
+                            // Enter
+                            var index = $inputs.index($(this));
+                            $inputs.eq(index+1).focus();
+
+                            if ($(this).attr('name') == 'pass') {
+                                // submit form
+                                $('#modal-login--user-login .modal-login-check-user').click();
+                            }
+                        }
+                    });
+                });
+
+                // Profile profession change
+                $content.find('select[name="field_user_profession[und]"]').change(function(){
+                    if ($(this).val() == 'Working Professional') {
+                        $content.find('[name="field_job_role[und]"]').attr('disabled',false);
+                        $content.find('[name="field_job_role[und]"]').removeClass('dehighlight'); /* Code added by RAHUL LAMKHADE */
+                    }
+                    else {
+                        $content.find('[name="field_job_role[und]"]').attr('disabled',true);
+                        $content.find('[name="field_job_role[und]"]').addClass('dehighlight'); /* Code added by RAHUL LAMKHADE */
+                        $content.find('select[name="field_job_role[und]"]').val('_none');
+                    }
+                });
+
+                $content.find('select[name="field_user_profession[und]"]').change();
+            });
+
+//          $('.block-modal-login [data-modal-login="modal-login--user-login"]').click();
+//            $('.block-modal-login [data-modal-login="modal-login--user-password"]').click();
+//            $('.block-modal-login [data-modal-login="modal-login--user-register"]').click();
+/*
+            $('body').click(function(){
+                console.log(123123)
+                $('[data-modal-login-target="modal-login--user-register"]').remove();
+            })*/
+
+
+        }
+    };
+})(jQuery);
+
+;
+(function($) {
+   
+
+})(jQuery);
+
+(function ($) {
+$( document ).ready(function() {
+  var config = {
+            showChars: 100,
+            minHideChars: 10,
+            ellipsesText: "...",
+            moreText: "more",
+            lessText: "less",
+            onLess: function() {},
+            onMore: function() {},
+            errMsg: null,
+            force: false
+        };
+        if ($(this).data('jquery.shorten') && !config.force) {
+            return false;
+        }
+        $(this).data('jquery.shorten', true);
+
+        $(document).off("click", '.morelink');
+
+        $(document).on({
+            click: function() {
+
+                var $this = $(this);
+                if ($this.hasClass('less')) {
+                    $this.removeClass('less');
+                    $this.html(config.moreText);
+                    $this.parent().prev().animate({'height':'0'+'%'}, function () { $this.parent().prev().prev().show(); }).hide('fast', function() {
+                        config.onLess();
+                      });
+
+                } else {
+                    $this.addClass('less');
+                    $this.html(config.lessText);
+                    $this.parent().prev().animate({'height':'100'+'%'}, function () { $this.parent().prev().prev().hide(); }).show('fast', function() {
+                        config.onMore();
+                      });
+                }
+                return false;
+            }
+        }, '.morelink');
+
+        return jQuery(".forum-post-content .field-item").each(function() {
+            var $this = $(this);
+
+            var content = $this.html();
+            var contentlen = $this.text().length;
+            if (contentlen > config.showChars + config.minHideChars) {
+                var c = content.substr(0, config.showChars);
+                if (c.indexOf('<') >= 0) // If there's HTML don't want to cut it
+                {
+                    var inTag = false; // I'm in a tag?
+                    var bag = ''; // Put the characters to be shown here
+                    var countChars = 0; // Current bag size
+                    var openTags = []; // Stack for opened tags, so I can close them later
+                    var tagName = null;
+
+                    for (var i = 0, r = 0; r <= config.showChars; i++) {
+                        if (content[i] == '<' && !inTag) {
+                            inTag = true;
+
+                            // This could be "tag" or "/tag"
+                            tagName = content.substring(i + 1, content.indexOf('>', i));
+
+                            // If its a closing tag
+                            if (tagName[0] == '/') {
+
+
+                                if (tagName != '/' + openTags[0]) {
+                                    config.errMsg = 'ERROR en HTML: the top of the stack should be the tag that closes';
+                                } else {
+                                    openTags.shift(); // Pops the last tag from the open tag stack (the tag is closed in the retult HTML!)
+                                }
+
+                            } else {
+                                // There are some nasty tags that don't have a close tag like <br/>
+                                if (tagName.toLowerCase() != 'br') {
+                                    openTags.unshift(tagName); // Add to start the name of the tag that opens
+                                }
+                            }
+                        }
+                        if (inTag && content[i] == '>') {
+                            inTag = false;
+                        }
+
+                        if (inTag) { bag += content.charAt(i); } // Add tag name chars to the result
+                        else {
+                            r++;
+                            if (countChars <= config.showChars) {
+                                bag += content.charAt(i); // Fix to ie 7 not allowing you to reference string characters using the []
+                                countChars++;
+                            } else // Now I have the characters needed
+                            {
+                                if (openTags.length > 0) // I have unclosed tags
+                                {
+                                    //console.log('They were open tags');
+                                    //console.log(openTags);
+                                    for (j = 0; j < openTags.length; j++) {
+                                        //console.log('Cierro tag ' + openTags[j]);
+                                        bag += '</' + openTags[j] + '>'; // Close all tags that were opened
+
+                                        // You could shift the tag from the stack to check if you end with an empty stack, that means you have closed all open tags
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    c = $('<div/>').html(bag + '<span class="ellip">' + config.ellipsesText + '</span>').html();
+                }else{
+                    c+=config.ellipsesText;
+                }
+
+                var html = '<div class="shortcontent">' + c +
+                    '</div><div class="allcontent">' + content +
+                    '</div><span><a href="javascript://nop/" class="morelink">' + config.moreText + '</a></span>';
+
+                $this.html(html);
+                $this.find(".allcontent").hide(); // Hide all text
+                $('.shortcontent p:last', $this).css('margin-bottom', 0); //Remove bottom margin on last paragraph as it's likely shortened
+            }
+        });
+
+});
+})(jQuery);;
+(function ($) {
+
+Drupal.behaviors.commentNotify = {
+  attach: function (context) {
+    $('#edit-notify', context)
+      .bind('change', function() {
+        $('#edit-notify-type', context)
+          [this.checked ? 'show' : 'hide']()
+          .find('input[type=checkbox]:checked').attr('checked', 'checked');
+      })
+      .trigger('change');
+  }
+}
+
+})(jQuery);
+;

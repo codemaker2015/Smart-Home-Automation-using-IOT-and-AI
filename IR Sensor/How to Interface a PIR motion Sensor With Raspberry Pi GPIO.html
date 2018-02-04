@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://diyhacking.com/raspberry-pi-gpio-control/ -->
+<html itemscope="itemscope" itemtype="http://schema.org/Article" xmlns="https://www.w3.org/1999/xhtml" lang="en-US" prefix="og: http://ogp.me/ns#" class="csstransforms csstransforms3d csstransitions js no-touch cssanimations csstransitions Chrome Chrome63"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<meta name="format-detection" content="telephone=no">
+<title itemprop="name">
+        How to Interface a PIR motion Sensor With Raspberry Pi GPIO        </title>
+<link rel="shortcut icon" href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/favicon512x5121-min.png">
+<link rel="apple-touch-icon-precomposed" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+<link rel="alternate" type="application/rss+xml" title="DIY Hacking RSS Feed" href="https://diyhacking.com/feed/">
+<link rel="alternate" type="application/atom+xml" title="DIY Hacking Atom Feed" href="https://diyhacking.com/feed/atom/">
+<link rel="pingback" href="https://diyhacking.com/xmlrpc.php">
+<!--[if lt IE 9]>
+         <script src="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/themes/jupiter/js/html5shiv.js" type="text/javascript"></script>
+         <link rel='stylesheet' href='https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/themes/jupiter/stylesheet/css/ie.css' /> 
+         <![endif]-->
+<!--[if IE 7 ]>
+               <link href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/themes/jupiter/stylesheet/css/ie7.css" media="screen" rel="stylesheet" type="text/css" />
+               <![endif]-->
+<!--[if IE 8 ]>
+               <link href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/themes/jupiter/stylesheet/css/ie8.css" media="screen" rel="stylesheet" type="text/css" />
+         <![endif]-->
+<!--[if lte IE 8]>
+            <script type="text/javascript" src="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/themes/jupiter/js/respond.js"></script>
+         <![endif]-->
+<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/conversion_async.js.download"></script><script src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/pubads_impl_rendering_170.js.download"></script><script src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/ads"></script><script async="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/gtm.js.download"></script><script async="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/analytics.js.download"></script><script type="text/javascript" async="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/ga.js.download"></script><script type="text/javascript" id="www-widgetapi-script" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/www-widgetapi.js.download" async=""></script><script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/player_api"></script>
+<script type="text/javascript" src="https://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script type="text/javascript">
+          // Init aplication namespace 
+          var abb = {};
+          var php = {};
+          
+          var mk_header_parallax, mk_banner_parallax, mk_page_parallax, mk_footer_parallax, mk_body_parallax;
+          var mk_images_dir = "https://diyhacking.com/wp-content/themes/jupiter/images",
+          mk_theme_js_path = "https://diyhacking.com/wp-content/themes/jupiter/js",
+          mk_theme_dir = "https://diyhacking.com/wp-content/themes/jupiter",
+          mk_captcha_placeholder = "Enter Captcha",
+          mk_captcha_invalid_txt = "Invalid. Try again.",
+          mk_captcha_correct_txt = "Captcha correct.",
+          mk_responsive_nav_width = 1140,
+          mk_grid_width = 1140,
+          mk_ajax_search_option = "fullscreen_search",
+          mk_preloader_txt_color = "#444444",
+          mk_preloader_bg_color = "#ffffff",
+          mk_accent_color = "#f97352",
+          mk_preloader_bar_color = "#f97352",
+          mk_preloader_logo = "";
+                    var mk_header_parallax = false,
+          mk_banner_parallax = false,
+          mk_page_parallax = false,
+          mk_footer_parallax = false,
+          mk_body_parallax = false,
+          mk_no_more_posts = "No More Posts";
+                    
+          function is_touch_device() {
+              return ('ontouchstart' in document.documentElement);
+          }
+          
+         </script>
+<script type="text/javascript">var ajaxurl = "https://diyhacking.com/wp-admin/admin-ajax.php"</script>
+
+<title>How to Interface a PIR motion Sensor With Raspberry Pi GPIO</title>
+<meta name="description" content="This tutorial will show you to control the Raspberry Pi GPIO pins and read input from it. Here, we are interfacing a PIR motion sensor and LED using python.">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="https://diyhacking.com/raspberry-pi-gpio-control/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Interface a PIR motion Sensor With Raspberry Pi GPIO">
+<meta property="og:description" content="This tutorial will show you to control the Raspberry Pi GPIO pins and read input from it. Here, we are interfacing a PIR motion sensor and LED using python.">
+<meta property="og:url" content="https://diyhacking.com/raspberry-pi-gpio-control/">
+<meta property="og:site_name" content="DIY Hacking">
+<meta property="article:publisher" content="https://www.facebook.com/diyhacking">
+<meta property="article:tag" content="beginners">
+<meta property="article:tag" content="GPIO">
+<meta property="article:tag" content="LED blink">
+<meta property="article:tag" content="PIR motion sensor">
+<meta property="article:tag" content="Raspberry pi">
+<meta property="article:tag" content="tutorial">
+<meta property="article:section" content="Beginners">
+<meta property="article:published_time" content="2015-04-10T01:00:52+00:00">
+<meta property="article:modified_time" content="2017-04-27T11:46:12+00:00">
+<meta property="og:updated_time" content="2017-04-27T11:46:12+00:00">
+<meta property="og:image" content="https://diyhacking.com/wp-content/uploads/2015/04/PIRcover-compressed1.jpg">
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="DIY Hacking » Feed" href="https://diyhacking.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="DIY Hacking » Comments Feed" href="https://diyhacking.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="DIY Hacking » How to Interface a PIR Motion Sensor With Raspberry Pi GPIO Comments Feed" href="https://diyhacking.com/raspberry-pi-gpio-control/feed/">
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/diyhacking.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="math-captcha-frontend-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="easy-facebook-likebox-plugin-styles-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/public.css" type="text/css" media="all">
+<link rel="stylesheet" id="easy-facebook-likebox-popup-styles-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/magnific-popup.css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-styles-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/theme-styles.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="pe-line-icon-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/pe-line-icons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="icomoon-fonts-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/icomoon-fonts.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-icons-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/theme-icons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-font-api-special-1-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="mk-style-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-dynamic-styles-css" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/custom.css" type="text/css" media="all">
+<style id="theme-dynamic-styles-inline-css" type="text/css">
+body {}body {font-family: Open Sans }body{background-color: #fff;}#mk-header{background-color: #f7f7f7;}.mk-header-bg{background-color: #fff;}.mk-header-toolbar{background-color: #ffffff;}#theme-page{background-color: #f0f0f0;}#mk-footer{background-color: #3d4045;}#mk-footer .footer-wrapper{padding:10px 0;}#mk-footer .widget{margin-bottom:10px;}#mk-footer [class*='mk-col-'] {padding:0 2%;}#sub-footer{background-color: #43474d;}.mk-footer-copyright {font-size:11px;letter-spacing: 1px;}#mk-boxed-layout{  -webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0);  -moz-box-shadow: 0 0 0px rgba(0, 0, 0, 0);  box-shadow: 0 0 0px rgba(0, 0, 0, 0);}.mk-tabs-panes,.mk-news-tab .mk-tabs-tabs li.ui-tabs-active a,.mk-divider .divider-go-top,.ajax-container,.mk-fancy-title.pattern-style span,.mk-portfolio-view-all,.mk-woo-view-all,.mk-blog-view-all{background-color: #f0f0f0;}.mk-header-bg{  -webkit-opacity: 1;  -moz-opacity: 1;  -o-opacity: 1;  opacity: 1;}.header-sticky-ready .mk-header-bg{  -webkit-opacity: 1;  -moz-opacity: 1;  -o-opacity: 1;  opacity: 1;}.mk-header-inner,.header-sticky-ready .mk-header-inner,.header-style-2.header-sticky-ready .mk-classic-nav-bg{border-bottom:1px solid #ededed;}.header-style-4.header-align-left .mk-header-inner,.header-style-4.header-align-center .mk-header-inner {border-bottom:none;border-right:1px solid #ededed;}.header-style-4.header-align-right .mk-header-inner {border-bottom:none;border-left:1px solid #ededed;}.header-style-2 .mk-header-nav-container {border-top:1px solid #ededed;}body{font-size: 14px;color: #444444;font-weight: normal;line-height: 1.66em;}p,.mk-box-icon-2-content {font-size: 16px;color: #444444;line-height: 1.66em;}a {color: #f97352;}a:hover {color: #2e2e2e;}#theme-page strong {color: #444444;}#theme-page h1{font-size: 36px;color: #444444;font-weight: bold;text-transform: uppercase;}#theme-page h2{font-size: 30px;color: #444444;font-weight: bold;text-transform: uppercase;}#theme-page h3{font-size: 24px;color: #f97352;font-weight: bold;text-transform: uppercase;}#theme-page h4{font-size: 18px;color: #f97352;font-weight: bold;text-transform: none;}#theme-page h5{font-size: 16px;color: #f97352;font-weight: bold;text-transform: uppercase;}#theme-page h6{font-size: 14px;color: #f97352;font-weight: normal;text-transform: uppercase;}.page-introduce-title{font-size: 20px;color: ;text-transform: uppercase;font-weight: normal;letter-spacing: 2px;}.page-introduce-subtitle{font-size: 14px;line-height: 100%;color: ;font-size: 14px;text-transform: none;}::-webkit-selection{background-color: #f97352;color:#fff;}::-moz-selection{background-color: #f97352;color:#fff;}::selection{background-color: #f97352;color:#fff;}#mk-sidebar,#mk-sidebar p{font-size: 14px;color: #777777;font-weight: normal;}#mk-sidebar .widgettitle{text-transform: uppercase;font-size: 14px;color: #333333;font-weight: bolder;}#mk-sidebar .widgettitle a{color: #333333;}#mk-sidebar .widget a{color: #777777;}#mk-footer,#mk-footer p{font-size: 14px;color: #808080;font-weight: normal;}#mk-footer .widgettitle{text-transform: uppercase;font-size: 14px;color: #ffffff;font-weight: 800;}#mk-footer .widgettitle a{color: #ffffff;}#mk-footer .widget:not(.widget_social_networks) a{color: #999999;}.mk-side-dashboard {background-color: #444444;}.mk-side-dashboard,.mk-side-dashboard p{font-size: 12px;color: #444444;font-weight: normal;}.mk-side-dashboard .widgettitle{text-transform: uppercase;font-size: 14px;color: #ffffff;font-weight: 800;}.mk-side-dashboard .widgettitle a{color: #ffffff;}.mk-side-dashboard .widget a{color: #fafafa;}.sidedash-navigation-ul li a,.sidedash-navigation-ul li .mk-nav-arrow {color:#ffffff;}.sidedash-navigation-ul li a:hover {color:#ffffff;background-color:;}.mk-fullscreen-nav{background-color:#444444;}.mk-fullscreen-nav .mk-fullscreen-nav-wrapper .mk-fullscreen-nav-logo {margin-bottom: 125px;}.mk-fullscreen-nav .fullscreen-navigation-ul .menu-item a{color: #ffffff;text-transform: uppercase;font-size: 16px;letter-spacing: 0;font-weight: 800;padding: 25px 0;color: #ffffff;}.mk-fullscreen-nav .fullscreen-navigation-ul .menu-item a:hover{background-color: #ffffff;color: #444444;}#mk-sidebar .widget:not(.widget_social_networks) a:hover {color: #f97352;}#mk-footer .widget:not(.widget_social_networks) a:hover {color: #f97352;}.mk-side-dashboard .widget:not(.widget_social_networks) a:hover{color: #f97352;}.mk-grid{max-width: 1140px;}.mk-header-nav-container, .mk-classic-menu-wrapper{width: 1140px;}.theme-page-wrapper #mk-sidebar.mk-builtin{width: 20%;}.theme-page-wrapper.right-layout .theme-content,.theme-page-wrapper.left-layout .theme-content{width: 80%;}.mk-boxed-enabled #mk-boxed-layout,.mk-boxed-enabled #mk-boxed-layout .header-style-1 .mk-header-holder,.mk-boxed-enabled #mk-boxed-layout .header-style-3 .mk-header-holder{max-width: 1200px;}.mk-boxed-enabled #mk-boxed-layout .header-style-1 .mk-header-holder,.mk-boxed-enabled #mk-boxed-layout .header-style-3 .mk-header-holder{width: 100% !important;left:auto !important;}.mk-boxed-enabled #mk-boxed-layout .header-style-2.header-sticky-ready .mk-header-nav-container {width: 1200px !important;left:auto !important;}.header-style-1 .mk-header-start-tour,.header-style-3 .mk-header-start-tour,.header-style-1 .mk-header-inner #mk-header-search,.header-style-1 .mk-header-inner,.header-style-1 .mk-search-trigger,.header-style-3 .mk-header-inner,.header-style-1 .header-logo,.header-style-3 .header-logo,.header-style-1 .shopping-cart-header,.header-style-3 .shopping-cart-header,.header-style-1 #mk-header-social.header-section a,.header-style-2 #mk-header-social.header-section a,.header-style-3 #mk-header-social.header-section a{height: 92px;line-height:92px;}@media handheld, only screen and (max-width: 1140px){.header-grid.mk-grid .header-logo.left-logo{left: 15px !important;}.header-grid.mk-grid .header-logo.right-logo, .mk-header-right {right: 15px !important;}}#mk-theme-container:not(.mk-transparent-header) .header-style-1 .mk-header-padding-wrapper,#mk-theme-container:not(.mk-transparent-header) .header-style-3 .mk-header-padding-wrapper {padding-top:92px;}@media handheld, only screen and (max-width: 960px){.theme-page-wrapper .theme-content{width: 100% !important;float: none !important;}.theme-page-wrapper{padding-right:15px !important;padding-left: 15px !important;}.theme-page-wrapper .theme-content:not(.no-padding){padding:25px 0 !important;}.theme-page-wrapper #mk-sidebar{width: 100% !important;float: none !important;padding: 0 !important;}.theme-page-wrapper #mk-sidebar .sidebar-wrapper{padding:20px 0 !important;}}@media handheld, only screen and (max-width: 1140px){.mk-go-top,.mk-quick-contact-wrapper{bottom:70px !important;}.mk-grid {width: 100%;}.mk-padding-wrapper {padding: 0 20px;} }#mk-toolbar-navigation ul li a,.mk-language-nav > a,.mk-header-login .mk-login-link,.mk-subscribe-link,.mk-checkout-btn,.mk-header-tagline a,.header-toolbar-contact a,#mk-toolbar-navigation ul li a:hover,.mk-language-nav > a:hover,.mk-header-login .mk-login-link:hover,.mk-subscribe-link:hover,.mk-checkout-btn:hover,.mk-header-tagline a:hover{color:#999999;}.mk-header-tagline,.header-toolbar-contact,.mk-header-date{color:#999999;}.mk-header-toolbar #mk-header-social a i {color:#999999;}.header-section#mk-header-social ul li a i {color: #999999;}.header-section#mk-header-social ul li a:hover i {color: #cccccc;}.header-style-2 .header-logo,.header-style-4 .header-logo{height: 92px !important;}.header-style-4 .header-logo {margin:10px 0;}.header-style-2 .mk-header-inner{line-height:92px;}.mk-header-nav-container{background-color: ;}.mk-header-start-tour{font-size: 14px;color: #333333;}.mk-header-start-tour:hover{color: #333333;}.mk-classic-nav-bg{background-color: #fff;}.mk-search-trigger,.mk-shoping-cart-link i,.mk-header-cart-count,.mk-toolbar-resposnive-icon i{color: #444444;}.mk-css-icon-close div,.mk-css-icon-menu div {background-color: #444444;}#mk-header-searchform .text-input{background-color: !important;color: #c7c7c7;}#mk-header-searchform span i{color: #c7c7c7;}#mk-header-searchform .text-input::-webkit-input-placeholder{color: #c7c7c7;}#mk-header-searchform .text-input:-ms-input-placeholder{color: #c7c7c7;}#mk-header-searchform .text-input:-moz-placeholder{color: #c7c7c7;}.header-style-1.header-sticky-ready .menu-hover-style-1 .main-navigation-ul > li > a,.header-style-3.header-sticky-ready .menu-hover-style-1 .main-navigation-ul > li > a,.header-style-1.header-sticky-ready .menu-hover-style-5 .main-navigation-ul > li,.header-style-1.header-sticky-ready .menu-hover-style-2 .main-navigation-ul > li > a,.header-style-3.header-sticky-ready .menu-hover-style-2 .main-navigation-ul > li > a,.header-style-1.header-style-1.header-sticky-ready .menu-hover-style-4 .main-navigation-ul > li > a,.header-style-3.header-sticky-ready .menu-hover-style-4 .main-navigation-ul > li > a,.header-style-1.header-sticky-ready .menu-hover-style-3 .main-navigation-ul > li,.header-style-1.header-sticky-ready .mk-header-inner #mk-header-search,.header-style-3.header-sticky-ready .mk-header-holder #mk-header-search,.header-sticky-ready.header-style-3 .mk-header-start-tour,.header-sticky-ready.header-style-1 .mk-header-start-tour,.header-sticky-ready.header-style-1 .mk-header-inner,.header-sticky-ready.header-style-3 .mk-header-inner,.header-sticky-ready.header-style-3 .header-logo,.header-sticky-ready.header-style-1 .header-logo,.header-sticky-ready.header-style-1 .mk-search-trigger,.header-sticky-ready.header-style-1 .mk-search-trigger i,.header-sticky-ready.header-style-1 .shopping-cart-header,.header-sticky-ready.header-style-1 .shopping-cart-header i,.header-sticky-ready.header-style-3 .shopping-cart-header,.header-sticky-ready.header-style-1 #mk-header-social.header-section a,.header-sticky-ready.header-style-3 #mk-header-social.header-section a{height:50px !important;line-height:50px !important;}#mk-header-social.header-section a.small {margin-top: 29px;}#mk-header-social.header-section a.medium {margin-top: 21px;}#mk-header-social.header-section a.large {margin-top: 13px;}.header-sticky-ready #mk-header-social.header-section a.small,.header-sticky-ready #mk-header-social.header-section a.medium,.header-sticky-ready #mk-header-social.header-section a.large {margin-top: 8px;line-height: 16px !important;height: 16px !important;font-size: 16px !important;width: 16px !important;padding: 8px !important;}.header-sticky-ready #mk-header-social.header-section a.small i:before,.header-sticky-ready #mk-header-social.header-section a.medium i:before,.header-sticky-ready #mk-header-social.header-section a.large i:before {line-height: 16px !important;font-size: 16px !important;}.main-navigation-ul > li.menu-item > a.menu-item-link{color: #444444;font-size: 13px;font-weight: bold;padding-right:20px;padding-left:20px;text-transform:uppercase;letter-spacing:0px;}.mk-vm-menuwrapper ul li a {color: #444444;font-size: 13px;font-weight: bold;text-transform:uppercase;}.mk-vm-menuwrapper li > a:after,.mk-vm-menuwrapper li.mk-vm-back:after {color: #444444;}.main-navigation-ul > li.no-mega-menu ul.sub-menu li.menu-item a.menu-item-link {width:210px;}.mk-header-3-menu-trigger {color: #444444;}.menu-hover-style-1 .main-navigation-ul li.menu-item > a.menu-item-link:hover,.menu-hover-style-1 .main-navigation-ul li.menu-item:hover > a.menu-item-link,.menu-hover-style-1 .main-navigation-ul li.current-menu-item > a.menu-item-link,.menu-hover-style-1 .main-navigation-ul li.current-menu-ancestor > a.menu-item-link,.menu-hover-style-2 .main-navigation-ul li.menu-item > a.menu-item-link:hover,.menu-hover-style-2 .main-navigation-ul li.menu-item:hover > a.menu-item-link,.menu-hover-style-2 .main-navigation-ul li.current-menu-item > a.menu-item-link,.menu-hover-style-2 .main-navigation-ul li.current-menu-ancestor > a.menu-item-link,.menu-hover-style-1.mk-vm-menuwrapper li.menu-item > a:hover,.menu-hover-style-1.mk-vm-menuwrapper li.menu-item:hover > a,.menu-hover-style-1.mk-vm-menuwrapper li.current-menu-item > a,.menu-hover-style-1.mk-vm-menuwrapper li.current-menu-ancestor > a,.menu-hover-style-2.mk-vm-menuwrapper li.menu-item > a:hover,.menu-hover-style-2.mk-vm-menuwrapper li.menu-item:hover > a,.menu-hover-style-2.mk-vm-menuwrapper li.current-menu-item > a,.menu-hover-style-2.mk-vm-menuwrapper li.current-menu-ancestor > a{color: #f97352 !important;}.menu-hover-style-3 .main-navigation-ul > li.menu-item > a.menu-item-link:hover,.menu-hover-style-3 .main-navigation-ul > li.menu-item:hover > a.menu-item-link,.menu-hover-style-3.mk-vm-menuwrapper li > a:hover,.menu-hover-style-3.mk-vm-menuwrapper li:hover > a{border:2px solid #f97352;}.menu-hover-style-3 .main-navigation-ul > li.current-menu-item > a.menu-item-link,.menu-hover-style-3 .main-navigation-ul > li.current-menu-ancestor > a.menu-item-link,.menu-hover-style-3.mk-vm-menuwrapper li.current-menu-item > a,.menu-hover-style-3.mk-vm-menuwrapper li.current-menu-ancestor > a{border:2px solid #f97352;background-color:#f97352;color:#ffffff;}.menu-hover-style-3.mk-vm-menuwrapper li.current-menu-ancestor > a:after {color:#ffffff;}.menu-hover-style-4 .main-navigation-ul li.menu-item > a.menu-item-link:hover,.menu-hover-style-4 .main-navigation-ul li.menu-item:hover > a.menu-item-link,.menu-hover-style-4 .main-navigation-ul li.current-menu-item > a.menu-item-link,.menu-hover-style-4 .main-navigation-ul li.current-menu-ancestor > a.menu-item-link,.menu-hover-style-4.mk-vm-menuwrapper li a:hover,.menu-hover-style-4.mk-vm-menuwrapper li:hover > a,.menu-hover-style-4.mk-vm-menuwrapper li.current-menu-item > a,.menu-hover-style-4.mk-vm-menuwrapper li.current-menu-ancestor > a,.menu-hover-style-5 .main-navigation-ul > li.menu-item > a.menu-item-link:after{background-color: #f97352;color:#ffffff;}.menu-hover-style-4.mk-vm-menuwrapper li.current-menu-ancestor > a:after,.menu-hover-style-4.mk-vm-menuwrapper li.current-menu-item > a:after,.menu-hover-style-4.mk-vm-menuwrapper li:hover > a:after,.menu-hover-style-4.mk-vm-menuwrapper li a:hover::after {color:#ffffff;}.menu-hover-style-1 .main-navigation-ul > li.dropdownOpen > a.menu-item-link,.menu-hover-style-1 .main-navigation-ul > li.active > a.menu-item-link,.menu-hover-style-1 .main-navigation-ul > li.open > a.menu-item-link,.menu-hover-style-1 .main-navigation-ul > li.menu-item > a:hover,.menu-hover-style-1 .main-navigation-ul > li.current-menu-item > a.menu-item-link,.menu-hover-style-1 .main-navigation-ul > li.current-menu-ancestor > a.menu-item-link {border-top-color:#f97352;}.menu-hover-style-1.mk-vm-menuwrapper li > a:hover,.menu-hover-style-1.mk-vm-menuwrapper li.current-menu-item > a,.menu-hover-style-1.mk-vm-menuwrapper li.current-menu-ancestor > a{border-left-color:#f97352;}.header-style-1 .menu-hover-style-1 .main-navigation-ul > li > a,.header-style-1 .menu-hover-style-2 .main-navigation-ul > li > a,.header-style-1 .menu-hover-style-4 .main-navigation-ul > li > a,.header-style-1 .menu-hover-style-5 .main-navigation-ul > li {height: 92px;line-height:92px;}.header-style-1 .menu-hover-style-3 .main-navigation-ul > li,.header-style-1 .menu-hover-style-5 .main-navigation-ul > li{height: 92px;line-height:92px;}.header-style-1 .menu-hover-style-3 .main-navigation-ul > li > a {line-height:46px;}.header-style-1.header-sticky-ready .menu-hover-style-3 .main-navigation-ul > li > a {line-height:33.3333333333px;}.header-style-1 .menu-hover-style-5 .main-navigation-ul > li > a {line-height:20px;vertical-align:middle;}.main-navigation-ul > li.no-mega-menu  ul.sub-menu:after,.main-navigation-ul > li.has-mega-menu > ul.sub-menu:after{  background-color:#f97352;}.mk-shopping-cart-box {border-top:2px solid #f97352;}#mk-main-navigation li.no-mega-menu ul.sub-menu,#mk-main-navigation li.has-mega-menu > ul.sub-menu,.mk-shopping-cart-box{background-color: #333333;}#mk-main-navigation ul.sub-menu a.menu-item-link,#mk-main-navigation ul .megamenu-title,.megamenu-widgets-container a,.mk-shopping-cart-box .product_list_widget li a,.mk-shopping-cart-box .product_list_widget li.empty,.mk-shopping-cart-box .product_list_widget li span,.mk-shopping-cart-box .widget_shopping_cart .total{color: #b3b3b3;}.mk-shopping-cart-box .mk-button.cart-widget-btn {border-color:#b3b3b3;color:#b3b3b3;}.mk-shopping-cart-box .mk-button.cart-widget-btn:hover {background-color:#b3b3b3;color:#333333;}#mk-main-navigation ul .megamenu-title{color: #ffffff;}#mk-main-navigation ul .megamenu-title:after{background-color: #ffffff;}.megamenu-widgets-container {color: #b3b3b3;}.megamenu-widgets-container .widgettitle{text-transform: uppercase;font-size: 14px;font-weight: bolder;}#mk-main-navigation ul.sub-menu li.menu-item ul.sub-menu li.menu-item a.menu-item-link i{color: #e0e0e0;}#mk-main-navigation ul.sub-menu a.menu-item-link:hover{color: #ffffff !important;}.megamenu-widgets-container a:hover {color: #ffffff;}.main-navigation-ul li.menu-item ul.sub-menu li.menu-item a.menu-item-link:hover,.main-navigation-ul li.menu-item ul.sub-menu li.menu-item:hover > a.menu-item-link,.main-navigation-ul ul.sub-menu li.menu-item a.menu-item-link:hover,.main-navigation-ul ul.sub-menu li.menu-item:hover > a.menu-item-link,.main-navigation-ul ul.sub-menu li.current-menu-item > a.menu-item-link{background-color: !important;}.mk-search-trigger:hover,.mk-header-start-tour:hover{color: #f97352;}.main-navigation-ul li.menu-item ul.sub-menu li.menu-item a.menu-item-link{font-size: 12px;font-weight: normal;text-transform:uppercase;letter-spacing: 1px;}.has-mega-menu .megamenu-title {letter-spacing: 1px;}.header-style-4 {text-align : left}.mk-vm-menuwrapper li > a {padding-right: 45px;}@media handheld, only screen and (max-width: 1140px){.header-style-1 .mk-header-inner,.header-style-3 .mk-header-inner,.header-style-3 .header-logo,.header-style-1 .header-logo,.header-style-1 .shopping-cart-header,.header-style-3 .shopping-cart-header{height:90px;line-height:90px;}#mk-header:not(.header-style-4) .mk-header-holder {position:relative !important;top:0 !important;}.mk-header-padding-wrapper {display:none !important;}.mk-header-nav-container{width: auto !important;display:none;}.header-style-1 .mk-header-right,.header-style-2 .mk-header-right,.header-style-3 .mk-header-right {right:55px !important;}.header-style-1 .mk-header-inner #mk-header-search,.header-style-2 .mk-header-inner #mk-header-search,.header-style-3 .mk-header-inner #mk-header-search{display:none !important;}.mk-fullscreen-search-overlay {display:none;}#mk-header-search{padding-bottom: 10px !important;}#mk-header-searchform span .text-input{width: 100% !important;}.header-style-2 .header-logo .center-logo{    text-align: right !important;}.header-style-2 .header-logo .center-logo a{    margin: 0 !important;}.header-logo,.header-style-4 .header-logo{    height: 90px !important;}.mk-header-inner{padding-top:0 !important;}.header-logo{position:relative !important;right:auto !important;left:auto !important;float:left !important;text-align:left;}.shopping-cart-header{margin:0 20px 0 0 !important;}#mk-responsive-nav{background-color:#ffffff !important;}.mk-header-nav-container #mk-responsive-nav{visibility: hidden;}#mk-responsive-nav li ul li .megamenu-title:hover,#mk-responsive-nav li ul li .megamenu-title,#mk-responsive-nav li a, #mk-responsive-nav li ul li a:hover,#mk-responsive-nav .mk-nav-arrow{  color:#333333 !important;}.mk-mega-icon{display:none !important;}.mk-header-bg{zoom:1 !important;filter:alpha(opacity=100) !important;opacity:1 !important;}.header-style-1 .mk-nav-responsive-link,.header-style-2 .mk-nav-responsive-link{display:block !important;}.mk-header-nav-container{height:100%;z-index:200;}#mk-main-navigation{position:relative;z-index:2;}.mk_megamenu_columns_2,.mk_megamenu_columns_3,.mk_megamenu_columns_4,.mk_megamenu_columns_5,.mk_megamenu_columns_6{width:100% !important;}.header-style-1.header-align-right .header-logo img,.header-style-3.header-align-right .header-logo img,.header-style-3.header-align-center .header-logo img {float: left !important;right:auto !important;}.header-style-4 .mk-header-inner {width: auto !important;position: relative !important;overflow: visible;padding-bottom: 0;}.admin-bar .header-style-4 .mk-header-inner {top:0 !important;}.header-style-4 .mk-header-right {display: none;}.header-style-4 .mk-nav-responsive-link {display: block !important;}.header-style-4 .mk-vm-menuwrapper,.header-style-4 #mk-header-search {display: none;}.header-style-4 .header-logo {width:auto !important;display: inline-block !important;text-align:left !important;margin:0 !important;}.vertical-header-enabled .header-style-4 .header-logo img {max-width: 100% !important;left: 20px!important;top:50%!important;-webkit-transform: translate(0, -50%)!important;-moz-transform: translate(0, -50%)!important;-ms-transform: translate(0, -50%)!important;-o-transform: translate(0, -50%)!important;transform: translate(0, -50%)!important;position:relative !important;}.vertical-header-enabled.vertical-header-left #theme-page > .mk-main-wrapper-holder,.vertical-header-enabled.vertical-header-center #theme-page > .mk-main-wrapper-holder,.vertical-header-enabled.vertical-header-left #theme-page > .mk-page-section,.vertical-header-enabled.vertical-header-center #theme-page > .mk-page-section,.vertical-header-enabled.vertical-header-left #theme-page > .wpb_row,.vertical-header-enabled.vertical-header-center #theme-page > .wpb_row,.vertical-header-enabled.vertical-header-left #mk-theme-container:not(.mk-transparent-header), .vertical-header-enabled.vertical-header-center #mk-footer,.vertical-header-enabled.vertical-header-left #mk-footer,.vertical-header-enabled.vertical-header-center #mk-theme-container:not(.mk-transparent-header) {  padding-left: 0 !important;}.vertical-header-enabled.vertical-header-right #theme-page > .mk-main-wrapper-holder,.vertical-header-enabled.vertical-header-right #theme-page > .mk-page-section,.vertical-header-enabled.vertical-header-right #theme-page > .wpb_row,.vertical-header-enabled.vertical-header-right #mk-footer,.vertical-header-enabled.vertical-header-right #mk-theme-container:not(.mk-transparent-header) {  padding-right: 0 !important;}}@media handheld, only screen and (min-width: 1140px) {  .mk-transparent-header .sticky-style-slide .mk-header-holder {    position: absolute;  }  .mk-transparent-header .remove-header-bg-true:not(.header-sticky-ready) .mk-header-bg {    opacity: 0;  }  .mk-transparent-header .remove-header-bg-true#mk-header:not(.header-sticky-ready) .mk-header-inner {    border: 0;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-desktop-logo.light-logo {    display: block !important;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-desktop-logo.dark-logo {    display: none !important;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .main-navigation-ul > li.menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-search-trigger,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-shoping-cart-link i,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-header-cart-count,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-header-start-tour,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) #mk-header-social a i,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.current-menu-ancestor > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-2 .main-navigation-ul > li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-2 .main-navigation-ul > li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-2 .main-navigation-ul > li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-vm-menuwrapper li a,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-vm-menuwrapper li > a:after,   .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-vm-menuwrapper li.mk-vm-back:after {    color: #fff !important;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .mk-css-icon-menu div {    background-color: #fff !important;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.dropdownOpen > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.active > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.open > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.menu-item > a:hover,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.current-menu-ancestor > a.menu-item-link {    border-top-color: #fff;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.current-menu-ancestor > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li.current-menu-item > a,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li.current-menu-ancestor > a {    border: 2px solid #fff;    background-color: #fff;    color: #222 !important;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li > a:hover,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li:hover > a {    border: 2px solid #fff;  }  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-4 .main-navigation-ul li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-4 .main-navigation-ul li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-4 .main-navigation-ul li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.light-header-skin:not(.header-sticky-ready) .menu-hover-style-5 .main-navigation-ul > li.menu-item > a.menu-item-link:after {    background-color: #fff;    color: #222 !important;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-desktop-logo.dark-logo {    display: block !important;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-desktop-logo.light-logo {    display: none !important;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .main-navigation-ul > li.menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-search-trigger,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-shoping-cart-link i,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-header-cart-count,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-header-start-tour,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) #mk-header-social a i,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul li.current-menu-ancestor > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-2 .main-navigation-ul li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-2 .main-navigation-ul li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-2 .main-navigation-ul li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-2 .main-navigation-ul li.current-menu-ancestor > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-vm-menuwrapper li a,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-vm-menuwrapper li > a:after,   .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-vm-menuwrapper li.mk-vm-back:after {    color: #222 !important;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.dropdownOpen > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.active > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.open > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.menu-item > a:hover,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-1 .main-navigation-ul > li.current-menu-ancestor > a.menu-item-link {    border-top-color: #222;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .mk-css-icon-menu div {    background-color: #222 !important;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.current-menu-ancestor > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li.current-menu-item > a,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li.current-menu-ancestor > a {    border: 2px solid #222;    background-color: #222;    color: #fff !important;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3 .main-navigation-ul > li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li > a:hover,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-3.mk-vm-menuwrapper li:hover > a {    border: 2px solid #222;  }  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-4 .main-navigation-ul li.menu-item > a.menu-item-link:hover,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-4 .main-navigation-ul li.menu-item:hover > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-4 .main-navigation-ul li.current-menu-item > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-4 .main-navigation-ul li.current-menu-ancestor > a.menu-item-link,  .mk-transparent-header .remove-header-bg-true.dark-header-skin:not(.header-sticky-ready) .menu-hover-style-5 .main-navigation-ul > li.menu-item > a.menu-item-link:after {    background-color: #222;    color: #fff !important;  }}.comment-reply a,.mk-toggle .mk-toggle-title.active-toggle:before,.mk-testimonial-author,.modern-style .mk-testimonial-company,#wp-calendar td#today,.news-full-without-image .news-categories span,.news-half-without-image .news-categories span,.news-fourth-without-image .news-categories span,.mk-read-more,.news-single-social li a,.portfolio-widget-cats,.portfolio-carousel-cats,.blog-showcase-more,.simple-style .mk-employee-item:hover .team-member-position,.mk-readmore,.about-author-name,.mk-portfolio-classic-item .portfolio-categories a,.register-login-links a:hover,.not-found-subtitle,.mk-mini-callout a,.search-loop-meta a,.new-tab-readmore,.mk-news-tab .mk-tabs-tabs li.ui-tabs-active a,.mk-tooltip a,.mk-accordion-single.current .mk-accordion-tab i,.monocolor.pricing-table .pricing-price span,.quantity .plus:hover,.quantity .minus:hover,.mk-woo-tabs .mk-tabs-tabs li.ui-state-active a,.product .add_to_cart_button i,.blog-modern-comment:hover,.blog-modern-share:hover,{color: #f97352;}.mk-tabs .mk-tabs-tabs li.ui-tabs-active a > i,.mk-accordion .mk-accordion-single.current .mk-accordion-tab:before,.mk-tweet-list a,.widget_testimonials .testimonial-slider .testimonial-author,#mk-filter-portfolio li a:hover,#mk-language-navigation ul li a:hover,#mk-language-navigation ul li.current-menu-item > a,.mk-quick-contact-wrapper h4,.divider-go-top:hover i,.widget-sub-navigation ul li a:hover,#mk-footer .widget_posts_lists ul li .post-list-meta time,.mk-footer-tweets .tweet-username,.product-category .item-holder:hover h4,{color: #f97352 !important;}.image-hover-overlay,.newspaper-portfolio,.similar-posts-wrapper .post-thumbnail:hover > .overlay-pattern,.portfolio-logo-section,.post-list-document .post-type-thumb:hover,#cboxTitle,#cboxPrevious,#cboxNext,#cboxClose,.comment-form-button,.mk-dropcaps.fancy-style,.mk-image-overlay,.pinterest-item-overlay,.news-full-with-image .news-categories span,.news-half-with-image .news-categories span,.news-fourth-with-image .news-categories span,.widget-portfolio-overlay,.portfolio-carousel-overlay,.blog-carousel-overlay,.mk-classic-comments span,.mk-similiar-overlay,.mk-skin-button,.mk-flex-caption .flex-desc span,.mk-icon-box .mk-icon-wrapper i:hover,.mk-quick-contact-link:hover,.quick-contact-active.mk-quick-contact-link,.mk-fancy-table th,.ui-slider-handle,.widget_price_filter .ui-slider-range,.shop-skin-btn,#review_form_wrapper input[type=submit],#mk-nav-search-wrapper form .nav-side-search-icon:hover,form.ajax-search-complete i,.blog-modern-btn,.showcase-blog-overlay,.gform_button[type=submit],.button.alt,#respond #submit,.woocommerce .price_slider_amount .button.button,.mk-shopping-cart-box .mk-button.checkout,.widget_shopping_cart .mk-button.checkout,.widget_shopping_cart .mk-button.checkout{background-color: #f97352 !important;}.mk-circle-image .item-holder{-webkit-box-shadow:0 0 0 1px #f97352;-moz-box-shadow:0 0 0 1px #f97352;box-shadow:0 0 0 1px #f97352;}.mk-blockquote.line-style,.bypostauthor .comment-content,.bypostauthor .comment-content:after,.mk-tabs.simple-style .mk-tabs-tabs li.ui-tabs-active a{border-color: #f97352 !important;}.news-full-with-image .news-categories span,.news-half-with-image .news-categories span,.news-fourth-with-image .news-categories span,.mk-flex-caption .flex-desc span{box-shadow: 8px 0 0 #f97352, -8px 0 0 #f97352;}.monocolor.pricing-table .pricing-cols .pricing-col.featured-plan{border:1px solid #f97352 !important;}.mk-skin-button.three-dimension{box-shadow: 0px 3px 0px 0px #c75c42;}.mk-skin-button.three-dimension:active{box-shadow: 0px 1px 0px 0px #c75c42;}.mk-footer-copyright, #mk-footer-navigation li a{color: #8c8e91;}.mk-woocommerce-main-image img:hover, .mk-single-thumbnails img:hover{border:1px solid #f97352 !important;}.product-loading-icon{background-color:rgba(249,115,82,0.6);}.bigger-font-size p, .bigger-font-size {font-size: 16px;line-height: 27px;color: #777;}.cmk-center-align {text-align: center;}.match-height .vc_grid-item-mini {background-color: #f9f9f9;height: 100%;}.article-excerpt-tiles p {    height: 80px;    overflow: hidden;    margin-bottom: 0px;    word-break: break-all;}.article-excerpt-tiles::after {content: '[...]';    position: absolute;    bottom: 30px;    right: 10px;    padding-left: 9px;    background: #f9f9f9;}.article-excerpt-tiles p a {color: #777;}.home-all-project .vc_gitem-col {    max-height: 250px;}.get-ebook-container input[type="text"],.get-ebook-container input[type="email"],.get-ebook-container select {min-width: 350px;font-size: 15px;}.get-ebook-container input[type="email"] {  min-width: 326px;}.get-ebook-container select.occupation {width: 350px;font-size: 14px !important;line-height: 14px  !important;}.get-ebook-container input[type="checkbox"] {margin-right: 10px;}.get-ebook-container .submit-btn {background-color: #f79468;color: #fff !important;-webkit-transition: all 0.5s;-o-transition: all 0.5s;transition: all 0.5s;border: transparent;box-shadow: none;padding: 10px 16px;font-size: 18px;line-height: 1.33;border-radius: 6px;}.get-ebook-container .submit-btn:hover {    background-color: #f57f4b;}.get-ebook-container .product-interest label span,.get-ebook-container .industry-interest label span {cursor: pointer;}.get-ebook-container .product-interest .field-title,.get-ebook-container .industry-interest .field-title,.get-ebook-container .gender-container .field-title {font-size: 18px;font-weight: bold;}.get-ebook-container .gender-container label {margin-right: 10px;}.get-ebook-container .gender-container label span {cursor: pointer;}.get-ebook-container .product-interest .error-field,.get-ebook-container .industry-interest .error-field {color: #e85c41;}.mc4wp-response .mc4wp-alert.mc4wp-success p {color: #5cb85c;font-weight: bold;}.mc4wp-response .mc4wp-alert.mc4wp-error p,.mc4wp-response .mc4wp-alert.mc4wp-danger p {color: #e85c41;font-weight: bold;}.homepage-slider {display:none}#theme-page {background: #fff !important;}.mk-dynamic-styles {display:none}
+</style>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/jquery.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/jquery.magnific-popup.min.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/jquery.cookie.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/public.js.download"></script>
+<link rel="https://api.w.org/" href="https://diyhacking.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://diyhacking.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://diyhacking.com/wp-includes/wlwmanifest.xml">
+<link rel="shortlink" href="https://diyhacking.com/?p=994">
+<link rel="alternate" type="application/json+oembed" href="https://diyhacking.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdiyhacking.com%2Fraspberry-pi-gpio-control%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://diyhacking.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdiyhacking.com%2Fraspberry-pi-gpio-control%2F&amp;format=xml">
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-57872254-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<meta name="generator" content="Jupiter 4.0.9.2">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress.">
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/plugins/js_composer_theme/assets/css/vc-ie8.css" media="screen"><![endif]--><meta property="og:image" content="https://diyhacking.com/wp-content/uploads/2015/04/PIRcover-compressed1.jpg">
+<meta property="og:url" content="https://diyhacking.com/raspberry-pi-gpio-control/">
+<meta property="og:title" content="How to Interface a PIR Motion Sensor With Raspberry Pi GPIO">
+<script async="async" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/gpt.js.download"></script>
+<script>
+  function searchFor(obj, query) {
+    for(var key in obj) {
+      if(obj.hasOwnProperty(key) && (typeof obj[key] === "string")) {
+        if(obj[key] === query) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+
+  googletag.cmd.push(function() {
+    googletag.pubads().setTargeting('category', ["iot","lighting","medical-fitness","raspberry-pi","security-identification","wearables","analog","connectors","development-boards","embedded","optoelectronics","pcb","power","sensors"]);
+    googletag.defineOutOfPageSlot('/62616433/DIY_Wallpaper', 'div-gpt-ad-1491855244676-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script>
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/62616433/DIY_Leaderboard', [728, 90], 'div-gpt-ad-1492456195571-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script>
+<script>
+  googletag.cmd.push(function() {
+  var mappingWelcome = googletag.sizeMapping().
+      addSize([0,0], [300, 250]).
+        addSize([640, 0], [640, 480]).
+        build();
+  
+    googletag.defineSlot('/62616433/DIY_Welcome_Ad', [[640, 480], [300, 250]], 'div-gpt-ad-1494427027465-0').defineSizeMapping(mappingWelcome).addService(googletag.pubads());
+    googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+        if(event.isEmpty === false && searchFor(event.slot, "/62616433/DIY_Welcome_Ad") === true) {
+          $('#div-gpt-ad-1494427027465-0').trigger('adready');
+        } 
+    });
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();  
+    googletag.enableServices();
+  });
+</script>
+<script>
+	var mp = document.createElement('script');
+	mp.setAttribute('src','https://api.diyhacking.com/pixel.php?url=' + window.location.href);
+	mp.async = true;
+	document.head.appendChild(mp);
+	</script><script src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/pixel.php" async=""></script>
+<link href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/adpopup-pro.min.css" rel="stylesheet">
+<link rel="preload" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/integrator.js.download" as="script"><script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/integrator.js.download"></script><link rel="preload" href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/integrator.js(1).download" as="script"><script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/integrator.js(1).download"></script><script src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/pubads_impl_170.js.download" async=""></script><style type="text/css"></style><style type="text/css" data-ajax=""></style><style type="text/css">.fancybox-margin{margin-right:17px;}</style><script src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/saved_resource"></script></head>
+<body class="post-template-default single single-post postid-994 single-format-standard  wpb-js-composer js-comp-ver-4.4.2 vc_responsive navigation-initialised" data-backtext="Back" data-vm-anim="1"><div class="adpopup-overlay adpopup-style-overlay-dark" style="opacity: 0.5; display: none;"></div>
+<div id="mk-boxed-layout">
+<div id="mk-theme-container">
+<header id="mk-header" data-height="92" data-hover-style="5" data-transparent-skin="light" data-header-style="1" data-sticky-height="50" data-sticky-style="slide" data-sticky-offset="header" class="header-style-1 header-align-left header-toolbar-false sticky-style-slide  mk-background-stretch boxed-header header-sticky-prepare header-sticky-ready">
+<div class="mk-header-holder">
+<div class="mk-header-inner">
+<div class="mk-header-bg "></div>
+<div class="mk-grid header-grid">
+<div class="mk-header-nav-container one-row-style menu-hover-style-5"><nav id="mk-main-navigation" class="main_menu"><ul id="menu-diyhacking-main-menu" class="main-navigation-ul dropdownJavascript"><li id="menu-item-8469" class="menu-item menu-item-type-post_type menu-item-object-page has-mega-menu"><a class="menu-item-link" href="https://diyhacking.com/become-star-maker/">Submit Project</a></li>
+<li id="menu-item-7909" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children no-mega-menu"><a class="menu-item-link" href="https://diyhacking.com/">Projects</a>
+<ul style="" class="sub-menu ">
+<li id="menu-item-9015" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/diy-projects/raspberry-pi-projects/">Raspberry Pi</a></li>
+<li id="menu-item-9014" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/diy-projects/arduino-projects/">Arduino</a></li>
+<li id="menu-item-9010" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/diy-drones/">Drones</a></li>
+<li id="menu-item-9009" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/3d-designing/">3D Design</a></li>
+<li id="menu-item-9011" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/cyber-security-tutorials/">Cyber Security</a></li>
+<li id="menu-item-9012" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/diy-robotics/">Robotics</a></li>
+<li id="menu-item-9013" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/augmented-reality-virtual-reality/">Virtual and Augmented Reality</a></li>
+<li id="menu-item-9016" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/diy-projects/other-diy-projects/">Other Projects</a></li>
+</ul>
+</li>
+<li id="menu-item-6967" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no-mega-menu"><a class="menu-item-link" href="https://diyhacking.com/tutorials/">How To</a>
+<ul style="" class="sub-menu ">
+<li id="menu-item-9192" class="menu-item menu-item-type-custom menu-item-object-custom"><a class="menu-item-link" href="https://diyhacking.com/tutorials/">All Articles</a></li>
+<li id="menu-item-9088" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/get-the-ebook/">Get The eBook</a></li>
+</ul>
+</li>
+<li id="menu-item-10225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children no-mega-menu"><a class="menu-item-link" href="https://diyhacking.com/get-started/">Community</a>
+<ul style="" class="sub-menu ">
+<li id="menu-item-9001" class="menu-item menu-item-type-post_type menu-item-object-page"><a class="menu-item-link" href="https://diyhacking.com/get-started/">Get Started</a></li>
+<li id="menu-item-8350" class="menu-item menu-item-type-custom menu-item-object-custom"><a class="menu-item-link" href="http://diy-makers.herokuapp.com/">Live Chat on Slack</a></li>
+</ul>
+</li>
+<li id="menu-item-7967" class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a class="menu-item-link" href="https://diyhacking.com/blog/">Blog</a></li>
+<li id="menu-item-10547" class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a class="menu-item-link" href="https://diyhacking.com/newsletter/">Newsletter</a></li>
+</ul></nav><div class="main-nav-side-search">
+<a class="mk-search-trigger mk-fullscreen-trigger" href="https://diyhacking.com/raspberry-pi-gpio-control/#"><i class="mk-icon-search"></i></a>
+</div></div>
+<div class=" mk-nav-responsive-link">
+<div class="mk-css-icon-menu">
+<div class="mk-css-icon-menu-line-1"></div>
+<div class="mk-css-icon-menu-line-2"></div>
+<div class="mk-css-icon-menu-line-3"></div>
+</div>
+</div>
+<div class="header-logo logo-is-responsive logo-has-sticky">
+<a href="https://diyhacking.com/" title="DIY Hacking">
+<img class="mk-desktop-logo dark-logo" alt="DIY Hacking" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+<img class="mk-desktop-logo light-logo" alt="DIY Hacking" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+<img class="mk-resposnive-logo" alt="DIY Hacking" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+<img class="mk-sticky-logo" alt="DIY Hacking" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/DIY-Hacking-Logo.png">
+</a>
+</div>
+<div class="clearboth"></div>
+</div>
+<div class="mk-header-right">
+</div>
+</div>
+</div>
+<div class="clearboth"></div>
+<div class="mk-header-padding-wrapper enable-padding"></div>
+<div class="clearboth"></div>
+<div class="mk-zindex-fix">
+</div>
+<div class="clearboth"></div>
+<form class="responsive-searchform" method="get" style="display:none;" action="https://diyhacking.com/">
+<input type="text" class="text-input" value="" name="s" id="s" placeholder="Search..">
+<i class="mk-icon-search"><input value="" type="submit"></i>
+</form>
+</header>
+<div id="theme-page">
+<div class="mk-main-wrapper-holder">
+<div class="theme-page-wrapper mk-blog-single full-layout vc_row-fluid mk-grid ">
+<div class="theme-content ">
+<article id="994" class="post-994 post type-post status-publish format-standard has-post-thumbnail hentry category-beginners category-raspberrypi-projects tag-beginners-2 tag-gpio tag-led-blink tag-pir-motion-sensor tag-raspberry-pi tag-tutorial">
+<h1 class="blog-single-title">How to Interface a PIR Motion Sensor With Raspberry Pi GPIO</h1>
+<div class="single-social-section">
+<div class="mk-love-holder"><a href="https://diyhacking.com/raspberry-pi-gpio-control/#" class="mk-love-this " id="mk-love-994"><i class="mk-icon-heart"><span>&nbsp;</span></i> <span class="mk-love-count">16</span></a></div>
+<a href="https://diyhacking.com/raspberry-pi-gpio-control/#comments" class="blog-modern-comment"><i class="mk-moon-bubble-9"></i><span> 40</span></a>
+<a class="mk-blog-print" onclick="window.print()" href="https://diyhacking.com/raspberry-pi-gpio-control/#" title="Print"><i class="mk-moon-print-3"></i></a>
+<div class="clearboth"></div>
+</div>
+<div class="clearboth"></div>
+
+<div id="div-gpt-ad-1492456195571-0" class="center-ad" style="height: 90px; width: 728px; display: none;" data-google-query-id="CMiN4fDkldgCFeMIZQodNd0I1g">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1492456195571-0'); });
+</script>
+<div id="google_ads_iframe_/62616433/DIY_Leaderboard_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/62616433/DIY_Leaderboard_0" title="3rd party ad content" name="google_ads_iframe_/62616433/DIY_Leaderboard_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/saved_resource.html"></iframe></div></div>
+<div class="mk-single-content" itemprop="mainContentOfPage">
+<p><a href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/PIRcover-compressed1.jpg"><img class=" wp-image-7423 size-full aligncenter" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/PIRcover-compressed1.jpg" alt="Raspberry pi GPIO pin tutorial" width="510" height="383" srcset="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIRcover-compressed1.jpg 510w, https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIRcover-compressed1-300x225.jpg 300w" sizes="(max-width: 510px) 100vw, 510px"></a></p>
+<p>&nbsp;</p>
+<p>This tutorial will show you to interface a PIR motion sensor with the Raspberry Pi and how to use the GPIO pins on it. The GPIO pins on the Raspberry Pi are critical when it comes to making a hardware project. May it be a robot, home automation system, or whatever crazy creation you come up with. In all these cases you will have to use the GPIO (General Purpose Input/Output) pins on the Raspberry Pi. With this simple tutorial, you will be able to learn how to control the output on the GPIO pins. and read inputs through them. Moreover, you will get to read the output from a PIR motion sensor and write a simple code to blink an LED.&nbsp;If you’re not familiar with the Rasbperry Pi terminal, check out this tutorial on <a href="https://diyhacking.com/linux-commands-for-beginners/" target="_blank">Basic Linux Commands</a>. If you are a true beginner, you can always use our free <a href="http://maker.diyhacking.com/eBook.html" target="_blank">eBook</a> on Raspberry Pi and Arduino to get started from step 0. So gear up and get ready to have some fun with the Raspberry Pi GPIOs!</p>
+<h3></h3>
+<h3><strong>Required Materials</strong></h3>
+<ol>
+<li><a href="https://www.allaboutcircuits.com/electronic-components/?p=BCM2836+Raspberry+Pi+2+Model+B">Raspberry Pi B/B+</a> or 2 and basic peripherals: SD card, keyboard, mouse, etc. (This should work on Raspberry Pi 3 as well)</li>
+<li>An <a href="https://www.allaboutcircuits.com/electronic-components/?p=light+emitting+diode">LED</a> and <a href="https://www.allaboutcircuits.com/electronic-components/?p=220R+resistor">220Ohm resistor</a>.</li>
+<li><a href="https://www.allaboutcircuits.com/electronic-components/?p=PIR+%28MOTION%29+SENSOR">PIR motion sensor</a>.</li>
+<li>Breadboard.</li>
+<li>Male to male and Female to Male jumper wires.</li>
+</ol>
+<h3></h3>
+<h3><strong>How Does it Work?</strong></h3>
+<p>The Raspberry Pi GPIO can be accessed through a python program. You will get to know how to access these pins and the commands required to do that later in this tutorial. Each pin on the Raspberry Pi is named based on its order (1,2,3,..) as shown in the diagram below:</p>
+<p>&nbsp;</p>
+<p><a href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/Raspberry-Pi-GPIO-compressed.jpg"><img class=" wp-image-958 aligncenter" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/Raspberry-Pi-GPIO-compressed-300x217.jpg" alt="" width="435" height="315" srcset="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/Raspberry-Pi-GPIO-compressed-300x217.jpg 300w, https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/Raspberry-Pi-GPIO-compressed.jpg 894w" sizes="(max-width: 435px) 100vw, 435px"></a></p>
+<p>&nbsp;</p>
+<p>Here, we are using a PIR motion sensor. PIR stands for Passive InfraRed. This motion sensor consists of a fresnel lens, an infrared detector, and supporting detection circuitry. The lens on the sensor focuses any infrared radiation present around it toward the infrared detector. Our bodies generate infrared heat, and as a result, this heat is picked up by the motion sensor. The sensor outputs a 5V signal for a period of one minute as soon as it detects the presence of a person. It offers a tentative range of detection of about 6-7 meters and is highly sensitive.&nbsp;When the PIR motion sensor detects a person, it outputs a 5V signal to the Raspberry Pi through its GPIO and we define what the Raspberry Pi&nbsp;should do as it detects an intruder through the python coding. Here we are just printing: “Intruder detected”.</p>
+<p>&nbsp;</p>
+<div id="attachment_9872" style="width: 534px" class="wp-caption aligncenter"><a href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIR.jpg"><img class="wp-image-9872 " src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/PIR-300x194.jpg" width="524" height="339" srcset="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIR-300x194.jpg 300w, https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIR.jpg 442w" sizes="(max-width: 524px) 100vw, 524px"></a><p class="wp-caption-text"><em>How the PIR Motion Sensor works</em></p></div>
+<h3></h3>
+<h3><span style="color: #333333;">Blinking&nbsp;an LED&nbsp;Using the Raspberry Pi GPIO- Output GPIO Control</span></h3>
+<p>After you have set up your Raspberry Pi, we can now start messing around with its GPIO pins. Here, we will try to blink an LED using a python script. Copy and paste the following code into your Raspberry Pi. You can do this by opening the text editor: “leafpad” on your Raspberry Pi and copying this code into it and save this as a python file: <strong>ledblink.py</strong> :</p>
+<p>&nbsp;</p>
+<pre><code>import RPi.GPIO as GPIO
+import time
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(3,GPIO.OUT)     #Define pin 3 as an output pin
+
+while True:
+        GPIO.output(3,1)   #Outputs digital HIGH signal (5V) on pin 3
+        time.sleep(1)      #Time delay of 1 second
+
+        GPIO.output(3,0)   #Outputs digital LOW signal (0V) on pin 3
+        time.sleep(1)      #Time delay of 1 second
+</code></pre>
+<p>&nbsp;</p>
+<p>Next, we need to connect the LED to pin 3 on the Raspberry Pi GPIO. You can check out the connection diagram below to do that:</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div id="attachment_9873" style="width: 509px" class="wp-caption aligncenter"><a href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/LEDraspi_bb-compressed1-1.jpg"><img class="wp-image-9873 " src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/LEDraspi_bb-compressed1-1-282x300.jpg" width="499" height="531" srcset="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/LEDraspi_bb-compressed1-1-282x300.jpg 282w, https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/LEDraspi_bb-compressed1-1.jpg 351w" sizes="(max-width: 499px) 100vw, 499px"></a><p class="wp-caption-text"><em>Raspberry Pi GPIO LED connection diagram</em></p></div>
+<p>&nbsp;</p>
+<p>You should notice that the LED starts blinking after you execute the python program. Using this command: <strong>sudo python ledblink.py</strong>. The LED blinks because it receives a HIGH (5V) signal and a LOW (0V) signal from the Raspberry Pi GPIO at a delay of one second. You can check out the video below for a&nbsp;demo:</p>
+<p>&nbsp;</p>
+<p></p><center><iframe width="640" height="360" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/L6kq1fBwe3A.html" frameborder="0" allowfullscreen=""></iframe><p></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p></p></center><p></p>
+<h3><span style="color: #333333;">Interfacing the PIR Motion Sensor to the Raspberry Pi’s Input GPIO Read</span></h3>
+<p>Now, we can try reading the output from the PIR motion sensor. The sensor outputs a digital HIGH (5V) signal when it detects a person. Copy and paste the following code into your Raspberry Pi and save it as a python file: <strong>pirtest.py</strong>:</p>
+<pre><code>
+import RPi.GPIO as GPIO
+import time
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.IN)         #Read output from PIR motion sensor
+GPIO.setup(3, GPIO.OUT)         #LED output pin
+while True:
+       i=GPIO.input(11)
+       if i==0:                 #When output from motion sensor is LOW
+             print "No intruders",i
+             GPIO.output(3, 0)  #Turn OFF LED
+             time.sleep(0.1)
+       elif i==1:               #When output from motion sensor is HIGH
+             print "Intruder detected",i
+             GPIO.output(3, 1)  #Turn ON LED
+             time.sleep(0.1)
+</code></pre>
+<p>&nbsp;</p>
+<p>Now, connect your Raspberry Pi GPIO to the PIR motion sensor as per the connection diagram below:</p>
+<p>&nbsp;</p>
+<div id="attachment_9875" style="width: 412px" class="wp-caption aligncenter"><a href="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIRconn1-1.jpg"><img class="wp-image-9875 " src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/PIRconn1-1-212x300.jpg" width="402" height="569" srcset="https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIRconn1-1-212x300.jpg 212w, https://301o583r8shhildde3s0vcnh-wpengine.netdna-ssl.com/wp-content/uploads/2015/04/PIRconn1-1.jpg 405w" sizes="(max-width: 402px) 100vw, 402px"></a><p class="wp-caption-text"><em>Raspberry Pi PIR motion sensor connection</em></p></div>
+<p>&nbsp;</p>
+<p>You will notice that this code prints: “Intruder detected” when you place your hand over the sensor. After removing your hand and waiting some time, it prints: “No intruders”.</p>
+<p>In certain PIR motion sensors, you can even adjust the delay at which the sensor outputs a HIGH signal at the expense of compromising the accuracy. You just need to turn the two knobs on the sensor counterclockwise using a screwdriver.</p>
+<p>&nbsp;</p>
+<div id="attachment_1007" style="width: 187px" class="wp-caption aligncenter"><a href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/PIR-compressed.jpg"><img class="wp-image-1007" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/PIR-compressed.jpg" alt="Raspberry pi GPIO pin tutorial" width="177" height="216"></a><p class="wp-caption-text"><em>PIR Motion Sensor pin out</em></p></div>
+<p>&nbsp;</p>
+<div id="attachment_7427" style="width: 266px" class="wp-caption aligncenter"><a href="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/pirBack-compressed1.jpg"><img class="wp-image-7427 size-full" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/pirBack-compressed1.jpg" alt="Raspberry pi GPIO pin tutorial" width="256" height="197"></a><p class="wp-caption-text"><em>PIR motion sensor adjustment knobs</em></p></div>
+<p>&nbsp;</p>
+<p>You can also <a href="https://diyhacking.com/connect-raspberry-pi-to-laptop-display/" target="_blank">extend the display of your laptop to the Raspberry Pi</a> via a VNC server and a LAN cable just like how I did in the below video.</p>
+<p>You can see this sensor in action, in the video below:</p>
+<p>&nbsp;</p>
+<p></p><center><iframe width="640" height="360" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/LocUihLat14.html" frameborder="0" allowfullscreen=""></iframe><p></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p></p></center><p></p>
+</div>
+<div class="single-post-tags">
+Tags: <a href="https://diyhacking.com/tag/beginners-2/" rel="tag">beginners</a>, <a href="https://diyhacking.com/tag/gpio/" rel="tag">GPIO</a>, <a href="https://diyhacking.com/tag/led-blink/" rel="tag">LED blink</a>, <a href="https://diyhacking.com/tag/pir-motion-sensor/" rel="tag">PIR motion sensor</a>, <a href="https://diyhacking.com/tag/raspberry-pi/" rel="tag">Raspberry pi</a>, <a href="https://diyhacking.com/tag/tutorial/" rel="tag">tutorial</a> </div>
+<section class="blog-similar-posts"><div class="similar-post-title">Recommended Posts</div><ul class="four-cols"><li><div class="similar-post-holder"><a class="mk-similiar-thumbnail" href="https://diyhacking.com/how-to-build-a-raspberry-pi-weather-station/" title="How to Build a Raspberry Pi Weather Station"><img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/Image1-nh1no30ihkfsf7zzw08cydvsxyamecjasqgqvmm20y.jpg" alt="How to Build a Raspberry Pi Weather Station"><div class="image-hover-overlay"></div></a><a href="https://diyhacking.com/how-to-build-a-raspberry-pi-weather-station/" class="mk-similiar-title">How to Build a Raspberry Pi Weather Station</a></div></li><li><div class="similar-post-holder"><a class="mk-similiar-thumbnail" href="https://diyhacking.com/telegram-on-raspberry-pi/" title="How to Use Telegram Instant Messaging on Raspberry Pi"><img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/Telegram-logo-ndm5h2roww8ysug4fe2xf87c4ehcq4hsienzezmmde.jpg" alt="How to Use Telegram Instant Messaging on Raspberry Pi"><div class="image-hover-overlay"></div></a><a href="https://diyhacking.com/telegram-on-raspberry-pi/" class="mk-similiar-title">How to Use Telegram Instant Messaging on Raspberry Pi</a></div></li><li><div class="similar-post-holder"><a class="mk-similiar-thumbnail" href="https://diyhacking.com/connecting-raspberry-pi-iot-devices-mqtt/" title="Connecting Raspberry Pi IoT Devices with MQTT"><img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/MQTT_featured-nddbcbs9l2aqmu7efvks0aezijmke7vekk5x9wqfnm.jpg" alt="Connecting Raspberry Pi IoT Devices with MQTT"><div class="image-hover-overlay"></div></a><a href="https://diyhacking.com/connecting-raspberry-pi-iot-devices-mqtt/" class="mk-similiar-title">Connecting Raspberry Pi IoT Devices with MQTT</a></div></li><li><div class="similar-post-holder"><a class="mk-similiar-thumbnail" href="https://diyhacking.com/control-a-dc-motor-with-an-l298-controller-and-raspberry-pi/" title="Control a DC Motor with an L298 Controller and Raspberry Pi"><img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/Raspberry-Pi-With-L298-nbya8zmuv20969h1d0hozt7kjeach460514vqe9ayq.jpg" alt="Control a DC Motor with an L298 Controller and Raspberry Pi"><div class="image-hover-overlay"></div></a><a href="https://diyhacking.com/control-a-dc-motor-with-an-l298-controller-and-raspberry-pi/" class="mk-similiar-title">Control a DC Motor with an L298 Controller and Raspberry Pi</a></div></li></ul><div class="clearboth"></div></section>
+<section id="comments">
+<div class="blog-comment-title">Showing 40 comments</div>
+<ul class="mk-commentlist">
+<li class="comment even thread-even depth-1" id="li-comment-6115">
+<div class="mk-single-comment" id="comment-6115">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/896fdbae170e66e13ec689f4372b1d7e" srcset="https://secure.gravatar.com/avatar/896fdbae170e66e13ec689f4372b1d7e?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Bojengle</span>
+<time class="comment-time">December 4, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=6115#respond" onclick="return addComment.moveForm( &quot;comment-6115&quot;, &quot;6115&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Bojengle">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Motion detection is awesome, what a nice little sensor that is. I’m not sure if I want to use motion detection or not for my dog treat spy camera/ treat dispenser. I think after I build my doggo machine I will do a motion detecting camera! Thanks for this information.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5978">
+<div class="mk-single-comment" id="comment-5978">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/ed32092fad4fda32eaacb865bb9e7891" srcset="https://secure.gravatar.com/avatar/ed32092fad4fda32eaacb865bb9e7891?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Victor</span>
+<time class="comment-time">November 7, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=5978#respond" onclick="return addComment.moveForm( &quot;comment-5978&quot;, &quot;5978&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Victor">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Where can i by all this stuff? i live in Denmark, so the source must be from Denmark or within Europe. </p>
+<p>Thanks</p>
+<div class="clearboth"></div>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="li-comment-6032">
+<div class="mk-single-comment" id="comment-6032">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/3efeec69dafd9c6c6f150d38a8a962a2" srcset="https://secure.gravatar.com/avatar/3efeec69dafd9c6c6f150d38a8a962a2?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Andrew</span>
+<time class="comment-time">November 14, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=6032#respond" onclick="return addComment.moveForm( &quot;comment-6032&quot;, &quot;6032&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Andrew">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Amazon.dk</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-even depth-1" id="li-comment-5584">
+<div class="mk-single-comment" id="comment-5584">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/212bf05ba88cb5705ff5bb32e9c69e1f" srcset="https://secure.gravatar.com/avatar/212bf05ba88cb5705ff5bb32e9c69e1f?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">JimBob Electronics from the Ozarks</span>
+<time class="comment-time">July 13, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=5584#respond" onclick="return addComment.moveForm( &quot;comment-5584&quot;, &quot;5584&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to JimBob Electronics from the Ozarks">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Woah! Be careful of your IR wiring.<br>
+With my device is the opposite of the photos here. VCC (+ side) is in the opposite position.<br>
+With your own device verify by taking over the plastic lens (comes off easy with a fingernail or small screwdriver.<br>
+On the top it should have silkscreened labels “VCC”, “OUT” and “GRND”.<br>
+Might explain why some people are reporting failures here.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-5408">
+<div class="mk-single-comment" id="comment-5408">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/7a5bac1d9ee67c578c5ff34f8304474b" srcset="https://secure.gravatar.com/avatar/7a5bac1d9ee67c578c5ff34f8304474b?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Raki</span>
+<time class="comment-time">May 29, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=5408#respond" onclick="return addComment.moveForm( &quot;comment-5408&quot;, &quot;5408&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Raki">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Hi team,</p>
+<p>Please help me as i tried the same connection but not sure neither the led is blinking nor the sensor is working fine.<br>
+My Observation is:</p>
+<p>When i touch the breadboard connection with my hand , the led glows and message as Intruder detected comes. without even touching the sensor …surprising</p>
+<p>is that something to do with loose connection on bread baord as i checked many time but still not through ?</p>
+<p>1) is that my PIR sensor is having any issue?<br>
+2) what power input i shud give 3.3 V or 5 V for the PIR Sensor ?<br>
+3) is that i am making any mistake with GND connection? </p>
+<p>Please help </p>
+<p>Regards’<br>
+Raki</p>
+<div class="clearboth"></div>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="li-comment-5585">
+<div class="mk-single-comment" id="comment-5585">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/212bf05ba88cb5705ff5bb32e9c69e1f" srcset="https://secure.gravatar.com/avatar/212bf05ba88cb5705ff5bb32e9c69e1f?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">JimBob Electronics from the Ozarks</span>
+<time class="comment-time">July 13, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=5585#respond" onclick="return addComment.moveForm( &quot;comment-5585&quot;, &quot;5585&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to JimBob Electronics from the Ozarks">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>5V as the device has a regulator that’ll drop down to 3.3v on board.<br>
+See my other comment, you might have fried the said regulator if did your IR wiring like the photo.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment even thread-even depth-1" id="li-comment-5253">
+<div class="mk-single-comment" id="comment-5253">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/85e7f0574001069fd6c6c8be2251bdb6" srcset="https://secure.gravatar.com/avatar/85e7f0574001069fd6c6c8be2251bdb6?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">himanshu</span>
+<time class="comment-time">April 18, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=5253#respond" onclick="return addComment.moveForm( &quot;comment-5253&quot;, &quot;5253&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to himanshu">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>hello sir<br>
+if i stay acrooss pi sencer for 1 minit then sencer ouput is high for 1 minat ?</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5229">
+<div class="mk-single-comment" id="comment-5229">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/379052d4d90bb583df31f49f2f98782a" srcset="https://secure.gravatar.com/avatar/379052d4d90bb583df31f49f2f98782a?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Rorian</span>
+<time class="comment-time">April 10, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=5229#respond" onclick="return addComment.moveForm( &quot;comment-5229&quot;, &quot;5229&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Rorian">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>I also had +5/GND reversed, spent hours to find this, I did as illustrated in this tutorial first, then saw your comments and reversed +5/GND pins and voila! At last nothing was burnt :P.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even thread-even depth-1" id="li-comment-4895">
+<div class="mk-single-comment" id="comment-4895">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/fa389c2808bd9f69ada52b9d2f165aba" srcset="https://secure.gravatar.com/avatar/fa389c2808bd9f69ada52b9d2f165aba?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">sicalíptico</span>
+<time class="comment-time">February 22, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4895#respond" onclick="return addComment.moveForm( &quot;comment-4895&quot;, &quot;4895&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to sicalíptico">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p><a href="http://www.subeposiciones.com/" rel="nofollow">http://www.subeposiciones.com</a><br>
+Have yοu eѵeг thought аbout adding a ⅼittle Ьit mofe than just youг articles?<br>
+I mean, what you say іѕ fundamental аnd evеrything. Howevеr jᥙst imagine<br>
+if you aԀded ѕome great pictures ߋr videos tо givе your<br>
+posts more, “pop”! Yoour сontent іs excellent Ƅut wіth pics and videos, tҺіs site coսld certаinly bе one of the mⲟѕt beneficial in its niche.<br>
+Wonderful blog!</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4834">
+<div class="mk-single-comment" id="comment-4834">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/d8f38c41c423ef83a3cba516f8e35946" srcset="https://secure.gravatar.com/avatar/d8f38c41c423ef83a3cba516f8e35946?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Tina</span>
+<time class="comment-time">February 14, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4834#respond" onclick="return addComment.moveForm( &quot;comment-4834&quot;, &quot;4834&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Tina">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Pin diagram for PIR sensor is wrong.Ground and power pins are interchanged</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even thread-even depth-1" id="li-comment-4518">
+<div class="mk-single-comment" id="comment-4518">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/23f196ece003ebf30224ecabdff9ac75" srcset="https://secure.gravatar.com/avatar/23f196ece003ebf30224ecabdff9ac75?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Josh</span>
+<time class="comment-time">December 27, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4518#respond" onclick="return addComment.moveForm( &quot;comment-4518&quot;, &quot;4518&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Josh">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>I tried this but it only keeps saying “Intruder Detected” when I run the py file. I already tried adjusting the sensor and still says “Intruder detected”. Is there anything I missed? Please help.</p>
+<p>Also, correct me if I’m wrong but isn’t there supposed to be parenthesis on the print part? </p>
+<p>like these:<br>
+…<br>
+print (“No intruders”),i<br>
+…<br>
+print (“Intruder detected”),i</p>
+<div class="clearboth"></div>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="li-comment-4982">
+<div class="mk-single-comment" id="comment-4982">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/b5dbb653af21b51159d2b0cf6b2e289b" srcset="https://secure.gravatar.com/avatar/b5dbb653af21b51159d2b0cf6b2e289b?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Robert</span>
+<time class="comment-time">March 3, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4982#respond" onclick="return addComment.moveForm( &quot;comment-4982&quot;, &quot;4982&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Robert">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>I get the same issue, did you find a fix?</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-4405">
+<div class="mk-single-comment" id="comment-4405">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/16bbfc78579ef79ac16f70cea31a507f" srcset="https://secure.gravatar.com/avatar/16bbfc78579ef79ac16f70cea31a507f?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">sendo lừa đảo</span>
+<time class="comment-time">December 9, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4405#respond" onclick="return addComment.moveForm( &quot;comment-4405&quot;, &quot;4405&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to sendo lừa đảo">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Have you ever considered about adding a little bit more than just your<br>
+articles? I mean, what you say is valuable and all.</p>
+<p>But imagine if you added some great visuals or video clips<br>
+to give your posts more, “pop”! Your content is excellent but with pics and video clips, this blog could<br>
+certainly be one of the most beneficial in its niche. Excellent blog!</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+ <li class="comment odd alt thread-even depth-1" id="li-comment-4186">
+<div class="mk-single-comment" id="comment-4186">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/e5a6d21579339dba1973b24b0a6244b9" srcset="https://secure.gravatar.com/avatar/e5a6d21579339dba1973b24b0a6244b9?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Howard</span>
+<time class="comment-time">November 10, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4186#respond" onclick="return addComment.moveForm( &quot;comment-4186&quot;, &quot;4186&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Howard">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>gpiozero would also make this a lot easier</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-4082">
+<div class="mk-single-comment" id="comment-4082">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/17c64b398495ecdd33507a4e75f155c5" srcset="https://secure.gravatar.com/avatar/17c64b398495ecdd33507a4e75f155c5?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">M Hammond</span>
+<time class="comment-time">October 27, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4082#respond" onclick="return addComment.moveForm( &quot;comment-4082&quot;, &quot;4082&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to M Hammond">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>No intruder unless unplug ground</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-even depth-1" id="li-comment-3801">
+<div class="mk-single-comment" id="comment-3801">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/dbf35d1be1670844614d5cd1e5f80732" srcset="https://secure.gravatar.com/avatar/dbf35d1be1670844614d5cd1e5f80732?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Syama</span>
+<time class="comment-time">September 14, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3801#respond" onclick="return addComment.moveForm( &quot;comment-3801&quot;, &quot;3801&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Syama">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>HC-SR501 PYROELECTRIC INFRARED PIR MOTION SENSOR DETECTOR MODULE for ARDUINO AVR is this the same as RASPBERRY PI GPIO WITH PIR MOTION SENSOR?</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-3782">
+<div class="mk-single-comment" id="comment-3782">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/30a8eb714c16011a9a75b2a96097176b" srcset="https://secure.gravatar.com/avatar/30a8eb714c16011a9a75b2a96097176b?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Shawnerz98</span>
+<time class="comment-time">September 12, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3782#respond" onclick="return addComment.moveForm( &quot;comment-3782&quot;, &quot;3782&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Shawnerz98">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>On my version of the same PIR sensor, +DC Voltage (3V or 5Vand Ground (Gnd) are backwards of what’s shown in the picture.<br>
+Connecting the power backwards, to both 3 and 5 volts has not seemed to damage the sensor or the Pi.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="li-comment-3909">
+<div class="mk-single-comment" id="comment-3909">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/d9727492e119d597ae6b8fdb66aef7cb" srcset="https://secure.gravatar.com/avatar/d9727492e119d597ae6b8fdb66aef7cb?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Dan</span>
+<time class="comment-time">October 3, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3909#respond" onclick="return addComment.moveForm( &quot;comment-3909&quot;, &quot;3909&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Dan">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>I noticed the same thing! The HC-SR501 Product Description shows Pin 1 as +5 and Pin 3 as GND, however, looking at the component side with the connector on top, GND is on the left side and +5 on the right. That’s what is show on the PD photo and the device works ok. The Raspberrypi.org PIR lesson makes the same mistake, oddly.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="li-comment-4185">
+<div class="mk-single-comment" id="comment-4185">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/e5a6d21579339dba1973b24b0a6244b9" srcset="https://secure.gravatar.com/avatar/e5a6d21579339dba1973b24b0a6244b9?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Howard</span>
+<time class="comment-time">November 10, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4185#respond" onclick="return addComment.moveForm( &quot;comment-4185&quot;, &quot;4185&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Howard">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Yes, I agree.</p>
+<p>Incredibly frustrating – spent ages finding that out for myself – the first sensor I had was defective and with this mistake built into the equation, it was a double whammy.</p>
+<p>Thought the poster could have also given more instruction on calibration of the sensor, too</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-even depth-1" id="li-comment-3637">
+<div class="mk-single-comment" id="comment-3637">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/2b758437c5c75739362efc6982e09219" srcset="https://secure.gravatar.com/avatar/2b758437c5c75739362efc6982e09219?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Tuan</span>
+<time class="comment-time">August 17, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3637#respond" onclick="return addComment.moveForm( &quot;comment-3637&quot;, &quot;3637&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Tuan">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Great tutorial. I have some questions for you, please help me.<br>
+1. Why input is slot 11 ?<br>
+2. Can I change to another slot ?</p>
+<div class="clearboth"></div>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="li-comment-3784">
+<div class="mk-single-comment" id="comment-3784">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/30a8eb714c16011a9a75b2a96097176b" srcset="https://secure.gravatar.com/avatar/30a8eb714c16011a9a75b2a96097176b?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Shawnerz98</span>
+<time class="comment-time">September 12, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3784#respond" onclick="return addComment.moveForm( &quot;comment-3784&quot;, &quot;3784&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Shawnerz98">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Tuan: The author used RPi.GPIO library. It appears that library addresses each IO Pin using the pin number and not the GPIO number. Pin 11 is GPIO #17.<br>
+The answer to your question is yes, you can use another GPIO pin. You can use Pin 3, Pin 5, Pin 7, Pin 8, Pin 10….or any pin that is labeled as “GP”.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment odd alt depth-2" id="li-comment-5904">
+<div class="mk-single-comment" id="comment-5904">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/c3175a8226164b7d746ef3c13abfc104" srcset="https://secure.gravatar.com/avatar/c3175a8226164b7d746ef3c13abfc104?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">broskie</span>
+<time class="comment-time">October 19, 2017</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=5904#respond" onclick="return addComment.moveForm( &quot;comment-5904&quot;, &quot;5904&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to broskie">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>If you set the mode to GPIO.BCM rather than GPIO.BOARD then you can reference the actual GPIO pin. In this tutorial the pin number would be the actual GPIO #17.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-3565">
+<div class="mk-single-comment" id="comment-3565">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/dc8f7cbc903f01d20f06ec921b5aa9eb" srcset="https://secure.gravatar.com/avatar/dc8f7cbc903f01d20f06ec921b5aa9eb?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Ian</span>
+<time class="comment-time">August 3, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3565#respond" onclick="return addComment.moveForm( &quot;comment-3565&quot;, &quot;3565&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Ian">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>Please bear with me as I am a noob. I have read that the R-pi GPIO pins cannot handle 5V signals, only 3V (or 3.3V?). If so, why isn’t a resistor or something necessary to drop the voltage down from motion sensors 5V data signal?</p>
+<div class="clearboth"></div>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="li-comment-3712">
+<div class="mk-single-comment" id="comment-3712">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/4d236628d5dbdc96d658bf32ac34f3cb" srcset="https://secure.gravatar.com/avatar/4d236628d5dbdc96d658bf32ac34f3cb?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Gregory Pierce</span>
+<time class="comment-time">August 29, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3712#respond" onclick="return addComment.moveForm( &quot;comment-3712&quot;, &quot;3712&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Gregory Pierce">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>This is actually important. The GPIO on the RPI isn’t supposed to receive more than 3.3V. You should be splitting the voltage with resistors and not wiring the 5V high from the PIR directly to the GPIO on the RPI. You will certainly damage it long term.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even depth-2" id="li-comment-4200">
+<div class="mk-single-comment" id="comment-4200">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/d0f518ba22720ef124c4cb7aa1194b6d" srcset="https://secure.gravatar.com/avatar/d0f518ba22720ef124c4cb7aa1194b6d?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Norm</span>
+<time class="comment-time">November 12, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=4200#respond" onclick="return addComment.moveForm( &quot;comment-4200&quot;, &quot;4200&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Norm">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>The Vcc input voltage for the PIR is 5v, but the output voltage is 3.3 volts according to the spec sheet.</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li class="comment odd alt thread-even depth-1" id="li-comment-3339">
+<div class="mk-single-comment" id="comment-3339">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/acb2e07cbf0ff1806756d65c19a4446a" srcset="https://secure.gravatar.com/avatar/acb2e07cbf0ff1806756d65c19a4446a?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">eddy</span>
+<time class="comment-time">June 20, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=3339#respond" onclick="return addComment.moveForm( &quot;comment-3339&quot;, &quot;3339&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to eddy">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>please , can I use this methode to count eggs ? does eggs generate infrared heat like body ?</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-2895">
+<div class="mk-single-comment" id="comment-2895">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/0d567282d9bd64fcd801ef5254a902d6" srcset="https://secure.gravatar.com/avatar/0d567282d9bd64fcd801ef5254a902d6?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">alan</span>
+<time class="comment-time">April 11, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=2895#respond" onclick="return addComment.moveForm( &quot;comment-2895&quot;, &quot;2895&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to alan">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>en verdad agradezco tu tutorial esta muy bien explicado !!! </p>
+<p>no suelo dar las gracias pero este en verdad me gusto</p>
+<p>TE FELICITO</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-even depth-1" id="li-comment-2115">
+<div class="mk-single-comment" id="comment-2115">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/ca9d3b07ed2dfbc090e876ed2840eb76" srcset="https://secure.gravatar.com/avatar/ca9d3b07ed2dfbc090e876ed2840eb76?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">benjotituus</span>
+<time class="comment-time">January 1, 2016</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=2115#respond" onclick="return addComment.moveForm( &quot;comment-2115&quot;, &quot;2115&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to benjotituus">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>good one</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-1228">
+<div class="mk-single-comment" id="comment-1228">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/a68f54909246b6a5099019cb9df89a56" srcset="https://secure.gravatar.com/avatar/a68f54909246b6a5099019cb9df89a56?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">Freddyny</span>
+<time class="comment-time">April 28, 2015</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=1228#respond" onclick="return addComment.moveForm( &quot;comment-1228&quot;, &quot;1228&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to Freddyny">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>yes, me too haha</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-even depth-1" id="li-comment-1227">
+<div class="mk-single-comment" id="comment-1227">
+<div class="gravatar"><img alt="" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/51bd40b2bdd6c790b777996d2142c883" srcset="https://secure.gravatar.com/avatar/51bd40b2bdd6c790b777996d2142c883?s=90&amp;d=mm&amp;r=g 2x" class="avatar avatar-45 photo" height="45" width="45"></div>
+<div class="comment-meta">
+<span class="comment-author">nehal</span>
+<time class="comment-time">April 20, 2015</time>
+</div>
+<span class="comment-reply">
+<a rel="nofollow" class="comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/?replytocom=1227#respond" onclick="return addComment.moveForm( &quot;comment-1227&quot;, &quot;1227&quot;, &quot;respond&quot;, &quot;994&quot; )" aria-label="Reply to nehal">Reply</a> </span>
+<div class="clearboth"></div>
+<div class="comment-content">
+<p>i love raspberry pi</p>
+<div class="clearboth"></div>
+</div>
+</div>
+</li>
+</ul>
+<div class="blog-comment-title">pingbacks / trackbacks</div>
+<ul class="mk-commentlist">
+<li class="pingback even thread-even depth-1" id="li-comment-5535">
+<div id="comment-5535" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="https://rkpraveenraj.wordpress.com/2017/07/01/raspberrypi-connection-with-laptop/" rel="external nofollow" class="url">Raspberrypi connection with laptop – Praveen Raj RK</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] Raspberry Pi GPIO control: Best tutorial for beginners […]</p>
+<time class="comment-time">July 2nd, 2017 12:53 AM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-5328">
+<div id="comment-5328" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="https://pavanijagarlamudi.wordpress.com/2017/05/08/references/" rel="external nofollow" class="url">References</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] <a href="https://diyhacking.com/raspberry-pi-gpio-control/" rel="nofollow">https://diyhacking.com/raspberry-pi-gpio-control/</a> […]</p>
+<time class="comment-time">May 8th, 2017 10:33 AM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback even thread-even depth-1" id="li-comment-5325">
+<div id="comment-5325" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="https://pavanijagarlamudi.wordpress.com/2017/05/05/final-project/" rel="external nofollow" class="url">Final Project- Smart Parking</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] <a href="https://diyhacking.com/raspberry-pi-gpio-control/" rel="nofollow">https://diyhacking.com/raspberry-pi-gpio-control/</a> […]</p>
+<time class="comment-time">May 7th, 2017 09:13 AM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-4697">
+<div id="comment-4697" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="http://elenadiaz.space/blog/pi-zero-motion-based-audio-player/" rel="external nofollow" class="url">Pi Zero – Motion Based Audio Player – Elena Diaz</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] PIR Sensor raspberry-pi-gpio-controls I followed these instructions as I experimented with Python and integrating the PIR […]</p>
+<time class="comment-time">January 23rd, 2017 01:26 AM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback even thread-even depth-1" id="li-comment-4575">
+<div id="comment-4575" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="https://malnaspite.wordpress.com/2015/03/13/az-elso-lepesek/" rel="external nofollow" class="url">Raspberry Pi – Az első lépések | Málnás Pite</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] Mozgásérzékelő Raspberry Pi-vel (angol) […]</p>
+<time class="comment-time">January 3rd, 2017 05:45 AM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-4390">
+<div id="comment-4390" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="https://kevinbearam.wordpress.com/2016/12/08/conclusion/" rel="external nofollow" class="url">Conclusion – Kevin Bearam's Raspberry PiEta</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] <a href="https://diyhacking.com/raspberry-pi-gpio-control/" rel="nofollow">https://diyhacking.com/raspberry-pi-gpio-control/</a> […]</p>
+<time class="comment-time">December 8th, 2016 10:43 AM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback even thread-even depth-1" id="li-comment-3874">
+<div id="comment-3874" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="https://danamartensmfadt.wordpress.com/2016/09/28/iot-project-a-public-information-box/" rel="external nofollow" class="url">IOT Project: A Public “Information” Box | D.Martens Blog</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] finally piecing together my own version from three different tutorials from&nbsp;RaspberryPi.org, DIY Hacking, and Instructables. Some I tried at first but ruled out because I actually wanted to use the GPIO […]</p>
+<time class="comment-time">September 28th, 2016 11:57 AM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-3486">
+<div id="comment-3486" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="http://gaspar.mgup.cl/?p=1101" rel="external nofollow" class="url">Python, 3 sensores y raspberry pi. Ejemplos! – Gaspar</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] Fuente: <a href="http://diyhacking.com/raspberry-pi-gpio-control/" rel="nofollow">http://diyhacking.com/raspberry-pi-gpio-control/</a> […]</p>
+<time class="comment-time">July 20th, 2016 07:36 PM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback even thread-even depth-1" id="li-comment-3228">
+<div id="comment-3228" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="http://www.helens.space/blog/?p=18" rel="external nofollow" class="url">Raspberry Pi + iPad – Helen King</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] the Pi and just trying to get the sensor to detect movement. I’m using the tutorial from&nbsp;DIY Hacking&nbsp;for the code and how to plug into my breadboard. Hoping to get this working […]</p>
+<time class="comment-time">June 2nd, 2016 01:36 PM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-2140">
+<div id="comment-2140" class="comment-wrap comments-pings">
+<div class="comment-content">
+<div class="comment-meta">
+<span class="comment_author"><b><a href="http://lars.roland.bz/raspberry-pi-rover-using-webiopi/" rel="external nofollow" class="url">Raspberry pi rover using webiopi | Maker Dreams</a></b></span>
+</div>
+<div class="comment-data">
+<p>[…] two way of numbering GPIO pins on the Pi, and this is the number with GPIO first. See the picture here for […]</p>
+<time class="comment-time">January 4th, 2016 08:42 PM</time>
+</div>
+<div class="clearboth"></div>
+</div>
+</div></li>
+</ul>
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title"><div class="respond-heading">Leave a Comment</div> <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://diyhacking.com/raspberry-pi-gpio-control/#respond" style="display:none;">Cancel reply</a></small></h3> <form action="https://diyhacking.com/wp-comments-post.php?wpe-comment-post=diyhacking" method="post" id="commentform" class="comment-form">
+<div class="comment-textarea"><textarea placeholder="LEAVE YOUR COMMENT" class="textarea" name="comment" rows="8" id="comment" tabindex="58"></textarea></div><div class="comment-form-name comment-form-row"><input type="text" name="author" class="text_input" id="author" tabindex="54" placeholder="Name (Required)"></div>
+<div class="comment-form-email comment-form-row"><input type="text" name="email" class="text_input" id="email" tabindex="56" placeholder="Email (Required)"></div>
+<p class="math-captcha-form">
+<label>Math Captcha<br></label>
+<span>73 − <input type="text" size="2" length="2" id="mc-input" class="mc-input" name="mc-value" value="" aria-required="true"> = 69</span>
+</p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="POST COMMENT"> <input type="hidden" name="comment_post_ID" value="994" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="60042bf9d4"></p><p style="display: none;"></p> <input type="hidden" id="ak_js" name="ak_js" value="1513676636869"></form>
+</div>
+</section>
+</article>
+<div class="clearboth"></div>
+</div>
+<div class="clearboth"></div>
+</div>
+</div>
+</div>
+<section id="mk-footer" class="">
+<div class="footer-wrapper mk-grid">
+<div class="mk-padding-wrapper">
+<div class="mk-col-1-3"><section id="social-3" class="widget widget_social_networks"><div class="widgettitle">Follow Us</div><div id="social-5a38dd19893fb" class="align-left"><a href="https://www.facebook.com/diyhacking" rel="nofollow" class="builtin-icons custom large facebook-hover" target="_blank" alt="Follow Us facebook" title="Follow Us facebook"><i class="mk-jupiter-icon-facebook"></i></a><a href="https://twitter.com/DIYhacking" rel="nofollow" class="builtin-icons custom large twitter-hover" target="_blank" alt="Follow Us twitter" title="Follow Us twitter"><i class="mk-jupiter-icon-twitter"></i></a><a href="https://www.youtube.com/channel/UC6G4RDruQIPufKH-NLbXwAA" rel="nofollow" class="builtin-icons custom large youtube-hover" target="_blank" alt="Follow Us youtube" title="Follow Us youtube"><i class="mk-jupiter-icon-youtube"></i></a>
+<style>
+						#social-5a38dd19893fb a { 
+							opacity: 100 !important;color: #9f9f9f !important;}
+						#social-5a38dd19893fb a:hover { color: #fb734c !important;}
+					</style></div></section></div>
+<div class="mk-col-1-3"><section id="recent_posts-3" class="widget widget_posts_lists"><div class="widgettitle">Recent Posts</div>
+<ul>
+<li class="post-list-image">
+<a href="https://diyhacking.com/how-to-send-emails-automatically-with-vb-net-and-riotous/" title="How to Send Emails Automatically With VB.net and RIOTOUS" class="post-list-thumb">
+<img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/image4-4-150x150-nhgt9lcx07b62c047lh7ju11mincasbx9a98jivkf4.jpg" alt="How to Send Emails Automatically With VB.net and RIOTOUS">
+</a>
+<div class="post-list-info ">
+<a href="https://diyhacking.com/how-to-send-emails-automatically-with-vb-net-and-riotous/" class="post-list-title">How to Send Emails Automatically With VB.net and RIOTOUS</a>
+<div class="post-list-meta">
+</div>
+</div>
+<div class="clearboth"></div>
+</li>
+<li class="post-list-image">
+<a href="https://diyhacking.com/riotous-alarm-clock/" title="How to Build a RIOTOUS IoT Alarm Clock" class="post-list-thumb">
+<img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/image1-2-150x150-nhfh9rf46o1eirrwj8ciocgz9cws4dyjdb8rlqr02o.jpg" alt="How to Build a RIOTOUS IoT Alarm Clock">
+</a>
+<div class="post-list-info ">
+<a href="https://diyhacking.com/riotous-alarm-clock/" class="post-list-title">How to Build a RIOTOUS IoT Alarm Clock</a>
+<div class="post-list-meta">
+</div>
+</div>
+<div class="clearboth"></div>
+</li>
+<li class="post-list-image">
+<a href="https://diyhacking.com/how-to-build-a-table-tennis-game-with-wireless-controller/" title="How to Build a Table Tennis Game With Wireless Controller" class="post-list-thumb">
+<img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/image1-1-150x150-nh6se3mvp0xpwsvcegajuowsny268i09fd92yjhpnk.jpg" alt="How to Build a Table Tennis Game With Wireless Controller">
+</a>
+<div class="post-list-info ">
+<a href="https://diyhacking.com/how-to-build-a-table-tennis-game-with-wireless-controller/" class="post-list-title">How to Build a Table Tennis Game With Wireless Controller</a>
+<div class="post-list-meta">
+</div>
+</div>
+<div class="clearboth"></div>
+</li>
+<li class="post-list-image">
+<a href="https://diyhacking.com/how-to-build-a-raspberry-pi-weather-station/" title="How to Build a Raspberry Pi Weather Station" class="post-list-thumb">
+<img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/Image1-150x150-nh1no30gctkbc0e3ty21istobj5ddpwdsu6m4njehs.jpg" alt="How to Build a Raspberry Pi Weather Station">
+</a>
+<div class="post-list-info ">
+<a href="https://diyhacking.com/how-to-build-a-raspberry-pi-weather-station/" class="post-list-title">How to Build a Raspberry Pi Weather Station</a>
+<div class="post-list-meta">
+</div>
+</div>
+<div class="clearboth"></div>
+</li>
+<li class="post-list-image">
+<a href="https://diyhacking.com/z80-project-part-4-basic-io-and-writing-your-first-program/" title="Z80 Project Part 4: Basic IO and Writing Your First Program" class="post-list-thumb">
+<img src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/image1-150x150-nh375nowfs3cn2sxeephfpwrodcxh64qfwwc01pr8g.jpg" alt="Z80 Project Part 4: Basic IO and Writing Your First Program">
+</a>
+<div class="post-list-info ">
+<a href="https://diyhacking.com/z80-project-part-4-basic-io-and-writing-your-first-program/" class="post-list-title">Z80 Project Part 4: Basic IO and Writing Your First Program</a>
+<div class="post-list-meta">
+</div>
+</div>
+<div class="clearboth"></div>
+</li>
+</ul>
+</section></div>
+<div class="mk-col-1-3"><section id="categories-3" class="widget widget_categories"><div class="widgettitle">Categories</div> <ul>
+<li class="cat-item cat-item-496"><a href="https://diyhacking.com/category/3ddesign/" title="Learn how to 3D design parts and products for your projects and prototype them in the real world using our simple tutorials and projects.">3D Designing</a>
+</li>
+<li class="cat-item cat-item-216"><a href="https://diyhacking.com/category/advanced/" title="This category hosts an advanced set of projects from various Makers around the country.">Advanced</a>
+</li>
+<li class="cat-item cat-item-694"><a href="https://diyhacking.com/category/analog/">Analog</a>
+</li>
+<li class="cat-item cat-item-2"><a href="https://diyhacking.com/category/arduino-projects/" title="Our collection of best Arduino Projects! Follow these simple instructions at DIY hacking to start building cool arduino projects! Click next at the end of the post to view all our best science fair projects and robotics projects.">Arduino projects</a>
+</li>
+<li class="cat-item cat-item-3"><a href="https://diyhacking.com/category/beginners/">Beginners</a>
+</li>
+<li class="cat-item cat-item-235"><a href="https://diyhacking.com/category/blog/">Blog</a>
+</li>
+<li class="cat-item cat-item-552"><a href="https://diyhacking.com/category/collaboration-tools/">Collaboration tools</a>
+</li>
+<li class="cat-item cat-item-494"><a href="https://diyhacking.com/category/cybersecurity/" title="Learn about cybersecurity and ethical hacking using our simple guides and tutorials and learn to protect yourself from attacks.">Cyber Security</a>
+</li>
+<li class="cat-item cat-item-533"><a href="https://diyhacking.com/category/diy-drones/" title="Learn how you can build a UAV (unmanned aerial vehicle) from scratch using these tutorials and guides.">Drones</a>
+</li>
+<li class="cat-item cat-item-218"><a href="https://diyhacking.com/category/ebooks/" title="Our collection of eBooks to help you get started on becoming a Maker!">eBooks</a>
+</li>
+<li class="cat-item cat-item-4"><a href="https://diyhacking.com/category/electronics-hacks/" title="Hacking using simple everyday electronics components. Follow these simple instructions at DIY hacking to start hacking with electronics!  Click next at the end of the post to view other electronics projects.">Electronics hacks</a>
+</li>
+<li class="cat-item cat-item-1000"><a href="https://diyhacking.com/category/esp8266/">ESP8266</a>
+</li>
+<li class="cat-item cat-item-576"><a href="https://diyhacking.com/category/home-automation/">Home Automation</a>
+</li>
+<li class="cat-item cat-item-5"><a href="https://diyhacking.com/category/intel-edison/">Intel Edison</a>
+</li>
+<li class="cat-item cat-item-215"><a href="https://diyhacking.com/category/intermediate/" title="This category has a collection of projects and tutorials for intermediate level Makers.">Intermediate</a>
+</li>
+<li class="cat-item cat-item-6"><a href="https://diyhacking.com/category/raspberrypi-projects/" title="Our collection of the best Raspberry Pi projects. Follow the simple instructions at DIY hacking to build cool raspberry pi 2  projects and robotics projects. And build the best science fair projects!">Raspberry pi projects</a>
+</li>
+<li class="cat-item cat-item-575"><a href="https://diyhacking.com/category/resources/">Resources</a>
+</li>
+<li class="cat-item cat-item-497"><a href="https://diyhacking.com/category/robotics/" title="Enter the world of Robotics and become an expert using our simple guides and project tutorials.">Robotics</a>
+</li>
+<li class="cat-item cat-item-999"><a href="https://diyhacking.com/category/sensors/">Sensors</a>
+</li>
+<li class="cat-item cat-item-495"><a href="https://diyhacking.com/category/vr-ar/" title="Learn how you can start developing applications on Virtual and Augmented Reality platforms using our simple getting started guides and tutorials.">VR and AR</a>
+</li>
+</ul>
+</section></div>
+<div class="clearboth"></div>
+</div>
+</div>
+<div id="sub-footer">
+<div class=" mk-grid">
+<span class="mk-footer-copyright">© EETech Media, LLC. All rights reserved. Unauthorized use and/or duplication of this material without express and written permission from the author and/or owner is strictly prohibited. Links to this site may be used, provided that full and clear credit is given to DIYHacking.com with appropriate and specific direction to the original content.</span>
+</div>
+<div class="clearboth"></div>
+</div>
+</section>
+</div>
+<script type="text/javascript">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55418412-1', 'auto');
+  ga('send', 'pageview');
+
+jQuery(document).ajaxComplete(function() {
+    jQuery('.vc_grid-item.match-height').matchHeight({
+      		byRow: true,
+      		property: 'height',
+      		target: null,
+      		remove: false
+	});
+	jQuery('.home-all-project .vc_grid-item.match-height').matchHeight({
+      		byRow: false,
+      		property: 'height',
+      		target: null,
+      		remove: false
+	});
+});
+
+jQuery('body').on('click', '.vc_grid-btn-load_more', function(e) {
+jQuery('.vc_grid-item.match-height').matchHeight({
+      		byRow: true,
+      		property: 'height',
+      		target: null,
+      		remove: false
+	});
+	jQuery('.home-all-project .vc_grid-item.match-height').matchHeight({
+      		byRow: false,
+      		property: 'height',
+      		target: null,
+      		remove: false
+	});
+});
+
+jQuery('.get-ebook-container .submit-btn').on('click', function(e) {
+    if(jQuery('.industry-interest :checkbox:checked').length < 2) {
+        jQuery('.get-ebook-container .industry-interest .help-text').addClass('error-field');        
+        jQuery('.get-ebook-container .industry-interest :input:enabled:visible:first').focus();
+        e.preventDefault();
+    } else {    
+        jQuery('.get-ebook-container .industry-interest .help-text').removeClass('error-field');
+    }
+
+    if(jQuery('.product-interest :checkbox:checked').length < 2) {
+        jQuery('.get-ebook-container .product-interest .help-text').addClass('error-field');
+        jQuery('.get-ebook-container .product-interest :input:enabled:visible:first').focus();
+        e.preventDefault();
+    } else {    
+        jQuery('.get-ebook-container .product-interest .help-text').removeClass('error-field');
+    }
+});
+
+if(jQuery('.mc4wp-response .mc4wp-alert').length) {
+    jQuery('html,body').animate({
+        scrollTop: jQuery('.mc4wp-response').offset().top - 200 },
+    'slow');
+}		</script>
+</div>
+<a href="https://diyhacking.com/raspberry-pi-gpio-control/#" class="mk-go-top on"><i class="mk-icon-chevron-up"></i></a>
+<div class="mk-fullscreen-search-overlay">
+<a href="https://diyhacking.com/raspberry-pi-gpio-control/#" class="mk-fullscreen-close"><i class="mk-moon-close-2"></i></a>
+<div id="mk-fullscreen-search-wrapper">
+<p>Start typing and press Enter to search</p>
+<form method="get" id="mk-fullscreen-searchform" action="https://diyhacking.com/">
+<input type="text" value="" name="s" id="mk-fullscreen-search-input">
+<i class="mk-icon-search fullscreen-search-icon"><input value="" type="submit"></i>
+</form>
+</div>
+</div>
+<script type="text/javascript">  
+    php = {
+        hasAdminbar: false,
+        json: (null != null) ? null : "",
+        styles:  '',
+        jsPath: 'https://diyhacking.com/wp-content/themes/jupiter/js'
+      };
+      
+    var styleTag = document.createElement("style"),
+      head = document.getElementsByTagName("head")[0];
+
+    styleTag.type = "text/css";
+    styleTag.innerHTML = php.styles;
+    head.appendChild(styleTag);
+    </script><script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/jquery.form.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"https:\/\/diyhacking.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/scripts.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/core.min.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/widget.min.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/tabs.min.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/jquery.matchHeight-min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ajax_login_object = {"ajaxurl":"https:\/\/diyhacking.com\/wp-admin\/admin-ajax.php","redirecturl":"https:\/\/diyhacking.com\/raspberry-pi-gpio-control\/","loadingmessage":"Sending user info, please wait..."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/scripts-vendors.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/wp-embed.min.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/jquerytransit.js.download"></script>
+<script type="text/javascript" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/form.js.download"></script>
+<script type="text/javascript">
+		window.$ = jQuery
+
+		var dynamic_styles = '';
+		var dynamic_styles_ids = ([] != null) ? [] : [];
+
+		var styleTag = document.createElement('style'),
+			head = document.getElementsByTagName('head')[0];
+
+			//console.log('jhonny')
+		styleTag.type = 'text/css';
+		styleTag.setAttribute('data-ajax', '');
+		styleTag.innerHTML = dynamic_styles;
+		head.appendChild(styleTag);
+
+		$('.mk-dynamic-styles').each(function() {
+			$(this).remove();
+		});
+
+		function ajaxStylesInjector() {
+			$('.mk-dynamic-styles').each(function() {
+				var $this = $(this),
+					id = $this.attr('id'),
+					commentedStyles = $this.html();
+					styles = commentedStyles
+							 .replace('<!--', '')
+							 .replace('-->', '');
+
+
+				if(dynamic_styles_ids.indexOf(id) === -1) {
+					$('style[data-ajax]').append(styles);
+					$this.remove();
+				}
+
+				dynamic_styles_ids.push(id);
+			});
+		};
+
+		abb.modules.theme_header.init({id: 'mk-header',height: '92',stickyHeight: '50',stickyOffset: 'header',hasToolbar: 'false',}); 
+abb.init();	</script>
+
+<div id="div-gpt-ad-1491855244676-0" data-google-query-id="CMeN4fDkldgCFeMIZQodNd0I1g" style="display: none;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1491855244676-0'); });
+</script>
+<div id="google_ads_iframe_/62616433/DIY_Wallpaper_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/62616433/DIY_Wallpaper_0" title="3rd party ad content" name="google_ads_iframe_/62616433/DIY_Wallpaper_0" width="1" height="1" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/saved_resource(1).html"></iframe></div></div>
+<script>
+$(window).load(function() {
+        if($('#wallpaperad').length) {
+            var wa = $('#wallpaperad');
+            var mh = $("#theme-page").height();
+            wa.height(mh + 70);
+        }
+});
+</script>
+<script src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/adpopup-pro.modified.min.js.download"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+      var ads = {
+        'ad_1': {
+          'type': 'jquery',
+          'elem': '#div-gpt-ad-1494427027465-0'
+        }
+      };
+
+      $('body').adPopupPro({
+        ads: ads,
+        width: 640,
+        height: 480,
+        popup_color: 'dark',
+        overlay_close: false,
+        overlay_color: 'dark',
+        auto_close_after: 18000,
+        escape_close: false,
+        show_type: 'day',
+        cookie_id: 'diy_welcome'
+      });
+});
+
+$('#div-gpt-ad-1494427027465-0').bind('adready',function() {
+console.log("Hey");
+	$('.adpopup-overlay').show();
+	$('.adpopup').show();
+});
+</script>
+
+
+
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","779889472158467");fbq("track","PageView");fbq("track","ViewContent",{content_ids:google_tag_manager["GTM-N2G8QQB"].macro('gtm1'),content_type:"category"});</script>
+<iframe src="./How to Interface a PIR motion Sensor With Raspberry Pi GPIO_files/pixel.html" style="display: none;"></iframe></body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://s0.2mdn.net/3248110/1502825852653/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css"></style>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>master_336x280</title>
+
+	<link rel="stylesheet" href="./style(2).css" type="text/css">
+
+	<script type="text/javascript">
+		var clickTag = "http://www.google.com";
+	</script>
+<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+
+<body data-config="config.js">
+	<div id="banner" class="">
+
+		<div id="div_main">
+
+            <canvas id="canvas_module" width="336" height="280" style="width: 336px; height: 280px;"></canvas>
+
+            <div class="bannerClick"></div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="./Enabler.js.download"></script>
+	<script src="./tweenmax_1.18.5_23b0de6da0ee295131e32a500470610c_min.js.download"></script>
+
+	<script src="./Temple.min.js.download"></script>
+            
+
+<script async="" type="text/javascript" src="./modules.js.download"></script><script async="" type="text/javascript" src="./createjs_2015.11.26_54e1c3722102182bb133912ad4442e19_min.js.download"></script><script async="" type="text/javascript" src="./336x280_intro.js.download"></script><script async="" type="text/javascript" src="./336x280_control_manageability.js.download"></script><script async="" type="text/javascript" src="./336x280_deployment.js.download"></script><script async="" type="text/javascript" src="./336x280_speed_stability.js.download"></script><script async="" type="text/javascript" src="./336x280_security_protection.js.download"></script><script async="" type="text/javascript" src="./336x280_outro.js.download"></script></body></html>

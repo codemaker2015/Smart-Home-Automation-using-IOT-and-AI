@@ -1,0 +1,16 @@
+<script>
+  function diffImage(img) 
+  {
+    if(img.src.match(/b.jpg/))
+    {
+      console.log('black');
+      img.src = "a.jpg";
+    }
+    else
+    {
+      console.log('blank');
+      img.src = "b.jpg";
+    }
+  }
+</script>    
+<img src="a.jpg" id="light" onclick=diffImage(this) />

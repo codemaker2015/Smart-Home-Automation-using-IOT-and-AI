@@ -1,0 +1,39 @@
+window.CKEDITOR_BASEPATH = '/sites/all/libraries/ckeditor/';;
+(function ($) {
+  $(document).ready(function () {
+    $(".notification-down").hide();
+     $(".notification").mouseover(function () {
+      $(".notification-down").show();
+      $(".notification-red").hide();
+    });
+$(".notification-main").mouseover(function () {
+      $(".notification-down").show();
+      $(".notification-red").hide();
+    });
+$(".notification-main").mouseout(function () {
+      $(".notification-down").hide();
+    });
+$(".notification-down").mouseover(function () {
+      $(".notification-down").show();
+    });
+ $(".notification-show").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        //display error message
+        $("#errmsg").html("Numeric Digits Only").show().fadeOut("slow");
+               return false;
+    }
+   });
+  });
+  $(document).ready(function () {
+    $(".notification").mouseover(function () {
+      $.ajax({
+        type: 'POST',
+        url: 'ajax_notification',
+        success: function (responseText) {
+           }
+      });
+    });
+  });
+})(jQuery);
+
+;
